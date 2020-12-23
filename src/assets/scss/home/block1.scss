@@ -1,0 +1,79 @@
+@import "../common/colors";
+@import "../common/displays";
+
+.home-block1 {
+  position: relative;
+  padding-bottom: 222px;
+  background-color: $color-base;
+  .p-banner {
+    &-text {
+      &-box {
+        width: 570px;
+        margin-top: 156px;
+        color: white;
+        line-height: 1.45;
+        .first {
+          &-box {
+            margin-bottom: 32px;
+          }
+          &-text1 {
+            font-size: 36px;
+          }
+          &-text2 {
+            font-size: 36px;
+            font-weight: bold;
+          }
+          &-text3 {
+            font-size: 36px;
+          }
+        }
+        .second {
+          &-box {
+            margin-bottom: 48px;
+          }
+          &-text {
+            font-size: 24px;
+            opacity: .7;
+          }
+        }
+      }
+    }
+    &-button {
+      width: 255px;
+      height: 50px;
+      .p-button-text {
+        font-size: 18px !important;
+      }
+      &:first-child {
+        margin-right: 45px;
+      }
+      &-box {
+        display: flex;
+      }
+    }
+    &-stat {
+      &-box {
+        position: absolute;
+        right: 75px;
+        top: 115px;
+        display: flex;
+        flex-direction: column;
+      }
+      &-item {
+        color: white;
+        &:not(:first-child) {
+          margin-top: 32px;
+          margin-left: 10px;
+        }
+        &-first {
+          font-size: 36px;
+          font-weight: 900;
+        }
+        &-second {
+          font-size: 18px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

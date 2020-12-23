@@ -1,0 +1,25 @@
+@import "../common/colors";
+@import "../common/displays";
+
+.home-block2 {
+  position: relative;
+  .problem {
+    &-title {
+      &-box {
+        display: flex;
+        flex-direction: column;
+        width: 715px;
+      }
+      &-big {
+        font-size: 72px;
+        font-weight: bold;
+        color: $color-base;
+        opacity: .2;
+      }
+      &-little {
+        font-size: 24px;
+        color: black;
+      }
+    }
+  }
+}

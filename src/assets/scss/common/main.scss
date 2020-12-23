@@ -1,0 +1,145 @@
+@import "../mixins/common";
+@import "colors";
+@import "displays";
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.scroll-x-container {
+  white-space: nowrap;
+  overflow-x: auto;
+  @include scrollDivHoriz();
+}
+
+/* КОНТЕНТ */
+.main-content {
+  position: relative;
+  background-color: #fff;
+  &-body {
+
+  }
+}
+.content {
+  &-base {
+    @media (min-width: $desktopMax) {
+
+    }
+    &-desktop {
+      box-sizing: border-box;
+      min-width: 1366px;
+      max-width: 1366px;
+      padding-left: 128px;
+      padding-right: 128px;
+      background-color: #ffffff;
+      &-box {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        @media (max-width: $desktopMax) {
+          justify-content: flex-start;
+        }
+        &-blue {
+          background-color: $color-base;
+        }
+      }
+    }
+  }
+}
+.rocket-img {
+  background-image: url('../../assets/img/home/rocket.png');
+  background-repeat: no-repeat;
+  //background-attachment: fixed;
+  background-position: center center;
+}
+
+.p-home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .p-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 34px;
+    padding-bottom: 12px;
+    background-color: $color-base;
+    &-logo {
+      &-box {
+        display: flex;
+        align-content: center;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &-img {
+        width: 11px;
+        height: 16px;
+      }
+      &-text {
+        font-size: 18px;
+        color: white;
+        &-blue {
+          color: $color-base;
+          background-color: white;
+          margin-left: 2px;
+          padding: 0 2px;
+        }
+      }
+    }
+    &-right {
+      display: flex;
+      align-items: center;
+      &-item {
+        &-text {
+          font-size: 14px;
+          color: white;
+          font-weight: 500;
+          &:not(:first-child) {
+            margin-left: 45px;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.p-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  &-rounded {
+    border-radius: 30px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &-text {
+    font-weight: 500;
+  }
+  &-rounded1 {
+    border: 1px solid white;
+    width: 190px;
+    height: 40px;
+    .p-button-text {
+      font-size: 14px;
+      color: white;
+    }
+  }
+  &-rounded2 {
+    border: 2px solid white;
+  }
+  &-fill {
+    &1 {
+      background-color: white;
+      .p-button-text {
+        color: $color-base;
+      }
+    }
+  }
+}
