@@ -46,6 +46,9 @@ span {
           background-color: $color-base;
         }
       }
+      &-footer {
+        background-color: $color-head;
+      }
     }
   }
 }
@@ -193,4 +196,12 @@ span {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.prod-point {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  width: 4.9px;
+  height: 5px;
+  background: $color-base;
 }
