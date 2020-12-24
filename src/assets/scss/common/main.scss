@@ -143,3 +143,29 @@ p {
     }
   }
 }
+
+/* COMMON */
+.header {
+  &-left {
+    &-box {
+      display: flex;
+      flex-direction: column;
+      width: 715px;
+    }
+    &-big {
+      font-size: 72px;
+      font-weight: bold;
+      color: $color-base;
+      opacity: .2;
+    }
+    &-little {
+      font-size: 24px;
+      color: black;
+      margin-left: 85px;
+      margin-top: -20px;
+      &2 {
+        margin-left: 161px;
+      }
+    }
+  }
+}

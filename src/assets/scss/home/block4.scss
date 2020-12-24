@@ -1,0 +1,103 @@
+@import "../common/colors";
+@import "../common/displays";
+
+.home-block4 {
+  display: flex;
+  flex-direction: column;
+  padding-top: 132px;
+  .header-left-box {
+    width: 400px;
+  }
+  .p-step {
+    &-container {
+      margin-top: 150px;
+      margin-left: 148px;
+    }
+    &-box {
+      display: flex;
+      align-items: center;
+      margin-bottom: 200px;
+    }
+    &-img {
+      width: 264px;
+      height: 264px;
+    }
+    &-text {
+      &-box {
+        display: flex;
+        flex-direction: column;
+      }
+      &-big {
+        font-size: 72px;
+        color: $color-base;
+        font-weight: bold;
+      }
+      &-normal {
+        font-size: 36px;
+        color: black;
+        &:first-child {
+          margin-bottom: -12px;
+        }
+      }
+    }
+  }
+}
+.home-block5 {
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: $color-base;
+  .counting {
+    &-box {
+      display: flex;
+      width: 100%;
+      &-right {
+        justify-content: flex-end;
+      }
+    }
+    &-text {
+      color: white;
+      &-normal {
+        font-size: 36px;
+        margin-right: 48px;
+      }
+      &-big {
+        font-size: 72px;
+        margin-top: 32px;
+      }
+    }
+    &-nums {
+      display: flex;
+      &-item {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 40px rgba(5, 25, 35, 0.5);
+        border-radius: 8px;
+        background-color: white;
+        width: 160px;
+        height: 243px;
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
+        &-number {
+          font-size: 144px;
+          font-weight: bold;
+          color: $color-base;
+          background: linear-gradient(180deg, #00A6ED 18.68%, rgba(0, 166, 237, 0.8) 50%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        &-center {
+          position: absolute;
+          background: #0185BF;
+          opacity: 0.6;
+          height: 2px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -21,6 +21,9 @@
     </div>
     <Block1 />
     <Block2 />
+    <Block3 />
+    <Block4 />
+    <Block5 />
   </div>
 </template>
 
@@ -28,12 +31,18 @@
 
 import Block1 from "@/components/home/Block1";
 import Block2 from "@/components/home/Block2";
+import Block3 from "@/components/home/Block3";
+import Block4 from "@/components/home/Block4";
+import Block5 from "@/components/home/Block5";
 
 export default {
   name: "Home",
   components: {
     Block1,
-    Block2
+    Block2,
+    Block3,
+    Block4,
+    Block5,
   }
 }
 </script>

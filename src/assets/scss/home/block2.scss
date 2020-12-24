@@ -3,22 +3,76 @@
 
 .home-block2 {
   position: relative;
+  padding-bottom: 200px;
   .problem {
-    &-title {
+    &-video {
       &-box {
         display: flex;
-        flex-direction: column;
-        width: 715px;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 100px;
       }
-      &-big {
-        font-size: 72px;
+      &-left {
+        &-box {
+          display: flex;
+          flex-direction: column;
+          width: 475px;
+        }
+      }
+      &-title {
+        font-size: 48px;
         font-weight: bold;
         color: $color-base;
-        opacity: .2;
       }
-      &-little {
+      &-text {
         font-size: 24px;
         color: black;
+      }
+      &-right {
+        width: 540px;
+        height: 538px;
+      }
+    }
+    &-beta {
+      &-box {
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+        width: 160px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &-text {
+        font-size: 18px;
+        font-weight: 600;
+        color: $color-base;
+        margin-right: 7px;
+      }
+      &-img {
+        width: 37px;
+      }
+    }
+  }
+}
+.home-block3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  background-color: $color-base;
+  &-slogan {
+    &-box {
+      width: 825px;
+    }
+    &-text {
+      color: white;
+      font-size: 48px;
+      &.text-big {
+        font-weight: bold;
+      }
+      &.text-normal {
+
       }
     }
   }
