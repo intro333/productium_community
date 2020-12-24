@@ -6,7 +6,9 @@ p {
   margin: 0;
   padding: 0;
 }
-
+span {
+  white-space: pre-wrap;
+}
 .scroll-x-container {
   white-space: nowrap;
   overflow-x: auto;
@@ -139,6 +141,12 @@ p {
       background-color: white;
       .p-button-text {
         color: $color-base;
+      }
+    }
+    &2 {
+      background-color: $color-base;
+      .p-button-text {
+        color: white;
       }
     }
   }

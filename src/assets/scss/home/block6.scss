@@ -1,0 +1,128 @@
+@import "../common/colors";
+@import "../common/displays";
+
+.home-block6 {
+  display: flex;
+  flex-direction: column;
+  padding-top: 200px;
+  padding-bottom: 140px;
+  .tariff {
+    &-descr1 {
+      &-box {
+        margin-bottom: 100px;
+      }
+      &-text {
+        &__normal {
+          font-size: 24px;
+          color: #333333;
+        }
+        &__big {
+          font-size: 48px;
+          font-weight: bold;
+          color: black;
+          &-blue {
+            color: $color-base;
+          }
+        }
+      }
+    }
+    &-descr2 {
+      &-box {
+        margin-top: 200px;
+      }
+      &-text {
+        font-size: 36px;
+        color: black;
+        &__bold {
+          font-weight: bold;
+        }
+        &__blue {
+          font-weight: bold;
+          color: $color-base;
+        }
+      }
+    }
+    &-info {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      &-item {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 350px;
+        height: 592px;
+        border-radius: 40px;
+        border: 2px solid $color-base;
+        padding: 24px 32px;
+        &.disabled {
+          border: 2px solid $color-block-2;
+        }
+        &-top {
+          display: flex;
+          flex-direction: column;
+        }
+        &-bottom {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .p-button-fill2 {
+            width: 270px;
+            height: 52px;
+          }
+        }
+        &-title {
+          font-size: 36px;
+          font-weight: 900;
+          text-align: center;
+          color: $color-base;
+        }
+      }
+      &-enums {
+        display: flex;
+        flex-direction: column;
+        margin-top: 24px;
+        &-item {
+          display: grid;
+          grid-template-columns: 16px auto;
+          opacity: 1;
+          &:not(:last-child) {
+            margin-bottom: 16px;
+          }
+          &-img {
+            width: 8px;
+            height: 8px;
+            margin-right: 8px;
+            margin-top: 7px;
+            background: black;
+            border-radius: 2px;
+          }
+          &-text {
+            font-size: 14px;
+            font-weight: 300;
+          }
+          .t-bold {
+            font-weight: 600;
+          }
+        }
+      }
+      /* FOR disable */
+      .disabled .tariff-info-item-title {
+        color: $color-block-2;
+      }
+      .disabled .tariff-info-enums-item {
+        opacity: .3;
+      }
+      .disabled .p-button-fill2 {
+        background-color: white;
+        .p-button-text {
+          color: $color-block-2;
+        }
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+  }
+}
