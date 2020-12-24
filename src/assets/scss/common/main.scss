@@ -159,6 +159,14 @@ span {
       display: flex;
       flex-direction: column;
       width: 715px;
+      &-on-blue {
+        .header-left-big {
+          color: white;
+        }
+        .header-left-little {
+          color: white;
+        }
+      }
     }
     &-big {
       font-size: 72px;
@@ -174,6 +182,15 @@ span {
       &2 {
         margin-left: 161px;
       }
+      &3 {
+        margin-left: 95px;
+        margin-top: -14px;
+      }
     }
   }
+}
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

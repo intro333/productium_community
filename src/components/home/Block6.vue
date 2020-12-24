@@ -107,7 +107,7 @@ export default {
             },
           ],
           cost: 3,
-          button: 'Не доступен'
+          button: 'Не доступен',
         },
         { /* PREMIUM */
           isDisable: false,
@@ -143,7 +143,8 @@ export default {
             },
           ],
           cost: 0,
-          button: 'Начать бесплатно'
+          button: 'Начать бесплатно',
+          costDescription: 'для первой тысячи пользователей, потом 9$/в месяц'
         },
       ];
     },

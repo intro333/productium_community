@@ -1,0 +1,95 @@
+@import "../common/colors";
+@import "../common/displays";
+
+.home-block8 {
+  display: flex;
+  flex-direction: column;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  .subscribe {
+    &-send {
+      &-box {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      &-text {
+        color: black;
+        font-size: 24px;
+        width: 377px;
+        &-bold {
+          font-weight: bold;
+        }
+      }
+      &-input {
+        &-box {
+          box-sizing: border-box;
+          display: grid;
+          grid-template-columns: auto 96px;
+          align-items: center;
+          width: 349px;
+          height: 50px;
+          border: 2px solid $color-base;
+          border-radius: 30px;
+        }
+        &-button {
+          box-sizing: border-box;
+          background-color: $color-base;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 94px;
+          height: 42px;
+          margin-right: 2px;
+          border-radius: 30px;
+        }
+        margin-left: 24px;
+        outline: none;
+        border: none;
+        &::placeholder {
+          color: rgb(0, 0, 0, .3);
+        }
+        font-size: 18px;
+        color: black;
+        padding-right: 10px;
+      }
+    }
+    &-descr {
+      margin-top: 200px;
+      font-size: 36px;
+      width: 854px;
+      &-bold {
+        font-weight: bold;
+      }
+      &-blue {
+        font-weight: bold;
+        color: $color-base;
+      }
+    }
+    &-photo {
+      width: 350px;
+      height: 362px;
+      margin-bottom: 8px;
+      &-content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 100px;
+      }
+      &-box {
+        display: flex;
+        flex-direction: column;
+      }
+      &-name {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 145%;
+        letter-spacing: 0.01em;
+        color: #000000;
+        opacity: 0.6;
+        text-align: right;
+      }
+    }
+  }
+}

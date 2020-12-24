@@ -78,6 +78,24 @@
           text-align: center;
           color: $color-base;
         }
+        &-cost {
+          color: $color-base;
+          &-big {
+            font-size: 48px;
+            font-weight: 600;
+          }
+          &-normal {
+            font-size: 24px;
+          }
+          &-description {
+            height: 38px;
+            font-size: 16px;
+            opacity: .6;
+            margin-top: 8px;
+            margin-bottom: 32px;
+            text-align: center;
+          }
+        }
       }
       &-enums {
         display: flex;
@@ -100,7 +118,7 @@
           }
           &-text {
             font-size: 14px;
-            font-weight: 300;
+            font-weight: 400;
           }
           .t-bold {
             font-weight: 600;
@@ -113,6 +131,13 @@
       }
       .disabled .tariff-info-enums-item {
         opacity: .3;
+      }
+      .disabled .tariff-info-item-cost {
+        color: $color-block-2;
+      }
+      .disabled .tariff-info-item-cost-description {
+        color: $color-block-2;
+        opacity: 1;
       }
       .disabled .p-button-fill2 {
         background-color: white;

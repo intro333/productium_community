@@ -1,0 +1,41 @@
+@import "../common/colors";
+@import "../common/displays";
+
+.home-block7 {
+  display: flex;
+  justify-content: space-between;
+  background-color: $color-base;
+  &-left {
+    margin-top: 60px;
+    width: 265px;
+    margin-right: 115px;
+    .p-banner-stat-item {
+      margin-top: 64px;
+    }
+    .p-banner-stat-item-first {
+      font-size: 144px;
+      font-weight: 900;
+    }
+    .p-banner-stat-item-second {
+      font-size: 24px;
+    }
+  }
+  &-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 167px;
+    margin-bottom: 150px;
+    width: 100%;
+    &-descr {
+      color: white;
+      font-size: 24px;
+      &-big {
+        font-weight: 900;
+      }
+      &:not(:last-child) {
+        margin-bottom: 60px;
+      }
+    }
+  }
+}
