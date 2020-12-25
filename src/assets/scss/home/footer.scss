@@ -10,9 +10,6 @@
   &-menu {
     display: flex;
     flex-direction: column;
-    &:hover {
-      cursor: pointer;
-    }
     &-item {
       font-weight: normal;
       font-size: 16px;
@@ -20,6 +17,9 @@
       color: #FFFFFF;
       opacity: 0.6;
       margin-bottom: 16px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   &-copyright {
