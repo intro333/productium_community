@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="p-banner-button-box">
-        <div class="p-button p-button-rounded p-button-fill1 p-banner-button">
+        <div class="p-button p-button-rounded p-button-fill p-button-fill1 p-banner-button">
           <span class="p-button-text">Premium бесплатно</span>
         </div>
         <div class="p-button p-button-rounded p-button-rounded1 p-button-rounded2 p-banner-button">

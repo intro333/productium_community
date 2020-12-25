@@ -23,7 +23,7 @@
         <span class="tariff-info-item-cost-normal">/в мес</span>
       </p>
       <span class="tariff-info-item-cost-description">{{item.costDescription}}</span>
-      <div class="p-button p-button-rounded p-button-fill2"
+      <div class="p-button p-button-rounded p-button-fill p-button-fill2"
            :class="{disable: item.isDisable}">
         <span class="p-button-text">{{item.button}}</span>
       </div>
