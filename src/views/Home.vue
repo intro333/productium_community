@@ -1,6 +1,7 @@
 <template>
   <div class="p-home">
-    <div class="content-base-desktop-box content-base-desktop-box-blue">
+    <div v-if="!isMobile()"
+         class="content-base-desktop-box content-base-desktop-box-blue">
       <div class="content-base-desktop p-top">
         <div class="p-top-logo-box">
           <img src="@/assets/img/logo/logo_white.svg"
@@ -20,6 +21,23 @@
             <span class="p-button-text">Войти в комьюнити</span>
           </div>
         </div>
+      </div>
+    </div>
+    <div v-else
+         class="content-base-mobile-box content-base-mobile-box-blue">
+      <div class="content-base-mobile p-top-mobile">
+        <div class="p-top-logo-box">
+          <img src="@/assets/img/logo/logo_white12.svg"
+               class="p-top-logo-img12"
+               alt="">
+          <span class="p-top-logo-text">roductium</span>
+          <div class="p-top-logo-text-box">
+            <span class="p-top-logo-text p-top-logo-text-blue">community</span>
+          </div>
+        </div>
+        <img src="@/assets/img/mobile/mdiMenu.svg"
+             class="mdi-menu"
+             alt="">
       </div>
     </div>
     <Block1 />
@@ -46,9 +64,11 @@ import Block7 from "@/components/home/Block7";
 import Block8 from "@/components/home/Block8";
 import Footer from "@/components/Footer";
 import {mapActions} from "vuex";
+import CommonMixin from "@/components/mixins/CommonMixin";
 
 export default {
   name: "Home",
+  mixins: [CommonMixin],
   components: {
     Block1,
     Block2,

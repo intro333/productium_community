@@ -50,13 +50,38 @@ span {
         background-color: $color-head;
       }
     }
+    &-mobile {
+      box-sizing: border-box;
+      max-width: 375px;
+      padding-left: 16px;
+      padding-right: 16px;
+      width: 100%;
+      &-box {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        &-blue {
+          background-color: $color-base;
+        }
+      }
+      .mdi-menu {
+        width: 28px;
+        height: 24px;
+      }
+    }
   }
 }
 .rocket-img {
-  background-image: url('../../assets/img/home/rocket.png');
+  background-image: url('../../assets/img/home/rocket2.png');
   background-repeat: no-repeat;
   //background-attachment: fixed;
-  background-position: center center;
+  //background-position: center center;
+  background-position: top 0 right 48%;
+  @media (max-width: $mobileMin) {
+    background-image: url('../../assets/img/mobile/rocketMobile.png');
+    background-repeat: no-repeat;
+    background-position: bottom -9% left 69%;
+  }
 }
 
 .p-home {
@@ -88,6 +113,14 @@ span {
         }
       }
     }
+    &-mobile {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      background-color: $color-base;
+    }
   }
 }
 .p-top {
@@ -103,6 +136,10 @@ span {
     &-img {
       width: 11px;
       height: 16px;
+      &12 {
+        width: 12.51px;
+        height: 18.29px;
+      }
     }
     &-text {
       font-size: 18px;
@@ -123,6 +160,16 @@ span {
         color: white !important;
         padding: 0 4px;
       }
+    }
+  }
+}
+.content-base-mobile {
+  .p-top-logo {
+    &-box {
+      height: 32px;
+    }
+    &-text {
+      font-size: 20.48px;
     }
   }
 }
@@ -205,6 +252,10 @@ span {
       display: flex;
       flex-direction: column;
       width: 715px;
+      @media (max-width: $mobileMin) {
+        width: 100%;
+        margin-top: 11px;
+      }
       &-on-blue {
         .header-left-big {
           color: white;
@@ -219,14 +270,27 @@ span {
       font-weight: bold;
       color: $color-base;
       opacity: .2;
+      @media (max-width: $mobileMin) {
+        font-size: 36px;
+        text-align: center;
+      }
     }
     &-little {
       font-size: 24px;
       color: black;
       margin-left: 85px;
       margin-top: -20px;
+      @media (max-width: $mobileMin) {
+        font-size: 16px;
+        text-align: center;
+        margin-left: 0 !important;
+        margin-top: -9px;
+      }
       &2 {
         margin-left: 161px;
+        @media (max-width: $mobileMin) {
+          margin-left: 67px;
+        }
       }
       &3 {
         margin-left: 95px;

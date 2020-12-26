@@ -5,38 +5,74 @@
   display: flex;
   flex-direction: column;
   padding-top: 132px;
+  @media (max-width: $mobileMin) {
+    padding-top: 64px;
+  }
   .header-left-box {
     width: 400px;
+    @media (max-width: $mobileMin) {
+      width: 100%;
+      align-items: flex-start;
+    }
   }
   .p-step {
     &-container {
       margin-top: 150px;
       margin-left: 148px;
+      @media (max-width: $mobileMin) {
+        margin-top: 64px;
+        margin-left: 0;
+      }
     }
     &-box {
       display: flex;
       align-items: center;
       margin-bottom: 200px;
+      @media (max-width: $mobileMin) {
+        margin-bottom: 64px;
+      }
     }
     &-img {
       width: 264px;
       height: 264px;
+      @media (max-width: $mobileMin) {
+        width: 154px;
+        height: 156px;
+      }
     }
     &-text {
       &-box {
         display: flex;
         flex-direction: column;
+        @media (max-width: $mobileMin) {
+          margin-left: -36px;
+        }
       }
       &-big {
         font-size: 72px;
         color: $color-base;
         font-weight: bold;
+        @media (max-width: $mobileMin) {
+          font-size: 28px;
+        }
       }
       &-normal {
         font-size: 36px;
         color: black;
         &:first-child {
           margin-bottom: -12px;
+        }
+        &:last-child {
+          margin-bottom: -6px;
+        }
+        @media (max-width: $mobileMin) {
+          font-size: 16px;
+          &:first-child {
+            margin-bottom: -4px;
+          }
+          &:last-child {
+            margin-bottom: -4px;
+          }
         }
       }
     }
