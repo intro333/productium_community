@@ -1,11 +1,13 @@
 <template>
-  <div class="content-base-desktop-box">
-    <div class="content-base-desktop home-block8">
+  <div :class="['content-base-' + screen + '-box']">
+    <div :class="['content-base-' + screen, 'home-block8']">
       <div class="subscribe-send-box">
-        <p class="subscribe-send-text">
-          <span>мы можем написать вам, как будет готов </span>
+        <div class="subscribe-send-text">
+          <span v-if="!isMobile()">мы можем написать вам, как будет готов </span>
+          <p v-if="isMobile()">мы можем написать вам,</p>
+          <span v-if="isMobile()">как будет готов </span>
           <span class="subscribe-send-text-bold">Productium</span>
-        </p>
+        </div>
         <div class="subscribe-send-input-box">
           <input class="subscribe-send-input text-ellipsis"
                  placeholder="Введите e-mail">
@@ -38,8 +40,7 @@
           <span class="subscribe-photo-name">Александр, cpo</span>
         </div>
       </div>
-      <div class="subscribe-descr"
-         style="width: 825px;">
+      <div class="subscribe-descr subscribe-descr2">
         <span>Присоединяйтесь к </span>
         <span class="subscribe-descr-bold">Productium </span>
         <span class="subscribe-descr-blue">community</span>
@@ -51,7 +52,10 @@
 </template>
 
 <script>
+import CommonMixin from "@/components/mixins/CommonMixin";
+
 export default {
   name: "Block8",
+  mixins: [CommonMixin],
 }
 </script>

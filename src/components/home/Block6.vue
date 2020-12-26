@@ -1,23 +1,23 @@
 <template>
-  <div class="content-base-desktop-box">
-    <div class="content-base-desktop home-block6">
+  <div :class="['content-base-' + screen + '-box']">
+    <div :class="['content-base-' + screen, 'home-block6']">
       <div class="tariff-descr1-box">
-        <p>
+        <p class="tariff-descr1-text">
           <span class="tariff-descr1-text__normal">пакет </span>
           <span class="tariff-descr1-text__big">Productium </span>
           <span class="tariff-descr1-text__big tariff-descr1-text__big-blue">premium </span>
           <span class="tariff-descr1-text__normal">для</span>
         </p>
-        <p class="tariff-descr1-text__normal"
-           style="margin-top: -6px;">первой тысячи пользователей совершенно бесплатно</p>
+        <p class="tariff-descr1-text tariff-descr1-text-overlay tariff-descr1-text__normal"
+        >первой тысячи пользователей совершенно бесплатно</p>
       </div>
       <div class="tariff-info">
-        <TariffInfo v-for="(_info, i) in tariffInfoList()"
+        <TariffInfo v-for="(_info, i) in getTariffInfoByDevice"
                     :key="i"
                     :item="_info" />
       </div>
       <div class="tariff-descr2-box">
-        <p>
+        <p class="tariff-descr2-text">
           <span class="tariff-descr2-text tariff-descr2-text__bold">Productium </span>
           <span class="tariff-descr2-text tariff-descr2-text__blue">community </span>
           <span class="tariff-descr2-text"> откроет для вас</span>
@@ -35,15 +35,22 @@
 
 <script>
 import TariffInfo from "@/components/includes/TariffInfo";
+import CommonMixin from "@/components/mixins/CommonMixin";
 
 export default {
   name: "Block6",
+  mixins: [CommonMixin],
   components: {
     TariffInfo
   },
   data: () => ({
 
   }),
+  computed: {
+    getTariffInfoByDevice() {
+      return this.isMobile() ? this.tariffInfoList().reverse() : this.tariffInfoList();
+    },
+  },
   methods: {
     tariffInfoList() {
       return [
