@@ -1,16 +1,21 @@
 <template>
   <div class="app-content">
     <router-view></router-view>
+    <CookieModal v-if="!getCookieIsAssented()" />
+    <AuthWindow v-if="getOpenAuthWindowState()" />
   </div>
 </template>
 
 <script>
 import {mapActions, mapGetters} from "vuex";
+import CookieModal from "@/components/modals/CookieModal";
+import AuthWindow from "@/components/modals/AuthWindow";
 
 export default {
   name: "Main",
   components: {
-
+    CookieModal,
+    AuthWindow,
   },
   computed: {
 
@@ -19,8 +24,8 @@ export default {
 
   },
   methods: {
-    ...mapActions([]),
-    ...mapGetters([]),
+    ...mapActions(['setCookieIsAssented']),
+    ...mapGetters(['getCookieIsAssented', 'getOpenAuthWindowState']),
   },
 }
 </script>

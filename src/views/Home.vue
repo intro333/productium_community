@@ -7,12 +7,15 @@
                class="p-top-logo-img"
                alt="">
           <span class="p-top-logo-text">roductium</span>
-          <span class="p-top-logo-text p-top-logo-text-blue">community</span>
+          <div class="p-top-logo-text-box">
+            <span class="p-top-logo-text p-top-logo-text-blue">community</span>
+          </div>
         </div>
         <div class="p-top-right">
           <span class="p-top-right-item-text">Возможности</span>
           <span class="p-top-right-item-text">Бета-версия</span>
-          <div class="p-button p-button-rounded p-button-rounded1"
+          <div @click="openAuthModal()"
+               class="p-button p-button-rounded p-button-rounded1"
                style="margin-left: 50px;">
             <span class="p-button-text">Войти в комьюнити</span>
           </div>
@@ -42,6 +45,7 @@ import Block6 from "@/components/home/Block6";
 import Block7 from "@/components/home/Block7";
 import Block8 from "@/components/home/Block8";
 import Footer from "@/components/Footer";
+import {mapActions} from "vuex";
 
 export default {
   name: "Home",
@@ -55,6 +59,12 @@ export default {
     Block7,
     Block8,
     Footer,
+  },
+  methods: {
+    ...mapActions(['setOpenAuthWindowState']),
+    openAuthModal() {
+      this.setOpenAuthWindowState(true);
+    }
   }
 }
 </script>

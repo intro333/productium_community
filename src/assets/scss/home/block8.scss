@@ -45,6 +45,10 @@
           border-radius: 30px;
           &:hover {
             cursor: pointer;
+            background-color: $color-head;
+            span {
+              color: white;
+            }
           }
         }
         margin-left: 24px;

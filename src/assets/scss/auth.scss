@@ -1,0 +1,233 @@
+@import "common/colors";
+@import "common/displays";
+
+.p-auth {
+  &-close {
+    &-box {
+      position: absolute;
+      z-index: 8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 20px;
+      right: 14px;
+      width: 24px;
+      height: 24px;
+      :hover {
+        cursor: pointer;
+      }
+    }
+    width: 16px;
+    height: 16px;
+  }
+  &-info {
+    background-color: white;
+    width: 570px;
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 34px;
+    padding-bottom: 30px;
+    .p-top {
+      &-logo {
+        &-box {
+          height: 40px;
+        }
+        &-img {
+          width: 16px;
+          height: 23.43px;
+        }
+        &-text {
+          color: black;
+          font-size: 26px;
+          &-box {
+            background-color: $color-base;
+          }
+        }
+      }
+    }
+    &-first {
+      display: flex;
+      flex-direction: column;
+    }
+    &-second {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      &-sent {
+        display: flex;
+        align-items: flex-end;
+        .sent-text {
+          margin-bottom: 47px;
+          font-size: 18px;
+          font-weight: 600;
+          color: $color-base;
+          &-error {
+            font-size: 14px;
+            color: $color-status-error;
+          }
+        }
+      }
+    }
+  }
+  &-fields {
+    margin-top: 67px;
+    width: 287px;
+    &-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 32px;
+    }
+    &-label {
+      font-size: 12px;
+      color: black;
+      opacity: 0.6;
+      margin-bottom: 12px;
+    }
+    &-input {
+      outline: none;
+      border: none;
+      border-bottom: 1px solid $color-block-2;
+      padding-bottom: 4px;
+      font-size: 12px;
+      color: black;
+      &::placeholder {
+        color: $color-block-2;
+      }
+    }
+    &-error {
+      position: absolute;
+      bottom: -10px;
+      font-size: 8px;
+      color: $color-status-error;
+    }
+  }
+  &-tariff {
+    width: 287px;
+    &-item {
+      &:not(last-child) {
+        margin-bottom: 16px;
+      }
+    }
+    &-label {
+      font-size: 12px;
+      color: black;
+      opacity: 0.6;
+    }
+    .a-radio {
+      display: flex;
+      align-items: center;
+      :hover {
+        cursor: pointer;
+      }
+      &.disabled {
+        :hover {
+          cursor: default;
+        }
+      }
+      &-button {
+        box-sizing: border-box;
+        width: 12px;
+        height: 12px;
+        border: 1px solid $color-block-2;
+        border-radius: 50%;
+        margin-right: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-active {
+          width: 8px;
+          height: 8px;
+          background-color: $color-block-2;
+          border-radius: 50%;
+        }
+      }
+      &-text {
+        font-size: 16px;
+        color: $color-block-2;
+      }
+      &.active {
+        .a-radio-button {
+          border: 1px solid $color-base;
+        }
+        .a-radio-button-active {
+          background-color: $color-base;
+        }
+        .a-radio-text {
+          color: black;
+        }
+      }
+    }
+  }
+  &-submit {
+    &-button {
+      width: 285px;
+      height: 50px;
+      margin-bottom: 6px;
+    }
+    &-agreement {
+      display: grid;
+      grid-template-columns: 26px auto;
+      align-items: center;
+      &:hover {
+        cursor: pointer;
+      }
+      .p-agreement-checkbox {
+        width: 18px;
+        height: 18px;
+        border: 1px solid $color-block-2;
+        border-radius: 2px;
+        margin-right: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-active {
+          width: 14px;
+          height: 14px;
+          border-radius: 2px;
+          background-color: $color-base;
+        }
+        &.active {
+          border: 1px solid $color-base;
+        }
+      }
+      .p-agreement-text {
+        font-size: 12px;
+        color: rgb(0, 0, 0, .6);
+        &-link {
+          color: $color-base;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  &-go {
+    background-color: $color-base;
+    width: 100%;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    justify-content: center;
+    &-text {
+      position: absolute;
+      top: 140px;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 72px;
+      line-height: 145%;
+      letter-spacing: 0.01em;
+      color: #FFFFFF;
+      opacity: 0.3;
+    }
+    &-img {
+      position: absolute;
+      z-index: 10;
+      bottom: 20px;
+    }
+  }
+}
