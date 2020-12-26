@@ -20,50 +20,69 @@
             <div class="p-auth-fields">
               <div class="p-auth-fields-item">
                 <label class="p-auth-fields-label">Имя</label>
-                <input class="p-auth-fields-input"
+                <input @input="changeField('name')"
+                       v-model="subscribeInfo.name"
+                       class="p-auth-fields-input"
                        placeholder="Введите Имя">
+                <span v-if="nameIsNotValid"
+                      class="p-auth-fields-error">Введите имя</span>
               </div>
               <div class="p-auth-fields-item">
                 <label class="p-auth-fields-label">e-mail</label>
-                <input class="p-auth-fields-input"
+                <input @input="changeField('email')"
+                       v-model="subscribeInfo.email"
+                       class="p-auth-fields-input"
                        placeholder="Введите почту">
+                <span v-if="emailIsNotValid"
+                      class="p-auth-fields-error">Проверьте правильно ли введена почта</span>
               </div>
             </div>
             <div class="p-auth-tariff">
               <p class="p-auth-tariff-item p-auth-tariff-label">тариф</p>
               <div class="p-auth-tariff-item a-radio"
-                   :class="{active: activeTariff === 'premium'}">
+                   :class="{active: subscribeInfo.tariff === 'premium'}">
                 <div class="a-radio-button">
-                  <div v-if="activeTariff === 'premium'"
+                  <div v-if="subscribeInfo.tariff === 'premium'"
                        class="a-radio-button-active"></div>
                 </div>
                 <span class="a-radio-text">Premium</span>
               </div>
-              <div class="p-auth-tariff-item a-radio"
-                   :class="{active: activeTariff === 'standard'}">
+              <div class="p-auth-tariff-item a-radio disabled"
+                   :class="{active: subscribeInfo.tariff === 'standard'}">
                 <div class="a-radio-button">
-                  <div v-if="activeTariff === 'standard'"
+                  <div v-if="subscribeInfo.tariff === 'standard'"
                        class="a-radio-button-active"></div>
                 </div>
                 <span class="a-radio-text">Standard</span>
               </div>
-              <div class="p-auth-tariff-item a-radio"
-                   :class="{active: activeTariff === 'free'}">
+              <div class="p-auth-tariff-item a-radio disabled"
+                   :class="{active: subscribeInfo.tariff === 'free'}">
                 <div class="a-radio-button">
-                  <div v-if="activeTariff === 'free'"
+                  <div v-if="subscribeInfo.tariff === 'free'"
                        class="a-radio-button-active"></div>
                 </div>
                 <span class="a-radio-text">Free</span>
               </div>
             </div>
           </div>
-          <div class="p-auth-info-second">
-            <div class="p-button p-button-rounded p-button-fill p-button-fill2 p-auth-submit-button"
-                 :class="{'p-button-fill-disabled': !isSubmit}">
+          <div v-if="sentState === sentS.NOT_SENT"
+               class="p-auth-info-second">
+            <div @click="submit"
+                 class="p-button p-button-rounded p-button-fill p-button-fill2 p-auth-submit-button"
+                 :class="{'p-button-fill-disabled': !submitValidation || isSending}">
               <span class="p-button-text">Присоединиться</span>
+              <img v-if="isSending"
+                   src="@/assets/img/loaderMini.gif"
+                   class="p-button-loader"
+                   alt="">
             </div>
-            <div class="p-auth-submit-agreement">
-              <div class="p-agreement-checkbox"></div>
+            <div @click="subscribeInfo.isAgreement = !subscribeInfo.isAgreement"
+                 class="p-auth-submit-agreement">
+              <div class="p-agreement-checkbox"
+                   :class="{active: subscribeInfo.isAgreement}">
+                <div v-if="subscribeInfo.isAgreement"
+                     class="p-agreement-checkbox-active"></div>
+              </div>
               <div class="p-agreement-text">
                 <span>Я согласен с </span>
                 <span class="p-agreement-text-link">политикой конфиденциальности </span>
@@ -71,6 +90,14 @@
                 <span class="p-agreement-text-link">пользовательским соглашением</span>
               </div>
             </div>
+          </div>
+          <div v-if="sentState === sentS.SENT"
+               class="p-auth-info-second-sent">
+            <span class="sent-text">{{sentText}}</span>
+          </div>
+          <div v-if="sentState === sentS.SENT_ERROR"
+               class="p-auth-info-second-sent">
+            <span class="sent-text sent-text-error">{{sentText}}</span>
           </div>
         </div>
         <div class="p-auth-go">
@@ -98,22 +125,73 @@
 <script>
 import CommonMixin from "@/components/mixins/CommonMixin";
 import {mapActions} from "vuex";
+import {emailValidation} from "@/functions/validation";
+import {sentState} from "@/data/consts";
 
 export default {
   name: "AuthWindow",
   mixins: [CommonMixin],
   data: () => ({
-    activeTariff: 'premium',
+    checkSubmit: {
+      name: false,
+      email: false,
+    },
+    subscribeInfo: {
+      name: '',
+      email: '',
+      isAgreement: false,
+      tariff: 'premium'
+    },
+    sentState: sentState.NOT_SENT,
+    sentText: '',
+    isSending: false
   }),
+  beforeDestroy() {
+    this.sentText = '';
+  },
   computed: {
-    isSubmit() {
-      return false;
-    }
+    nameIsNotValid() {
+      return this.checkSubmit.name && this.subscribeInfo.name === '';
+    },
+    emailIsNotValid() {
+      return this.checkSubmit.email && !emailValidation(this.subscribeInfo.email);
+    },
+    submitValidation () {
+      return !this.emailIsNotValid && !this.nameIsNotValid && this.subscribeInfo.isAgreement;
+    },
+    sentS() {
+      return sentState;
+    },
   },
   methods: {
-    ...mapActions(['setOpenAuthWindowState']),
+    ...mapActions(['setOpenAuthWindowState', 'subscribe']),
     close() {
       this.setOpenAuthWindowState(false);
+    },
+    changeField(field) {
+      this.checkSubmit[field] = true;
+    },
+    clearSubmitData() {
+      this.subscribeInfo.name = '';
+      this.subscribeInfo.email = '';
+      this.subscribeInfo.isAgreement = false;
+      Object.keys(this.checkSubmit).forEach(_k => { this.checkSubmit[_k] = false });
+    },
+    submit() {
+      if (this.submitValidation && !this.isSending) {
+        this.isSending = true;
+        this.clearSubmitData();
+        this.subscribe(this.subscribeInfo).then(() => {
+          this.isSending = false;
+          this.sentText = 'Письмо с информацией отправлено на почту';
+          this.sentState = sentState.SENT;
+        }).catch(err => {
+          this.isSending = false;
+          this.sentText = 'Не удалось отправить письмо, попобуйте ещё раз.';
+          this.sentState = sentState.SENT_ERROR;
+          console.log('Server error: ' + err);
+        });
+      }
     },
   },
 }

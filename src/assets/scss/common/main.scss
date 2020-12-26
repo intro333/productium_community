@@ -127,6 +127,7 @@ span {
   }
 }
 .p-button {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,6 +189,12 @@ span {
         cursor: default;
       }
     }
+  }
+  &-loader {
+    position: absolute;
+    right: 10px;
+    width: 30px;
+    height: 30px;
   }
 }
 
