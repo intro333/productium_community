@@ -1,12 +1,13 @@
 <template>
   <div>
     <!-- ОКНО авторизаии/регистрации DESKTOP -->
-    <div v-if="!isMobile()"
-         class="p-modal">
+    <div class="p-modal">
       <div class="p-modal-background"
            @click="close"></div>
       <div class="p-modal-auth">
-        <div class="p-auth-info">
+        <div v-if="!isMobile() || isMobile() && sentState === sentS.NOT_SENT"
+             class="p-auth-info"
+             :class="{'content-base-mobile': isMobile()}">
           <div class="p-auth-info-first">
             <div class="p-top-logo-box">
               <img src="@/assets/img/logo/logo_black.svg"
@@ -19,7 +20,8 @@
             </div>
             <div class="p-auth-fields">
               <div class="p-auth-fields-item">
-                <label class="p-auth-fields-label">Имя</label>
+                <label v-if="!isMobile()"
+                       class="p-auth-fields-label">Имя</label>
                 <input @input="changeField('name')"
                        v-model="subscribeInfo.name"
                        class="p-auth-fields-input"
@@ -28,7 +30,8 @@
                       class="p-auth-fields-error">Введите имя</span>
               </div>
               <div class="p-auth-fields-item">
-                <label class="p-auth-fields-label">e-mail</label>
+                <label v-if="!isMobile()"
+                       class="p-auth-fields-label">e-mail</label>
                 <input @input="changeField('email')"
                        v-model="subscribeInfo.email"
                        class="p-auth-fields-input"
@@ -100,7 +103,21 @@
             <span class="sent-text sent-text-error">{{sentText}}</span>
           </div>
         </div>
-        <div class="p-auth-go">
+        <div v-if="!isMobile() || isMobile() && sentState !== sentS.NOT_SENT"
+             class="p-auth-go">
+          <div v-if="isMobile()"
+               class="p-auth-go-sent-message">
+            <div v-if="sentState === sentS.SENT"
+                 class="p-auth-go-second-sent">
+              <p class="sent-text">Письмо с информацией </p>
+              <p class="sent-text sent-text-bold">отправлено на почту</p>
+            </div>
+            <div v-if="sentState === sentS.SENT_ERROR"
+                 class="p-auth-go-second-sent">
+              <p class="sent-text">Ошибка отправки </p>
+              <p class="sent-text sent-text-bold sent-text-bold-error">попробуйте ещё раз</p>
+            </div>
+          </div>
           <p class="p-auth-go-text">ПОЕХАЛИ!</p>
           <img src="@/assets/img/auth/astronaut.svg"
                class="p-auth-go-img"
@@ -108,7 +125,12 @@
         </div>
         <div @click="close"
              class="p-auth-close-box">
-          <img src="@/assets/img/auth/close.svg"
+          <img v-if="isMobile()"
+               src="@/assets/img/mobile/closeBlack.svg"
+               class="p-auth-close"
+               alt="">
+          <img v-else
+               src="@/assets/img/auth/close.svg"
                class="p-auth-close"
                alt="">
         </div>
@@ -116,9 +138,9 @@
     </div>
 
     <!-- ОКНО авторизаии/регистрации MOBILE -->
-    <div v-if="isMobile()">
+<!--    <div v-if="isMobile()">-->
 
-    </div>
+<!--    </div>-->
   </div>
 </template>
 
@@ -166,6 +188,7 @@ export default {
   methods: {
     ...mapActions(['setOpenAuthWindowState', 'subscribe']),
     close() {
+      this.bodyLock(false);
       this.setOpenAuthWindowState(false);
     },
     changeField(field) {

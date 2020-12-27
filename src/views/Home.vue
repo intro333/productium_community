@@ -1,5 +1,5 @@
 <template>
-  <div class="p-home">
+  <div class="p-home" id="pHome">
     <div v-if="!isMobile()"
          class="content-base-desktop-box content-base-desktop-box-blue">
       <div class="content-base-desktop p-top">
@@ -35,7 +35,8 @@
             <span class="p-top-logo-text p-top-logo-text-blue">community</span>
           </div>
         </div>
-        <img src="@/assets/img/mobile/mdiMenu.svg"
+        <img @click="drawerControl(true)"
+             src="@/assets/img/mobile/mdiMenu.svg"
              class="mdi-menu"
              alt="">
       </div>
@@ -49,6 +50,55 @@
     <Block7 />
     <Block8 />
     <Footer />
+    <!-- МОБИЛЬНОЕ МЕНЮ -->
+    <div v-if="drawer" class="p-modal">
+      <div class="p-modal-background"
+           @click="drawerControl(false)"></div>
+      <div class="side-menu"
+           :class="{'fade-in': menuIsFadeIn, 'fade-out': menuIsFadeOut}">
+        <div class="side-menu-content content-base-mobile">
+          <div class="side-menu-box">
+          <span @click="openAuthModal()"
+                class="side-menu-item">Регистрация</span>
+            <span class="side-menu-item">Тарифы</span>
+            <span class="side-menu-item">Бета-версия</span>
+            <span class="side-menu-item">Сообщество</span>
+            <span class="side-menu-item">Как это работает</span>
+            <span class="side-menu-item">Обратная связь</span>
+          </div>
+          <div class="side-menu-social-box">
+            <div class="side-menu-social">
+              <img src="@/assets/img/mobile/socials/fb.svg"
+                   class="side-menu-social-item"
+                   alt="">
+              <img src="@/assets/img/mobile/socials/instagram.svg"
+                   class="side-menu-social-item"
+                   alt="">
+              <img src="@/assets/img/mobile/socials/twitter.svg"
+                   class="side-menu-social-item"
+                   alt="">
+              <img src="@/assets/img/mobile/socials/gh.svg"
+                   class="side-menu-social-item"
+                   alt="">
+            </div>
+            <div class="side-menu-logo-box">
+              <img src="@/assets/img/logo/logo_black17.svg"
+                   class="side-menu-logo-img"
+                   alt="">
+              <span class="side-menu-logo-text">roduct</span>
+              <span class="side-menu-logo-text side-menu-logo-text-small">ium</span>
+              <div class="prod-point"></div>
+            </div>
+          </div>
+          <div @click="drawerControl(false)"
+               class="side-menu-close-box">
+            <img src="@/assets/img/mobile/closeBlack.svg"
+                 class="side-menu-close"
+                 alt="">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -80,11 +130,38 @@ export default {
     Block8,
     Footer,
   },
+  data() {
+    return {
+      drawer: false,
+      menuIsFadeIn: false,
+      menuIsFadeOut: false,
+    }
+  },
   methods: {
     ...mapActions(['setOpenAuthWindowState']),
     openAuthModal() {
+      if (this.drawer) {
+        this.drawerControl(false);
+        this.bodyLock(true);
+      }
       this.setOpenAuthWindowState(true);
-    }
+    },
+    drawerControl(state) {
+      if (state) {
+        this.menuIsFadeIn = true;
+        this.menuIsFadeOut = false;
+        this.bodyLock(true);
+        this.drawer = state;
+      } else {
+        this.menuIsFadeIn = false;
+        this.menuIsFadeOut = true;
+        this.bodyLock(false);
+        setTimeout(() => {
+          this.menuIsFadeOut = false;
+          this.drawer = state;
+        }, 0)
+      }
+    },
   }
 }
 </script>

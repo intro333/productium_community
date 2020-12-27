@@ -1,9 +1,13 @@
 <template>
   <div class="problem-video-right">
-    <video :width="width" :height="height"
-           controls="controls" poster="/video/videoPoster.png">
-      <source src="/video/productView.mp4">
-    </video>
+    <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/2DsDvnzlICE"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    ></iframe>
+<!--    <video :width="width" :height="height"-->
+<!--           controls="controls" poster="/video/videoPoster.png">-->
+<!--      <source src="/video/productView.mp4">-->
+<!--    </video>-->
   </div>
 </template>
 
@@ -16,3 +20,5 @@ export default {
   }
 }
 </script>
+
+<!-- https://support.google.com/youtube/answer/171780 -->

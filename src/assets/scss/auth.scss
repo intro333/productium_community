@@ -13,16 +13,27 @@
       right: 14px;
       width: 24px;
       height: 24px;
-      :hover {
+      @media (max-width: $mobileMin) {
+        right: 10px;
+        top: 12px;
+      }
+      &:hover {
         cursor: pointer;
       }
     }
     width: 16px;
     height: 16px;
+    @media (max-width: $mobileMin) {
+      width: 24px;
+      height: 24px;
+    }
   }
   &-info {
+    position: relative;
+    box-sizing: border-box;
     background-color: white;
     width: 570px;
+    height: 100%;
     border-radius: 20px 0 0 20px;
     display: flex;
     flex-direction: column;
@@ -30,18 +41,36 @@
     align-items: center;
     padding-top: 34px;
     padding-bottom: 30px;
+    @media (max-width: $mobileMin) {
+      width: 100%;
+      padding: 48px 16px 32px 16px;
+      border-radius: 20px;
+      align-items: flex-start;
+    }
     .p-top {
       &-logo {
         &-box {
           height: 40px;
+          @media (max-width: $mobileMin) {
+            height: 32px;
+            width: 100%;
+            justify-content: center;
+          }
         }
         &-img {
           width: 16px;
           height: 23.43px;
+          @media (max-width: $mobileMin) {
+            width: 12.51px;
+            height: 18.29px;
+          }
         }
         &-text {
           color: black;
           font-size: 26px;
+          @media (max-width: $mobileMin) {
+            font-size: 20.48px;
+          }
           &-box {
             background-color: $color-base;
           }
@@ -51,12 +80,18 @@
     &-first {
       display: flex;
       flex-direction: column;
+      @media (max-width: $mobileMin) {
+        width: 100%;
+      }
     }
     &-second {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 300px;
+      @media (max-width: $mobileMin) {
+        width: 100%;
+      }
       &-sent {
         display: flex;
         align-items: flex-end;
@@ -76,6 +111,9 @@
   &-fields {
     margin-top: 67px;
     width: 287px;
+    @media (max-width: $mobileMin) {
+      margin-top: 32px;
+    }
     &-item {
       position: relative;
       display: flex;
@@ -121,11 +159,11 @@
     .a-radio {
       display: flex;
       align-items: center;
-      :hover {
+      &:hover {
         cursor: pointer;
       }
       &.disabled {
-        :hover {
+        &:hover {
           cursor: default;
         }
       }
@@ -213,21 +251,51 @@
     border-radius: 0 20px 20px 0;
     display: flex;
     justify-content: center;
+    @media (max-width: $mobileMin) {
+      background-color: white;
+      padding: 16px;
+      border-radius: 20px;
+    }
     &-text {
       position: absolute;
       top: 140px;
-      font-style: normal;
       font-weight: 900;
       font-size: 72px;
-      line-height: 145%;
       letter-spacing: 0.01em;
       color: #FFFFFF;
       opacity: 0.3;
+      @media (max-width: $mobileMin) {
+        font-size: 46px;
+        color: $color-base;
+        top: 201px;
+        opacity: .1;
+      }
     }
     &-img {
       position: absolute;
       z-index: 10;
       bottom: 20px;
+      @media (max-width: $mobileMin) {
+        width: 195.43px;
+        height: 235.61px;
+      }
+    }
+    &-second-sent {
+      text-align: center;
+    }
+    &-sent-message {
+      margin-top: 75px;
+      .sent-text {
+        font-size: 24px;
+        color: black;
+        &-bold {
+          font-weight: 900;
+          color: $color-base;
+          &-error {
+            color: $color-status-error;
+          }
+        }
+      }
     }
   }
 }

@@ -14,6 +14,9 @@
     &-descr1 {
       &-box {
         margin-bottom: 100px;
+        @media (max-width: $mobileMin) {
+          margin-bottom: 64px;
+        }
       }
       &-text {
         @media (max-width: $mobileMin) {
@@ -72,6 +75,11 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
+      &-mobile {
+        display: flex;
+        width: 830px;
+        padding: 0 16px;
+      }
       &-item {
         box-sizing: border-box;
         display: flex;
@@ -86,7 +94,9 @@
           width: 261px;
           height: 480px;
           padding: 24px 24px 16px;
-          margin-right: 24px;
+          &:not(:last-child) {
+            margin-right: 24px;
+          }
         }
         &.disabled {
           border: 2px solid $color-block-2;

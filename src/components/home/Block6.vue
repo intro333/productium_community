@@ -1,33 +1,38 @@
 <template>
-  <div :class="['content-base-' + screen + '-box']">
-    <div :class="['content-base-' + screen, 'home-block6']">
-      <div class="tariff-descr1-box">
-        <p class="tariff-descr1-text">
-          <span class="tariff-descr1-text__normal">пакет </span>
-          <span class="tariff-descr1-text__big">Productium </span>
-          <span class="tariff-descr1-text__big tariff-descr1-text__big-blue">premium </span>
-          <span class="tariff-descr1-text__normal">для</span>
-        </p>
-        <p class="tariff-descr1-text tariff-descr1-text-overlay tariff-descr1-text__normal"
-        >первой тысячи пользователей совершенно бесплатно</p>
+  <div class="home-block6">
+    <div :class="['content-base-' + screen + '-box']">
+      <div :class="['content-base-' + screen]">
+        <div class="tariff-descr1-box">
+          <p class="tariff-descr1-text">
+            <span class="tariff-descr1-text__normal">пакет </span>
+            <span class="tariff-descr1-text__big">Productium </span>
+            <span class="tariff-descr1-text__big tariff-descr1-text__big-blue">premium </span>
+            <span class="tariff-descr1-text__normal">для</span>
+          </p>
+          <p class="tariff-descr1-text tariff-descr1-text-overlay tariff-descr1-text__normal"
+          >первой тысячи пользователей совершенно бесплатно</p>
+        </div>
+        <div v-if="!isMobile()"
+             class="tariff-info scrollbar-hidden block-scroll-container">
+          <TariffInfo v-for="(_info, i) in getTariffInfoByDevice"
+                      :key="i"
+                      :item="_info" />
+        </div>
+        <TariffDescr2 v-if="!isMobile()" />
       </div>
-      <div class="tariff-info">
+    </div>
+    <div v-if="isMobile()"
+         class="tariff-info scrollbar-hidden block-scroll-container">
+      <div class="tariff-info-mobile">
         <TariffInfo v-for="(_info, i) in getTariffInfoByDevice"
                     :key="i"
                     :item="_info" />
       </div>
-      <div class="tariff-descr2-box">
-        <p class="tariff-descr2-text">
-          <span class="tariff-descr2-text tariff-descr2-text__bold">Productium </span>
-          <span class="tariff-descr2-text tariff-descr2-text__blue">community </span>
-          <span class="tariff-descr2-text"> откроет для вас</span>
-        </p>
-        <p class="tariff-descr2-text"
-           style="margin-top: -6px;">новые возможности экономии времени</p>
-        <p class="tariff-descr2-text"
-           style="margin-top: -6px;">на решение вопросов дизайна и личного</p>
-        <p class="tariff-descr2-text"
-           style="margin-top: -6px;">роста навыков в вашей сфере</p>
+    </div>
+    <div v-if="isMobile()"
+         :class="['content-base-' + screen + '-box']">
+      <div :class="['content-base-' + screen]">
+        <TariffDescr2 />
       </div>
     </div>
   </div>
@@ -36,12 +41,14 @@
 <script>
 import TariffInfo from "@/components/includes/TariffInfo";
 import CommonMixin from "@/components/mixins/CommonMixin";
+import TariffDescr2 from "@/components/includes/TariffDescr2";
 
 export default {
   name: "Block6",
   mixins: [CommonMixin],
   components: {
-    TariffInfo
+    TariffInfo,
+    TariffDescr2
   },
   data: () => ({
 
