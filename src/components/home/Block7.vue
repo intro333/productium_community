@@ -1,7 +1,7 @@
 <template>
-  <div :class="['content-base-' + screen + '-box',
-                'content-base-' + screen + '-box-blue']">
-    <div :class="['content-base-' + screen, 'home-block7']">
+  <div :class="['content-base-box',
+                'content-base-box-blue']">
+    <div :class="['content-base', 'home-block7']">
       <div class="home-block7-left">
         <div class="header-left-box header-left-box-on-blue">
           <span class="header-left-big">ready</span>

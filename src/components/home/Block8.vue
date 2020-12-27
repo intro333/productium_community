@@ -1,11 +1,11 @@
 <template>
-  <div :class="['content-base-' + screen + '-box']">
-    <div :class="['content-base-' + screen, 'home-block8']">
+  <div :class="['content-base-box']">
+    <div :class="['content-base', 'home-block8']">
       <div class="subscribe-send-box">
         <div class="subscribe-send-text">
-          <span v-if="!isMobile()">мы можем написать вам, как будет готов </span>
-          <p v-if="isMobile()">мы можем написать вам,</p>
-          <span v-if="isMobile()">как будет готов </span>
+          <span class="content-hide-mobile">мы можем написать вам, как будет готов </span>
+          <p class="content-hide-desktop">мы можем написать вам,</p>
+          <span class="content-hide-desktop">как будет готов </span>
           <span class="subscribe-send-text-bold">Productium</span>
         </div>
         <div class="subscribe-send-input-box">

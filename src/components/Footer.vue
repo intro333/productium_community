@@ -1,6 +1,6 @@
 <template>
-  <div :class="['content-base-' + screen + '-box', 'content-base-desktop-footer']">
-    <div :class="['content-base-' + screen, 'p-footer']">
+  <div :class="['content-base-box', 'content-base-footer']">
+    <div :class="['content-base', 'p-footer']">
       <div class="p-footer-menu">
         <span class="p-footer-menu-item">Регистрация</span>
         <span class="p-footer-menu-item">Тарифы</span>
@@ -9,7 +9,7 @@
         <span class="p-footer-menu-item">Как это работает</span>
         <span class="p-footer-menu-item">Обратная связь</span>
       </div>
-      <div v-if="!isMobile()"
+      <div class="content-hide-mobile"
            style="display: flex; flex-direction: column; justify-content: space-between;">
         <div></div>
         <span class="p-footer-copyright">© 2020 Productium Inc. All rights reserved</span>
@@ -44,8 +44,7 @@
           <span class="p-footer-policy-text">Terms of use</span>
         </div>
       </div>
-      <span v-if="isMobile()"
-            class="p-footer-copyright">© 2020 Productium Inc. All rights reserved</span>
+      <span class="p-footer-copyright content-hide-desktop">© 2020 Productium Inc. All rights reserved</span>
     </div>
   </div>
 </template>

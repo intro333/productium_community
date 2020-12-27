@@ -26,52 +26,62 @@ span {
 }
 .content {
   &-base {
-    &-desktop {
-      box-sizing: border-box;
-      min-width: 1366px;
-      max-width: 1366px;
-      padding-left: 128px;
-      padding-right: 128px;
-      background-color: #ffffff;
-      &-box {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        @media (max-width: $desktopMax) {
-          justify-content: flex-start;
-        }
-        &-blue {
-          background-color: $color-base;
-        }
-      }
-      &-footer {
-        background-color: $color-head;
-      }
-    }
-    &-mobile {
-      box-sizing: border-box;
-      max-width: 375px;
-      padding-left: 16px;
-      padding-right: 16px;
+    box-sizing: border-box;
+    min-width: 1366px;
+    max-width: 1366px;
+    padding-left: 128px;
+    padding-right: 128px;
+    background-color: #ffffff;
+    &-box {
+      display: flex;
+      justify-content: center;
       width: 100%;
-      &-box {
+      @media (max-width: $desktopMax) {
+        justify-content: flex-start;
+      }
+      @media (max-width: $mobileMax) {
         display: flex;
         justify-content: center;
         width: 100%;
-        &-blue {
-          background-color: $color-base;
-        }
         &-white {
           background-color: white;
         }
       }
+      &-blue {
+        background-color: $color-base;
+      }
+    }
+    &-footer {
+      background-color: $color-head;
+    }
+    @media (max-width: $mobileMax) { /* MOBILE CONTENT */
+      min-width: 320px;
+      max-width: 375px;
+      padding-left: 16px;
+      padding-right: 16px;
+      width: 100%;
       .mdi-menu {
         width: 28px;
         height: 24px;
+        &:hover {
+          cursor: pointer;
+        }
       }
       &-outside {
         max-width: 414px;
         width: 100%;
+      }
+    }
+  }
+  &-hide {
+    &-desktop {
+      @media (min-width: $mobileMin) {
+        display: none !important;
+      }
+    }
+    &-mobile {
+      @media (max-width: $mobileMax) {
+        display: none !important;
       }
     }
   }
@@ -441,6 +451,9 @@ span {
     color: black;
     &:not(:last-child) {
       margin-bottom: 24px;
+    }
+    &:hover {
+      cursor: pointer;
     }
   }
   &-close {

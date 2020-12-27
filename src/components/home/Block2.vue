@@ -1,22 +1,21 @@
 <template>
   <div>
-    <div :class="['content-base-' + screen + '-box']">
-      <div :class="['content-base-' + screen, 'home-block2']">
+    <div :class="['content-base-box']">
+      <div :class="['content-base', 'home-block2']">
         <div class="header-left-box">
           <span class="header-left-big">we have a problem</span>
           <span class="header-left-little">устал от кучи скриншотов с правками, метками и постоянным вопросом как это систематизировать?</span>
         </div>
-        <div v-if="!isMobile()"
-             class="problem-video-box">
+        <div class="problem-video-box content-hide-mobile">
           <ProblemSolveText />
           <ProblemVideo width="540" height="538" />
         </div>
       </div>
     </div>
-    <div v-if="isMobile()">
+    <div class="content-hide-desktop">
       <ProblemVideo width="375" height="360" />
-      <div :class="['content-base-' + screen + '-box']">
-        <div :class="['content-base-' + screen, 'home-block2']">
+      <div :class="['content-base-box']">
+        <div :class="['content-base', 'home-block2']">
           <ProblemSolveText />
         </div>
       </div>

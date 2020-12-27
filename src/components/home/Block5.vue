@@ -1,7 +1,7 @@
 <template>
-  <div :class="['content-base-' + screen + '-box',
-                'content-base-' + screen + '-box-blue']">
-    <div :class="['content-base-' + screen, 'home-block5']">
+  <div :class="['content-base-box',
+                'content-base-box-blue']">
+    <div :class="['content-base', 'home-block5']">
       <div class="counting-box">
         <span class="counting-text counting-text-normal">нас уже</span>
         <div class="counting-nums">
@@ -24,8 +24,8 @@
         </div>
       </div>
       <div class="counting-box counting-box-right">
-        <span class="counting-text"
-              :class="{'counting-text-big': !isMobile(), 'counting-text-normal': isMobile()}">мы ценим каждого</span>
+        <span class="counting-text counting-text-big content-hide-mobile">мы ценим каждого</span>
+        <span class="counting-text counting-text-normal content-hide-desktop">мы ценим каждого</span>
       </div>
     </div>
   </div>

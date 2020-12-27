@@ -1,37 +1,37 @@
 <template>
   <div class="home-block6">
-    <div :class="['content-base-' + screen + '-box']">
-      <div :class="['content-base-' + screen]">
+    <div :class="['content-base-box']">
+      <div :class="['content-base']">
         <div class="tariff-descr1-box">
           <p class="tariff-descr1-text">
             <span class="tariff-descr1-text__normal">пакет </span>
             <span class="tariff-descr1-text__big">Productium </span>
-            <span class="tariff-descr1-text__big tariff-descr1-text__big-blue">premium </span>
-            <span class="tariff-descr1-text__normal">для</span>
+            <span class="tariff-descr1-text__big tariff-descr1-text__big-blue">premium</span>
+            <span class="tariff-descr1-text__normal content-hide-mobile"> для</span>
           </p>
           <p class="tariff-descr1-text tariff-descr1-text-overlay tariff-descr1-text__normal"
-          >первой тысячи пользователей совершенно бесплатно</p>
+          >
+            <span class="content-hide-desktop">для </span>
+            <span>первой тысячи пользователей совершенно бесплатно</span>
+          </p>
         </div>
-        <div v-if="!isMobile()"
-             class="tariff-info scrollbar-hidden block-scroll-container">
+        <div class="tariff-info scrollbar-hidden block-scroll-container content-hide-mobile">
           <TariffInfo v-for="(_info, i) in getTariffInfoByDevice"
                       :key="i"
                       :item="_info" />
         </div>
-        <TariffDescr2 v-if="!isMobile()" />
+        <TariffDescr2 :hideOnMobile="true" />
       </div>
     </div>
-    <div v-if="isMobile()"
-         class="tariff-info scrollbar-hidden block-scroll-container">
+    <div class="tariff-info scrollbar-hidden block-scroll-container content-hide-desktop">
       <div class="tariff-info-mobile">
         <TariffInfo v-for="(_info, i) in getTariffInfoByDevice"
                     :key="i"
                     :item="_info" />
       </div>
     </div>
-    <div v-if="isMobile()"
-         :class="['content-base-' + screen + '-box']">
-      <div :class="['content-base-' + screen]">
+    <div :class="['content-base-box', 'content-hide-desktop']">
+      <div :class="['content-base']">
         <TariffDescr2 />
       </div>
     </div>

@@ -1,13 +1,11 @@
 <template>
   <div>
-    <!-- ОКНО авторизаии/регистрации DESKTOP -->
     <div class="p-modal">
       <div class="p-modal-background"
            @click="close"></div>
       <div class="p-modal-auth">
-        <div v-if="!isMobile() || isMobile() && sentState === sentS.NOT_SENT"
-             class="p-auth-info"
-             :class="{'content-base-mobile': isMobile()}">
+        <div v-if="sentState === sentS.NOT_SENT"
+             class="p-auth-info">
           <div class="p-auth-info-first">
             <div class="p-top-logo-box">
               <img src="@/assets/img/logo/logo_black.svg"
@@ -20,8 +18,7 @@
             </div>
             <div class="p-auth-fields">
               <div class="p-auth-fields-item">
-                <label v-if="!isMobile()"
-                       class="p-auth-fields-label">Имя</label>
+                <label class="p-auth-fields-label content-hide-mobile">Имя</label>
                 <input @input="changeField('name')"
                        v-model="subscribeInfo.name"
                        class="p-auth-fields-input"
@@ -30,8 +27,7 @@
                       class="p-auth-fields-error">Введите имя</span>
               </div>
               <div class="p-auth-fields-item">
-                <label v-if="!isMobile()"
-                       class="p-auth-fields-label">e-mail</label>
+                <label class="p-auth-fields-label content-hide-mobile">e-mail</label>
                 <input @input="changeField('email')"
                        v-model="subscribeInfo.email"
                        class="p-auth-fields-input"
@@ -103,10 +99,9 @@
             <span class="sent-text sent-text-error">{{sentText}}</span>
           </div>
         </div>
-        <div v-if="!isMobile() || isMobile() && sentState !== sentS.NOT_SENT"
+        <div v-if="!isMobile() || (isMobile() && sentState !== sentS.NOT_SENT)"
              class="p-auth-go">
-          <div v-if="isMobile()"
-               class="p-auth-go-sent-message">
+          <div class="p-auth-go-sent-message content-hide-desktop">
             <div v-if="sentState === sentS.SENT"
                  class="p-auth-go-second-sent">
               <p class="sent-text">Письмо с информацией </p>
@@ -125,22 +120,15 @@
         </div>
         <div @click="close"
              class="p-auth-close-box">
-          <img v-if="isMobile()"
-               src="@/assets/img/mobile/closeBlack.svg"
-               class="p-auth-close"
+          <img src="@/assets/img/mobile/closeBlack.svg"
+               class="p-auth-close content-hide-desktop"
                alt="">
-          <img v-else
-               src="@/assets/img/auth/close.svg"
-               class="p-auth-close"
+          <img src="@/assets/img/auth/close.svg"
+               class="p-auth-close content-hide-mobile"
                alt="">
         </div>
       </div>
     </div>
-
-    <!-- ОКНО авторизаии/регистрации MOBILE -->
-<!--    <div v-if="isMobile()">-->
-
-<!--    </div>-->
   </div>
 </template>
 

@@ -1,21 +1,19 @@
 <template>
-  <div :class="['content-base-' + screen + '-box',
-                'content-base-' + screen + '-box-blue',
+  <div :class="['content-base-box',
+                'content-base-box-blue',
                 'rocket-img']">
-    <div :class="['content-base-' + screen, 'home-block1', 'rocket-img']">
+    <div :class="['content-base', 'home-block1', 'rocket-img']">
       <div class="p-banner-text-box">
         <div class="first-box">
           <span class="first-text">Мы </span>
           <span class="first-text first-text-bold">набираем первую тысячу </span>
           <p class="first-text">пользователей Productium</p>
         </div>
-        <div v-if="!isMobile()"
-             class="second-box">
+        <div class="second-box content-hide-mobile">
           <p class="second-text">получи бесплатный доступ к Premium пакету </p>
           <p class="second-text">и войди в комьюнити сервиса Productium</p>
         </div>
-        <div v-else
-             class="second-box">
+        <div class="second-box content-hide-desktop">
           <p class="second-text">получи бесплатный доступ к</p>
           <p class="second-text"> Premium пакету и войди в </p>
           <p class="second-text">комьюнити сервиса Productium</p>

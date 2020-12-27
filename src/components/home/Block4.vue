@@ -1,6 +1,6 @@
 <template>
-  <div :class="['content-base-' + screen + '-box']">
-    <div :class="['content-base-' + screen, 'home-block4']">
+  <div :class="['content-base-box']">
+    <div :class="['content-base', 'home-block4']">
       <div class="header-left-box">
         <span class="header-left-big">pre-start</span>
         <span class="header-left-little header-left-little2">перед запуском</span>

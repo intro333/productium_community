@@ -1,5 +1,6 @@
 <template>
-  <div class="tariff-descr2-box">
+  <div class="tariff-descr2-box"
+       :class="{'content-hide-mobile': hideOnMobile}">
     <p class="tariff-descr2-text">
       <span class="tariff-descr2-text tariff-descr2-text__bold">Productium </span>
       <span class="tariff-descr2-text tariff-descr2-text__blue">community </span>
@@ -17,5 +18,8 @@
 <script>
 export default {
   name: "TariffDescr2",
+  props: {
+    hideOnMobile: Boolean
+  }
 }
 </script>

@@ -1,8 +1,7 @@
 <template>
   <div class="p-home" id="pHome">
-    <div v-if="!isMobile()"
-         class="content-base-desktop-box content-base-desktop-box-blue">
-      <div class="content-base-desktop p-top">
+    <div class="content-base-box content-base-box-blue content-hide-mobile">
+      <div class="content-base p-top">
         <div class="p-top-logo-box">
           <img src="@/assets/img/logo/logo_white.svg"
                class="p-top-logo-img"
@@ -23,9 +22,8 @@
         </div>
       </div>
     </div>
-    <div v-else
-         class="content-base-mobile-box content-base-mobile-box-blue">
-      <div class="content-base-mobile p-top-mobile">
+    <div class="content-base-box content-base-box-blue  content-hide-desktop">
+      <div class="content-base p-top-mobile">
         <div class="p-top-logo-box">
           <img src="@/assets/img/logo/logo_white12.svg"
                class="p-top-logo-img12"
@@ -56,7 +54,7 @@
            @click="drawerControl(false)"></div>
       <div class="side-menu"
            :class="{'fade-in': menuIsFadeIn, 'fade-out': menuIsFadeOut}">
-        <div class="side-menu-content content-base-mobile">
+        <div class="side-menu-content content-base">
           <div class="side-menu-box">
           <span @click="openAuthModal()"
                 class="side-menu-item">Регистрация</span>
