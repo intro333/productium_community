@@ -35,7 +35,17 @@
         }
       }
       &-input {
+        margin-left: 24px;
+        outline: none;
+        border: none;
+        &::placeholder {
+          color: rgb(0, 0, 0, .3);
+        }
+        font-size: 18px;
+        color: black;
+        padding-right: 10px;
         &-box {
+          position: relative;
           box-sizing: border-box;
           display: grid;
           grid-template-columns: auto 96px;
@@ -72,16 +82,29 @@
               color: white;
             }
           }
+          &.disabled {
+            background-color: rgb(0, 0, 0, .1) !important;
+            .p-button-text {
+              color: white !important;
+            }
+            &:hover {
+              cursor: default;
+            }
+          }
         }
-        margin-left: 24px;
-        outline: none;
-        border: none;
-        &::placeholder {
-          color: rgb(0, 0, 0, .3);
+        &-error {
+          position: absolute;
+          bottom: -16px;
+          margin-left: 24px;
+          font-size: 10px;
+          color: $color-status-error;
         }
-        font-size: 18px;
-        color: black;
-        padding-right: 10px;
+      }
+      &-loader {
+        position: absolute;
+        right: 10px;
+        width: 20px;
+        height: 20px;
       }
     }
     &-descr {

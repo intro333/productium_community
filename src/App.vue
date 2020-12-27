@@ -17,6 +17,9 @@ body {
   input {
     font-family: Inter, sans-serif;
   }
+  &.modal-open {
+    overflow: hidden;
+  }
 }
 #app {
   font-family: Inter, sans-serif;

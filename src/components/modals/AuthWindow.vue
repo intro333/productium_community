@@ -31,9 +31,9 @@
                 <input @input="changeField('email')"
                        v-model="subscribeInfo.email"
                        class="p-auth-fields-input"
-                       placeholder="Введите почту">
+                       placeholder="Введите e-mail">
                 <span v-if="emailIsNotValid"
-                      class="p-auth-fields-error">Проверьте правильно ли введена почта</span>
+                      class="p-auth-fields-error">Проверьте правильно ли введен e-mail</span>
               </div>
             </div>
             <div class="p-auth-tariff">
@@ -75,7 +75,7 @@
                    class="p-button-loader"
                    alt="">
             </div>
-            <div @click="subscribeInfo.isAgreement = !subscribeInfo.isAgreement"
+            <div @click="clickOnAgreement()"
                  class="p-auth-submit-agreement">
               <div class="p-agreement-checkbox"
                    :class="{active: subscribeInfo.isAgreement}">
@@ -188,14 +188,18 @@ export default {
       this.subscribeInfo.isAgreement = false;
       Object.keys(this.checkSubmit).forEach(_k => { this.checkSubmit[_k] = false });
     },
+    clickOnAgreement() {
+      this.subscribeInfo.isAgreement = !this.subscribeInfo.isAgreement;
+      Object.keys(this.checkSubmit).forEach(_k => { this.checkSubmit[_k] = true });
+    },
     submit() {
       if (this.submitValidation && !this.isSending) {
         this.isSending = true;
-        this.clearSubmitData();
         this.subscribe(this.subscribeInfo).then(() => {
           this.isSending = false;
           this.sentText = 'Письмо с информацией отправлено на почту';
           this.sentState = sentState.SENT;
+          this.clearSubmitData();
         }).catch(err => {
           this.isSending = false;
           this.sentText = 'Не удалось отправить письмо, попобуйте ещё раз.';

@@ -1,5 +1,5 @@
 <template>
-  <div class="home-block6">
+  <div class="home-block6" id="homeBlock6">
     <div :class="['content-base-box']">
       <div :class="['content-base']">
         <div class="tariff-descr1-box">

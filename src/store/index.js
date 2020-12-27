@@ -8,6 +8,7 @@ export default new Vuex.Store({
     cookieIsAssented: localStorage.getItem('cookie_is_assented'),
     isOpenAuthWindow: false,
     subscribeInfo: false,
+    informOnReadinessEmail: '',
   },
   getters: {
     getCookieIsAssented: state => state.cookieIsAssented,
@@ -33,6 +34,19 @@ export default new Vuex.Store({
         }, 300);
       });
     },
+    informOnReadiness({commit}, email) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => { // TODO имитация задержки с сервера
+          const isSuccess = true;
+          if (isSuccess) {
+            commit('INFORM_ON_READINESS', email);
+            resolve(email);
+          } else {
+            reject({ message: 'Internal server error' })
+          }
+        }, 300);
+      });
+    },
   },
   mutations: {
     SET_COOKIE_IS_ASSENTED(state, status) {
@@ -41,6 +55,7 @@ export default new Vuex.Store({
     },
     SET_OPEN_AUTH_WINDOW_STATE(state, windowState) { state.isOpenAuthWindow = windowState; },
     SUBSCRIBE(state, info) { state.subscribeInfo = info; },
+    INFORM_ON_READINESS(state, email) { state.informOnReadinessEmail = email; },
   },
   modules: {
 

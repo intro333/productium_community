@@ -1,7 +1,7 @@
 <template>
   <div :class="['content-base-box',
                 'content-base-box-blue',
-                'rocket-img']">
+                'rocket-img-back']">
     <div :class="['content-base', 'home-block1', 'rocket-img']">
       <div class="p-banner-text-box">
         <div class="first-box">
@@ -23,7 +23,8 @@
         <div class="p-button p-button-rounded p-button-fill p-button-fill1 p-banner-button">
           <span class="p-button-text">Premium бесплатно</span>
         </div>
-        <div class="p-button p-button-rounded p-button-rounded1 p-button-rounded2 p-banner-button">
+        <div @click="scrollToBlock('homeBlock2')"
+             class="p-button p-button-rounded p-button-rounded1 p-button-rounded2 p-banner-button">
           <span class="p-button-text">Подробнее</span>
         </div>
       </div>

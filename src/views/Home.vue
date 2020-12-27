@@ -12,7 +12,8 @@
           </div>
         </div>
         <div class="p-top-right">
-          <span class="p-top-right-item-text">Возможности</span>
+          <span @click="scrollToBlock('homeBlock2')"
+                class="p-top-right-item-text">Возможности</span>
           <span class="p-top-right-item-text">Бета-версия</span>
           <div @click="openAuthModal()"
                class="p-button p-button-rounded p-button-rounded1"
@@ -136,12 +137,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['setOpenAuthWindowState']),
+    ...mapActions([]),
     openAuthModal() {
       if (this.drawer) {
         this.drawerControl(false);
-        this.bodyLock(true);
       }
+      this.bodyLock(true);
       this.setOpenAuthWindowState(true);
     },
     drawerControl(state) {
