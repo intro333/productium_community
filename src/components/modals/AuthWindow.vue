@@ -4,7 +4,7 @@
       <div class="p-modal-background"
            @click="close"></div>
       <div class="p-modal-auth">
-        <div v-if="sentState === sentS.NOT_SENT"
+        <div v-if="!isMobileByResize || (isMobileByResize && sentState === sentS.NOT_SENT)"
              class="p-auth-info">
           <div class="p-auth-info-first">
             <div class="p-top-logo-box">
@@ -99,7 +99,7 @@
             <span class="sent-text sent-text-error">{{sentText}}</span>
           </div>
         </div>
-        <div v-if="!isMobile() || (isMobile() && sentState !== sentS.NOT_SENT)"
+        <div v-if="!isMobileByResize || (isMobileByResize && sentState !== sentS.NOT_SENT)"
              class="p-auth-go">
           <div class="p-auth-go-sent-message content-hide-desktop">
             <div v-if="sentState === sentS.SENT"
@@ -154,10 +154,16 @@ export default {
     },
     sentState: sentState.NOT_SENT,
     sentText: '',
-    isSending: false
+    isSending: false,
+    browW: 0
   }),
+  mounted() {
+    window.addEventListener('resize', this.browserResize);
+    this.browW = document.documentElement.clientWidth;
+  },
   beforeDestroy() {
     this.sentText = '';
+    window.removeEventListener('resize', this.browserResize);
   },
   computed: {
     nameIsNotValid() {
@@ -171,6 +177,9 @@ export default {
     },
     sentS() {
       return sentState;
+    },
+    isMobileByResize() {
+      return this.browW <= 1023;
     },
   },
   methods: {
@@ -191,6 +200,9 @@ export default {
     clickOnAgreement() {
       this.subscribeInfo.isAgreement = !this.subscribeInfo.isAgreement;
       Object.keys(this.checkSubmit).forEach(_k => { this.checkSubmit[_k] = true });
+    },
+    browserResize() {
+      this.browW = document.documentElement.clientWidth;
     },
     submit() {
       if (this.submitValidation && !this.isSending) {

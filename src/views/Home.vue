@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="content-base-box content-base-box-blue  content-hide-desktop">
+    <div class="content-base-box content-base-box-blue content-hide-desktop">
       <div class="content-base p-top-mobile">
         <div class="p-top-logo-box">
           <img src="@/assets/img/logo/logo_white12.svg"
@@ -59,11 +59,15 @@
           <div class="side-menu-box">
           <span @click="openAuthModal()"
                 class="side-menu-item">Регистрация</span>
-            <span class="side-menu-item">Тарифы</span>
+            <span  @click="scrollToBlockOnMobile('homeBlock6')"
+                   class="side-menu-item">Тарифы</span>
             <span class="side-menu-item">Бета-версия</span>
-            <span class="side-menu-item">Сообщество</span>
-            <span class="side-menu-item">Как это работает</span>
-            <span class="side-menu-item">Обратная связь</span>
+            <span @click="scrollToBlockOnMobile('homeBlock4')"
+                  class="side-menu-item">Сообщество</span>
+            <span @click="scrollToBlockOnMobile('homeBlock2')"
+                  class="side-menu-item">Как это работает</span>
+            <span @click="scrollToBlockOnMobile('homeBlock8')"
+                  class="side-menu-item">Обратная связь</span>
           </div>
           <div class="side-menu-social-box">
             <div class="side-menu-social">
@@ -161,6 +165,12 @@ export default {
         }, 0)
       }
     },
+    scrollToBlockOnMobile(_id) {
+      this.drawerControl(false);
+      setTimeout(() => {
+        this.scrollToBlock(_id);
+      }, 30);
+    }
   }
 }
 </script>

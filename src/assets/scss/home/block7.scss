@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   background-color: $color-base;
-  @media (max-width: $mobileMin) {
+  @media (max-width: $mobileMax) {
     flex-direction: column;
     justify-content: flex-start;
   }
@@ -13,12 +13,12 @@
     margin-top: 60px;
     width: 265px;
     margin-right: 115px;
-    @media (max-width: $mobileMin) {
+    @media (max-width: $mobileMax) {
       margin-top: 32px;
     }
     .p-banner-stat-item {
       margin-top: 64px;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         margin-top: 32px;
         margin-left: calc(48px - 16px);
       }
@@ -38,7 +38,7 @@
     margin-top: 167px;
     margin-bottom: 150px;
     width: 100%;
-    @media (max-width: $mobileMin) {
+    @media (max-width: $mobileMax) {
       margin-top: 64px;
       justify-content: flex-start;
       margin-bottom: 64px;
@@ -46,7 +46,7 @@
     &-descr {
       color: white;
       font-size: 24px;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         font-size: 16px;
         text-align: center;
       }
@@ -55,7 +55,7 @@
       }
       &:not(:last-child) {
         margin-bottom: 60px;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           margin-bottom: 64px;
         }
       }

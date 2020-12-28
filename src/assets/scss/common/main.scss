@@ -75,12 +75,12 @@ span {
   }
   &-hide {
     &-desktop {
-      @media (min-width: $mobileMin) {
+      @media (min-width: $mobileMax) {
         display: none !important;
       }
     }
     &-mobile {
-      @media (max-width: $mobileMax) {
+      @media (max-width: $mobileMin) {
         display: none !important;
       }
     }
@@ -92,7 +92,7 @@ span {
   //background-attachment: fixed;
   //background-position: center center;
   background-position: top 0 right 48%;
-  @media (max-width: $mobileMin) {
+  @media (max-width: $mobileMax) {
     background-image: url('../../assets/img/mobile/rocketOff.svg');
     background-repeat: no-repeat;
     background-position: bottom -10% left -5%;
@@ -103,7 +103,12 @@ span {
     background-position: bottom -9% left 69%;
   }
   &-back {
-    @media (max-width: $mobileMin) {
+    background-image: url('../../assets/img/home/rocket2.png');
+    background-repeat: no-repeat;
+    //background-attachment: fixed;
+    //background-position: center center;
+    background-position: top 0 right 48%;
+    @media (max-width: $mobileMax) {
       background-image: none;
     }
     @media (max-width: $rocketMax) {
@@ -287,7 +292,7 @@ span {
       display: flex;
       flex-direction: column;
       width: 715px;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         width: 100%;
         margin-top: 11px;
         align-items: flex-start;
@@ -306,7 +311,7 @@ span {
       font-weight: bold;
       color: $color-base;
       opacity: .2;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         font-size: 36px;
         text-align: center;
       }
@@ -316,7 +321,7 @@ span {
       color: black;
       margin-left: 85px;
       margin-top: -20px;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         font-size: 16px;
         text-align: center;
         margin-left: 0;
@@ -324,14 +329,14 @@ span {
       }
       &2 {
         margin-left: 161px;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           margin-left: 67px;
         }
       }
       &3 {
         margin-left: 95px;
         margin-top: -14px;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           margin-left: 19px;
           margin-top: -8px;
         }
@@ -428,7 +433,7 @@ span {
     display: grid;
     grid-template-columns: 570px auto;
     @include central-modal-shadow(.25);
-    @media (max-width: $mobileMin) {
+    @media (max-width: $mobileMax) {
       width: 328px;
       height: 490px;
       display: flex;

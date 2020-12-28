@@ -5,12 +5,12 @@
   display: flex;
   flex-direction: column;
   padding-top: 132px;
-  @media (max-width: $mobileMin) {
+  @media (max-width: $mobileMax) {
     padding-top: 64px;
   }
   .header-left-box {
     width: 400px;
-    @media (max-width: $mobileMin) {
+    @media (max-width: $mobileMax) {
       width: 100%;
     }
   }
@@ -18,7 +18,7 @@
     &-container {
       margin-top: 150px;
       margin-left: 148px;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         margin-top: 64px;
         margin-left: 0;
       }
@@ -27,14 +27,14 @@
       display: flex;
       align-items: center;
       margin-bottom: 200px;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         margin-bottom: 64px;
       }
     }
     &-img {
       width: 264px;
       height: 264px;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         width: 154px;
         height: 156px;
       }
@@ -43,7 +43,7 @@
       &-box {
         display: flex;
         flex-direction: column;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           margin-left: -36px;
         }
       }
@@ -51,7 +51,7 @@
         font-size: 72px;
         color: $color-base;
         font-weight: bold;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           font-size: 28px;
         }
       }
@@ -64,7 +64,7 @@
         &:last-child {
           margin-bottom: -4px;
         }
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           font-size: 16px;
           &:first-child {
             margin-bottom: -4px;
@@ -83,7 +83,7 @@
   padding-top: 80px;
   padding-bottom: 80px;
   background-color: $color-base;
-  @media (max-width: $mobileMin) {
+  @media (max-width: $mobileMax) {
     padding-top: 40px;
     padding-bottom: 40px;
   }
@@ -91,12 +91,12 @@
     &-box {
       display: flex;
       width: 100%;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         flex-direction: column;
       }
       &-right {
         justify-content: flex-end;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           margin-top: 40px;
         }
       }
@@ -106,7 +106,7 @@
       &-normal {
         font-size: 36px;
         margin-right: 48px;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           margin-right: 0;
         }
       }
@@ -117,7 +117,7 @@
     }
     &-nums {
       display: flex;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         justify-content: space-between;
         margin-top: 40px;
       }
@@ -131,14 +131,14 @@
         background-color: white;
         width: 160px;
         height: 243px;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           width: 72px;
           height: 110px;
           border-radius: 3.59px;
         }
         &:not(:last-child) {
           margin-right: 30px;
-          @media (max-width: $mobileMin) {
+          @media (max-width: $mobileMax) {
             margin-right: 0;
           }
         }
@@ -149,7 +149,7 @@
           background: linear-gradient(180deg, #00A6ED 18.68%, rgba(0, 166, 237, 0.8) 50%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          @media (max-width: $mobileMin) {
+          @media (max-width: $mobileMax) {
             font-size: 64px;
           }
         }

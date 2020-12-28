@@ -5,7 +5,7 @@
   position: relative;
   padding-bottom: 290px;
   background-color: $color-base;
-  @media (max-width: $mobileMin) {
+  @media (max-width: $mobileMax) {
     flex-direction: column;
     padding-bottom: 0;
   }
@@ -16,14 +16,14 @@
         margin-top: 156px;
         color: white;
         line-height: 1.45;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           width: 100%;
           margin-top: 64px;
         }
         .first {
           &-box {
             margin-bottom: 32px;
-            @media (max-width: $mobileMin) {
+            @media (max-width: $mobileMax) {
               margin-bottom: 24px;
               text-align: center;
             }
@@ -38,7 +38,7 @@
         .second {
           &-box {
             margin-bottom: 48px;
-            @media (max-width: $mobileMin) {
+            @media (max-width: $mobileMax) {
               margin-bottom: 40px;
               text-align: center;
             }
@@ -46,7 +46,7 @@
           &-text {
             font-size: 24px;
             opacity: .7;
-            @media (max-width: $mobileMin) {
+            @media (max-width: $mobileMax) {
               font-size: 18px;
               opacity: .8;
             }
@@ -62,14 +62,14 @@
       }
       &:first-child {
         margin-right: 45px;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           margin-right: 0;
           margin-bottom: 16px;
         }
       }
       &-box {
         display: flex;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           flex-direction: column;
           align-items: center;
           margin-bottom: 64px;
@@ -83,7 +83,7 @@
         top: 180px;
         display: flex;
         flex-direction: column;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           position: relative;
           width: 100%;
           right: 0;
@@ -101,14 +101,14 @@
   &-stat {
     &-item {
       color: white;
-      @media (max-width: $mobileMin) {
+      @media (max-width: $mobileMax) {
         margin-top: 76px;
         margin-left: calc(142px - 16px);
       }
       &:not(:first-child) {
         margin-top: 32px;
         margin-left: 10px;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           margin-top: 15px;
           margin-left: calc(142px - 16px);
         }
@@ -120,7 +120,7 @@
       &-second {
         font-size: 18px;
         font-weight: 400;
-        @media (max-width: $mobileMin) {
+        @media (max-width: $mobileMax) {
           font-size: 16px;
         }
       }
