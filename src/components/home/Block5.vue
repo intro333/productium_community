@@ -1,6 +1,7 @@
 <template>
-  <div class="content-base-desktop-box content-base-desktop-box-blue">
-    <div class="content-base-desktop home-block5">
+  <div :class="['content-base-box',
+                'content-base-box-blue']">
+    <div :class="['content-base', 'home-block5']">
       <div class="counting-box">
         <span class="counting-text counting-text-normal">нас уже</span>
         <div class="counting-nums">
@@ -23,14 +24,18 @@
         </div>
       </div>
       <div class="counting-box counting-box-right">
-        <span class="counting-text counting-text-big">мы ценим каждого</span>
+        <span class="counting-text counting-text-big content-hide-mobile">мы ценим каждого</span>
+        <span class="counting-text counting-text-normal content-hide-desktop">мы ценим каждого</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import CommonMixin from "@/components/mixins/CommonMixin";
+
 export default {
   name: "Block5",
+  mixins: [CommonMixin],
 }
 </script>

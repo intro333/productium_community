@@ -1,0 +1,16 @@
+@keyframes sideMenuFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes sideMenuFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@mixin sideMenuAnimation($fade) {
+  -webkit-animation: $fade .4s;
+  -moz-animation: $fade .4s;
+  -ms-animation: $fade .4s;
+  -o-animation: $fade .4s;
+  animation: $fade .4s;
+
+}

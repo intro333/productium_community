@@ -1,6 +1,7 @@
 <template>
-  <div class="content-base-desktop-box content-base-desktop-box-blue">
-    <div class="content-base-desktop home-block7">
+  <div :class="['content-base-box',
+                'content-base-box-blue']">
+    <div :class="['content-base', 'home-block7']">
       <div class="home-block7-left">
         <div class="header-left-box header-left-box-on-blue">
           <span class="header-left-big">ready</span>
@@ -32,7 +33,10 @@
 </template>
 
 <script>
+import CommonMixin from "@/components/mixins/CommonMixin";
+
 export default {
-name: "Block7"
+  name: "Block7",
+  mixins: [CommonMixin],
 }
 </script>

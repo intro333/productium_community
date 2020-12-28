@@ -25,7 +25,24 @@
     background: $color-scroll;
   }
 }
-
+@mixin scrollbarHidden() {
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  &::-webkit-scrollbar-button { // кнопки края
+    background: #fff;
+    height: 0;
+    width: 0;
+  }
+  &::-webkit-scrollbar-track-piece { // Фон
+    background: #fff;
+  }
+  &::-webkit-scrollbar-thumb { // Динамический скролл
+    background: #fff;
+  }
+}
 
 //::-webkit-scrollbar              { /* 1 - скроллбар */ }
 //::-webkit-scrollbar-button       { /* 2 - кнопка */ }

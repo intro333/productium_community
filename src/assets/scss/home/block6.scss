@@ -6,20 +6,42 @@
   flex-direction: column;
   padding-top: 200px;
   padding-bottom: 140px;
+  @media (max-width: $mobileMax) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
   .tariff {
     &-descr1 {
       &-box {
         margin-bottom: 100px;
+        @media (max-width: $mobileMax) {
+          margin-bottom: 64px;
+        }
       }
       &-text {
+        @media (max-width: $mobileMax) {
+          text-align: center;
+        }
+        &-overlay {
+          margin-top: -6px;
+          @media (max-width: $mobileMax) {
+            margin-top: -2px;
+          }
+        }
         &__normal {
           font-size: 24px;
           color: #333333;
+          @media (max-width: $mobileMax) {
+            font-size: 16px;
+          }
         }
         &__big {
           font-size: 48px;
           font-weight: bold;
           color: black;
+          @media (max-width: $mobileMax) {
+            font-size: 24px;
+          }
           &-blue {
             color: $color-base;
           }
@@ -29,9 +51,16 @@
     &-descr2 {
       &-box {
         margin-top: 200px;
+        @media (max-width: $mobileMax) {
+          margin-top: 100px;
+        }
       }
       &-text {
         font-size: 36px;
+        @media (max-width: $mobileMax) {
+          font-size: 24px;
+          text-align: center;
+        }
         color: black;
         &__bold {
           font-weight: bold;
@@ -46,6 +75,17 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
+      @media (max-width: $mobileMax) {
+        justify-content: center;
+      }
+      @media (max-width: 878px) {
+        justify-content: space-between;
+      }
+      &-mobile {
+        display: flex;
+        width: 830px;
+        padding: 0 16px;
+      }
       &-item {
         box-sizing: border-box;
         display: flex;
@@ -56,6 +96,14 @@
         border-radius: 40px;
         border: 2px solid $color-base;
         padding: 24px 32px;
+        @media (max-width: $mobileMax) {
+          width: 261px;
+          height: 480px;
+          padding: 24px 24px 16px;
+          &:not(:last-child) {
+            margin-right: 24px;
+          }
+        }
         &.disabled {
           border: 2px solid $color-block-2;
         }
@@ -70,6 +118,10 @@
           .p-button-fill2 {
             width: 270px;
             height: 52px;
+            @media (max-width: $mobileMax) {
+              width: 202px;
+              height: 38px;
+            }
           }
         }
         &-title {
@@ -77,15 +129,24 @@
           font-weight: 900;
           text-align: center;
           color: $color-base;
+          @media (max-width: $mobileMax) {
+            font-size: 24px;
+          }
         }
         &-cost {
           color: $color-base;
           &-big {
             font-size: 48px;
             font-weight: 600;
+            @media (max-width: $mobileMax) {
+              font-size: 32px;
+            }
           }
           &-normal {
             font-size: 24px;
+            @media (max-width: $mobileMax) {
+              font-size: 14px;
+            }
           }
           &-description {
             height: 38px;
@@ -94,6 +155,11 @@
             margin-top: 8px;
             margin-bottom: 32px;
             text-align: center;
+            @media (max-width: $mobileMax) {
+              margin-bottom: 24px;
+              font-size: 12px;
+              height: 30px;
+            }
           }
         }
       }
@@ -107,6 +173,9 @@
           opacity: 1;
           &:not(:last-child) {
             margin-bottom: 16px;
+            @media (max-width: $mobileMax) {
+              margin-bottom: 8px;
+            }
           }
           &-img {
             width: 8px;
@@ -119,6 +188,9 @@
           &-text {
             font-size: 14px;
             font-weight: 400;
+            @media (max-width: $mobileMax) {
+              font-size: 12px;
+            }
           }
           .t-bold {
             font-weight: 600;

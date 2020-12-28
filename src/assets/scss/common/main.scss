@@ -1,4 +1,5 @@
 @import "../mixins/common";
+@import "../mixins/animation";
 @import "colors";
 @import "displays";
 
@@ -25,38 +26,97 @@ span {
 }
 .content {
   &-base {
-    @media (min-width: $desktopMax) {
-
-    }
-    &-desktop {
-      box-sizing: border-box;
-      min-width: 1366px;
-      max-width: 1366px;
-      padding-left: 128px;
-      padding-right: 128px;
-      background-color: #ffffff;
-      &-box {
+    box-sizing: border-box;
+    min-width: 1366px;
+    max-width: 1366px;
+    padding-left: 128px;
+    padding-right: 128px;
+    background-color: #ffffff;
+    &-box {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      @media (max-width: $desktopMax) {
+        justify-content: flex-start;
+      }
+      @media (max-width: $mobileMax) {
         display: flex;
         justify-content: center;
         width: 100%;
-        @media (max-width: $desktopMax) {
-          justify-content: flex-start;
-        }
-        &-blue {
-          background-color: $color-base;
+        &-white {
+          background-color: white;
         }
       }
-      &-footer {
-        background-color: $color-head;
+      &-blue {
+        background-color: $color-base;
+      }
+    }
+    &-footer {
+      background-color: $color-head;
+    }
+    @media (max-width: $mobileMax) { /* MOBILE CONTENT */
+      min-width: 320px;
+      max-width: 375px;
+      padding-left: 16px;
+      padding-right: 16px;
+      width: 100%;
+      .mdi-menu {
+        width: 28px;
+        height: 24px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &-outside {
+        max-width: 414px;
+        width: 100%;
+      }
+    }
+  }
+  &-hide {
+    &-desktop {
+      @media (min-width: $mobileMax) {
+        display: none !important;
+      }
+    }
+    &-mobile {
+      @media (max-width: $mobileMin) {
+        display: none !important;
       }
     }
   }
 }
 .rocket-img {
-  background-image: url('../../assets/img/home/rocket.png');
+  background-image: url('../../assets/img/home/rocket2.png');
   background-repeat: no-repeat;
   //background-attachment: fixed;
-  background-position: center center;
+  //background-position: center center;
+  background-position: top 0 right 48%;
+  @media (max-width: $mobileMax) {
+    background-image: url('../../assets/img/mobile/rocketOff.svg');
+    background-repeat: no-repeat;
+    background-position: bottom -10% left -5%;
+  }
+  @media (max-width: $rocketMax) {
+    background-image: url('../../assets/img/mobile/rocketMobile.png');
+    background-repeat: no-repeat;
+    background-position: bottom -9% left 69%;
+  }
+  &-back {
+    background-image: url('../../assets/img/home/rocket2.png');
+    background-repeat: no-repeat;
+    //background-attachment: fixed;
+    //background-position: center center;
+    background-position: top 0 right 48%;
+    @media (max-width: $mobileMax) {
+      background-image: none;
+    }
+    @media (max-width: $rocketMax) {
+      background-image: url('../../assets/img/mobile/rocketMobile.png');
+      background-repeat: no-repeat;
+      background-position: bottom -9% left 69%;
+    }
+  }
 }
 
 .p-home {
@@ -88,6 +148,19 @@ span {
         }
       }
     }
+    &-mobile {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      background-color: $color-base;
+    }
+  }
+  &.modal-open {
+    &-mobile {
+      position: fixed;
+    }
   }
 }
 .p-top {
@@ -103,6 +176,10 @@ span {
     &-img {
       width: 11px;
       height: 16px;
+      &12 {
+        width: 12.51px;
+        height: 18.29px;
+      }
     }
     &-text {
       font-size: 18px;
@@ -123,6 +200,16 @@ span {
         color: white !important;
         padding: 0 4px;
       }
+    }
+  }
+}
+.content-base-mobile {
+  .p-top-logo {
+    &-box {
+      height: 32px;
+    }
+    &-text {
+      font-size: 20.48px;
     }
   }
 }
@@ -181,7 +268,7 @@ span {
       }
     }
     &-disabled {
-      background-color: rgb(0, 0, 0, .3) !important;
+      background-color: rgb(0, 0, 0, .1) !important;
       .p-button-text {
         color: white !important;
       }
@@ -205,6 +292,11 @@ span {
       display: flex;
       flex-direction: column;
       width: 715px;
+      @media (max-width: $mobileMax) {
+        width: 100%;
+        margin-top: 11px;
+        align-items: flex-start;
+      }
       &-on-blue {
         .header-left-big {
           color: white;
@@ -219,18 +311,35 @@ span {
       font-weight: bold;
       color: $color-base;
       opacity: .2;
+      @media (max-width: $mobileMax) {
+        font-size: 36px;
+        text-align: center;
+      }
     }
     &-little {
       font-size: 24px;
       color: black;
       margin-left: 85px;
       margin-top: -20px;
+      @media (max-width: $mobileMax) {
+        font-size: 16px;
+        text-align: center;
+        margin-left: 0;
+        margin-top: -9px;
+      }
       &2 {
         margin-left: 161px;
+        @media (max-width: $mobileMax) {
+          margin-left: 67px;
+        }
       }
       &3 {
         margin-left: 95px;
         margin-top: -14px;
+        @media (max-width: $mobileMax) {
+          margin-left: 19px;
+          margin-top: -8px;
+        }
       }
     }
   }
@@ -259,12 +368,23 @@ span {
   justify-content: center;
   align-items: center;
   padding: 16px 0;
+  @media (max-width: $mobileMax) {
+    padding: 16px;
+    width: auto;
+  }
   &-center {
     width: 815px;
     display: grid;
     grid-template-columns: auto 180px;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: $mobileMax) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
   }
   &-text {
     color: white;
@@ -274,6 +394,13 @@ span {
     width: 148px;
     height: 34px;
     margin-left: 32px;
+    @media (max-width: $mobileMax) {
+      margin-left: 0;
+      margin-top: 16px;
+    }
+    &:hover {
+      border: 1px solid white;
+    }
   }
 }
 
@@ -306,5 +433,125 @@ span {
     display: grid;
     grid-template-columns: 570px auto;
     @include central-modal-shadow(.25);
+    @media (max-width: $mobileMax) {
+      width: 328px;
+      height: 490px;
+      display: flex;
+      z-index: 11;
+    }
   }
+}
+.side-menu {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  background-color: white;
+  &-content {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 58px;
+  }
+  &-item {
+    font-size: 18px;
+    color: black;
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &-close {
+    &-box {
+      position: absolute;
+      z-index: 12;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 20px;
+      right: 18px;
+      width: 24px;
+      height: 24px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    width: 24px;
+    height: 24px;
+  }
+  &-social {
+    margin-bottom: 16px;
+    &-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 32px;
+    }
+    &-item {
+      width: 29.5px;
+      height: 29.5px;
+      &:not(:last-child) {
+        margin-right: 19.67px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &-logo {
+    &-box {
+      position: relative;
+      justify-content: center;
+      display: flex;
+      align-content: center;
+      &:hover {
+        cursor: pointer;
+      }
+      .prod-point {
+        right: -4px;
+      }
+    }
+    &-img {
+      width: 17.96px;
+      height: 26.66px;
+    }
+    &-text {
+      font-size: 28.91px;
+      color: black;
+      &-small {
+        font-weight: 100;
+      }
+    }
+  }
+  &.fade-in {
+    @include sideMenuAnimation('sideMenuFadeIn');
+  }
+  &.fade-out {
+    @include sideMenuAnimation('sideMenuFadeOut');
+  }
+}
+
+.block-scroll-container {
+  width: 100%;
+  overflow-y: hidden;
+}
+.scrollbar-hidden {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; // https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width
+  @include scrollbarHidden();
 }

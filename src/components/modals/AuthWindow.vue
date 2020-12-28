@@ -1,12 +1,11 @@
 <template>
   <div>
-    <!-- ОКНО авторизаии/регистрации DESKTOP -->
-    <div v-if="!isMobile()"
-         class="p-modal">
+    <div class="p-modal">
       <div class="p-modal-background"
            @click="close"></div>
       <div class="p-modal-auth">
-        <div class="p-auth-info">
+        <div v-if="!isMobileByResize || (isMobileByResize && sentState === sentS.NOT_SENT)"
+             class="p-auth-info">
           <div class="p-auth-info-first">
             <div class="p-top-logo-box">
               <img src="@/assets/img/logo/logo_black.svg"
@@ -19,7 +18,7 @@
             </div>
             <div class="p-auth-fields">
               <div class="p-auth-fields-item">
-                <label class="p-auth-fields-label">Имя</label>
+                <label class="p-auth-fields-label content-hide-mobile">Имя</label>
                 <input @input="changeField('name')"
                        v-model="subscribeInfo.name"
                        class="p-auth-fields-input"
@@ -28,13 +27,13 @@
                       class="p-auth-fields-error">Введите имя</span>
               </div>
               <div class="p-auth-fields-item">
-                <label class="p-auth-fields-label">e-mail</label>
+                <label class="p-auth-fields-label content-hide-mobile">e-mail</label>
                 <input @input="changeField('email')"
                        v-model="subscribeInfo.email"
                        class="p-auth-fields-input"
-                       placeholder="Введите почту">
+                       placeholder="Введите e-mail">
                 <span v-if="emailIsNotValid"
-                      class="p-auth-fields-error">Проверьте правильно ли введена почта</span>
+                      class="p-auth-fields-error">Проверьте правильно ли введен e-mail</span>
               </div>
             </div>
             <div class="p-auth-tariff">
@@ -76,7 +75,7 @@
                    class="p-button-loader"
                    alt="">
             </div>
-            <div @click="subscribeInfo.isAgreement = !subscribeInfo.isAgreement"
+            <div @click="clickOnAgreement()"
                  class="p-auth-submit-agreement">
               <div class="p-agreement-checkbox"
                    :class="{active: subscribeInfo.isAgreement}">
@@ -100,7 +99,20 @@
             <span class="sent-text sent-text-error">{{sentText}}</span>
           </div>
         </div>
-        <div class="p-auth-go">
+        <div v-if="!isMobileByResize || (isMobileByResize && sentState !== sentS.NOT_SENT)"
+             class="p-auth-go">
+          <div class="p-auth-go-sent-message content-hide-desktop">
+            <div v-if="sentState === sentS.SENT"
+                 class="p-auth-go-second-sent">
+              <p class="sent-text">Письмо с информацией </p>
+              <p class="sent-text sent-text-bold">отправлено на почту</p>
+            </div>
+            <div v-if="sentState === sentS.SENT_ERROR"
+                 class="p-auth-go-second-sent">
+              <p class="sent-text">Ошибка отправки </p>
+              <p class="sent-text sent-text-bold sent-text-bold-error">попробуйте ещё раз</p>
+            </div>
+          </div>
           <p class="p-auth-go-text">ПОЕХАЛИ!</p>
           <img src="@/assets/img/auth/astronaut.svg"
                class="p-auth-go-img"
@@ -108,16 +120,14 @@
         </div>
         <div @click="close"
              class="p-auth-close-box">
+          <img src="@/assets/img/mobile/closeBlack.svg"
+               class="p-auth-close content-hide-desktop"
+               alt="">
           <img src="@/assets/img/auth/close.svg"
-               class="p-auth-close"
+               class="p-auth-close content-hide-mobile"
                alt="">
         </div>
       </div>
-    </div>
-
-    <!-- ОКНО авторизаии/регистрации MOBILE -->
-    <div v-if="isMobile()">
-
     </div>
   </div>
 </template>
@@ -144,10 +154,16 @@ export default {
     },
     sentState: sentState.NOT_SENT,
     sentText: '',
-    isSending: false
+    isSending: false,
+    browW: 0
   }),
+  mounted() {
+    window.addEventListener('resize', this.browserResize);
+    this.browW = document.documentElement.clientWidth;
+  },
   beforeDestroy() {
     this.sentText = '';
+    window.removeEventListener('resize', this.browserResize);
   },
   computed: {
     nameIsNotValid() {
@@ -162,10 +178,14 @@ export default {
     sentS() {
       return sentState;
     },
+    isMobileByResize() {
+      return this.browW <= 1023;
+    },
   },
   methods: {
     ...mapActions(['setOpenAuthWindowState', 'subscribe']),
     close() {
+      this.bodyLock(false);
       this.setOpenAuthWindowState(false);
     },
     changeField(field) {
@@ -177,14 +197,21 @@ export default {
       this.subscribeInfo.isAgreement = false;
       Object.keys(this.checkSubmit).forEach(_k => { this.checkSubmit[_k] = false });
     },
+    clickOnAgreement() {
+      this.subscribeInfo.isAgreement = !this.subscribeInfo.isAgreement;
+      Object.keys(this.checkSubmit).forEach(_k => { this.checkSubmit[_k] = true });
+    },
+    browserResize() {
+      this.browW = document.documentElement.clientWidth;
+    },
     submit() {
       if (this.submitValidation && !this.isSending) {
         this.isSending = true;
-        this.clearSubmitData();
         this.subscribe(this.subscribeInfo).then(() => {
           this.isSending = false;
           this.sentText = 'Письмо с информацией отправлено на почту';
           this.sentState = sentState.SENT;
+          this.clearSubmitData();
         }).catch(err => {
           this.isSending = false;
           this.sentText = 'Не удалось отправить письмо, попобуйте ещё раз.';

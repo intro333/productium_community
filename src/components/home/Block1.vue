@@ -1,22 +1,30 @@
 <template>
-  <div class="content-base-desktop-box content-base-desktop-box-blue rocket-img">
-    <div class="content-base-desktop home-block1 rocket-img">
+  <div :class="['content-base-box',
+                'content-base-box-blue',
+                'rocket-img-back']">
+    <div :class="['content-base', 'home-block1', 'rocket-img']">
       <div class="p-banner-text-box">
         <div class="first-box">
-          <span class="first-text1">Мы </span>
-          <span class="first-text2">набираем первую тысячу </span>
-          <p class="first-text3">пользователей Productium</p>
+          <span class="first-text">Мы </span>
+          <span class="first-text first-text-bold">набираем первую тысячу </span>
+          <p class="first-text">пользователей Productium</p>
         </div>
-        <div class="second-box">
+        <div class="second-box content-hide-mobile">
           <p class="second-text">получи бесплатный доступ к Premium пакету </p>
           <p class="second-text">и войди в комьюнити сервиса Productium</p>
+        </div>
+        <div class="second-box content-hide-desktop">
+          <p class="second-text">получи бесплатный доступ к</p>
+          <p class="second-text"> Premium пакету и войди в </p>
+          <p class="second-text">комьюнити сервиса Productium</p>
         </div>
       </div>
       <div class="p-banner-button-box">
         <div class="p-button p-button-rounded p-button-fill p-button-fill1 p-banner-button">
           <span class="p-button-text">Premium бесплатно</span>
         </div>
-        <div class="p-button p-button-rounded p-button-rounded1 p-button-rounded2 p-banner-button">
+        <div @click="scrollToBlock('homeBlock2')"
+             class="p-button p-button-rounded p-button-rounded1 p-button-rounded2 p-banner-button">
           <span class="p-button-text">Подробнее</span>
         </div>
       </div>
@@ -35,8 +43,10 @@
 </template>
 
 <script>
+import CommonMixin from "@/components/mixins/CommonMixin";
+
 export default {
   name: "Block1",
-
+  mixins: [CommonMixin],
 }
 </script>
