@@ -7,6 +7,11 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, $opacity);
   border-radius: 20px;
 }
+@mixin video-shadow($opacity) {
+  --webkit-box-shadow: 0 0 10px 0px rgba(0, 0, 0, $opacity);
+  -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, $opacity);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, $opacity);
+}
 
 /* SCROLL */
 @mixin scrollDivHoriz() {

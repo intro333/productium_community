@@ -1,5 +1,6 @@
 @import "../common/colors";
 @import "../common/displays";
+@import "../mixins/common";
 
 .home-block2 {
   position: relative;
@@ -49,12 +50,13 @@
       }
     }
     &-right {
-      width: 560px;
+      width: 540px;
       //height: 538px;
-      background-color: rgb(196, 196, 196, .2);
+      //background-color: rgb(196, 196, 196, .2);
       display: flex;
       justify-content: center;
       align-items: center;
+      //@include video-shadow(.25);
       @media (max-width: $mobileMax) {
         width: 100%;
         //height: 360px;

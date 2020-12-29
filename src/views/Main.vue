@@ -20,12 +20,27 @@ export default {
   computed: {
 
   },
-  created() {
-
+  mounted() {
+    window.addEventListener('resize', this.browserResize);
+    const browSize = document.documentElement;
+    this.setBrowserSize({
+      width: browSize.clientWidth,
+      height: browSize.clientHeight
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.browserResize);
   },
   methods: {
-    ...mapActions(['setCookieIsAssented']),
+    ...mapActions(['setCookieIsAssented', 'setBrowserSize']),
     ...mapGetters(['getCookieIsAssented', 'getOpenAuthWindowState']),
+    browserResize() {
+      const browSize = document.documentElement;
+      this.setBrowserSize({
+        width: browSize.clientWidth,
+        height: browSize.clientHeight
+      });
+    },
   },
 }
 </script>

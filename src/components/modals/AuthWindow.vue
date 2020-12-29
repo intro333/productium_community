@@ -134,7 +134,7 @@
 
 <script>
 import CommonMixin from "@/components/mixins/CommonMixin";
-import {mapActions} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 import {emailValidation} from "@/functions/validation";
 import {sentState} from "@/data/consts";
 
@@ -154,16 +154,10 @@ export default {
     },
     sentState: sentState.NOT_SENT,
     sentText: '',
-    isSending: false,
-    browW: 0
+    isSending: false
   }),
-  mounted() {
-    window.addEventListener('resize', this.browserResize);
-    this.browW = document.documentElement.clientWidth;
-  },
   beforeDestroy() {
     this.sentText = '';
-    window.removeEventListener('resize', this.browserResize);
   },
   computed: {
     nameIsNotValid() {
@@ -181,9 +175,13 @@ export default {
     isMobileByResize() {
       return this.browW <= 1023;
     },
+    browW() {
+      return this.getBrowserSize();
+    },
   },
   methods: {
     ...mapActions(['setOpenAuthWindowState', 'subscribe']),
+    ...mapGetters(['getBrowserSize']),
     close() {
       this.bodyLock(false);
       this.setOpenAuthWindowState(false);
@@ -200,9 +198,6 @@ export default {
     clickOnAgreement() {
       this.subscribeInfo.isAgreement = !this.subscribeInfo.isAgreement;
       Object.keys(this.checkSubmit).forEach(_k => { this.checkSubmit[_k] = true });
-    },
-    browserResize() {
-      this.browW = document.documentElement.clientWidth;
     },
     submit() {
       if (this.submitValidation && !this.isSending) {
