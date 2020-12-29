@@ -176,7 +176,7 @@ export default {
       return this.browW <= 1023;
     },
     browW() {
-      return this.getBrowserSize();
+      return this.getBrowserSize().width;
     },
   },
   methods: {

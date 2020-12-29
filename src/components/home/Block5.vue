@@ -53,7 +53,6 @@ export default {
         if (y >= blockCenter) {
           this.changeFlipValue();
         }
-        console.log(1, blockCenter);
       }
       return y;
     },
