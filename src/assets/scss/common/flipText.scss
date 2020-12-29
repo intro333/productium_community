@@ -1,0 +1,150 @@
+@import "../mixins/common";
+@import "../mixins/animation";
+@import "colors";
+@import "displays";
+
+/* FLIP */
+.flip {
+  display: inline-block;
+  position: relative;
+  line-height: 100px;
+  font-size: 66px;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(5, 25, 35, 0.5);
+  border-radius: 8px;
+  width: 160px;
+  height: 243px;
+  @media (max-width: $mobileMax) {
+    width: 72px;
+    height: 110px;
+    border-radius: 3.59px;
+  }
+  &-number-item {
+    &:not(:last-child) {
+      margin-right: 30px;
+      @media (max-width: $mobileMax) {
+        margin-right: 13px;
+      }
+    }
+  }
+}
+.flip .digital:before,
+.flip .digital:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: white;
+  overflow: hidden;
+  //box-sizing: border-box;
+}
+.flip .digital:before {
+  top: 67px;
+  padding-top: 5px;
+  bottom: 50%;
+  border-radius: 8px 8px 0 0;
+  border-bottom: solid 2px rgb(1, 133, 191, .6);
+  @media (max-width: $mobileMax) {
+    top: 0;
+  }
+}
+.flip .digital:after {
+  top: 50%;
+  bottom: 0;
+  border-radius: 0 0 8px 8px;
+  line-height: 0;
+}
+/*向下翻*/
+.flip.down .front:before {
+  z-index: 3;
+}
+.flip.down .back:after {
+  z-index: 2;
+  transform-origin: 50% 0%;
+  transform: perspective(240px) rotateX(180deg);
+}
+.flip.down .front:after,
+.flip.down .back:before {
+  z-index: 1;
+}
+.flip.down.go .front:before {
+  transform-origin: 50% 100%;
+  animation: frontFlipDown 0.6s ease-in-out both;
+  box-shadow: 0 -2px 6px rgba(255, 255, 255, 0.3);
+  backface-visibility: hidden;
+}
+.flip.down.go .back:after {
+  animation: backFlipDown 0.6s ease-in-out both;
+}
+/*向上翻*/
+.flip.up .front:after {
+  z-index: 3;
+}
+.flip.up .back:before {
+  z-index: 2;
+  transform-origin: 50% 100%;
+  transform: perspective(240px) rotateX(-180deg);
+}
+.flip.up .front:before,
+.flip.up .back:after {
+  z-index: 1;
+}
+.flip.up.go .front:after {
+  transform-origin: 50% 0;
+  animation: frontFlipUp 0.6s ease-in-out both;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.3);
+  backface-visibility: hidden;
+}
+.flip.up.go .back:before {
+  animation: backFlipUp 0.6s ease-in-out both;
+}
+
+.flip .number:before, .flip .number:after  {
+  font-size: 144px;
+  font-weight: bold;
+  color: $color-base;
+  @media (max-width: $mobileMax) {
+    font-size: 64px;
+  }
+}
+.flip .number0:before,
+.flip .number0:after {
+  content: '0';
+}
+.flip .number1:before,
+.flip .number1:after {
+  content: '1';
+}
+.flip .number2:before,
+.flip .number2:after {
+  content: '2';
+}
+.flip .number3:before,
+.flip .number3:after {
+  content: '3';
+}
+.flip .number4:before,
+.flip .number4:after {
+  content: '4';
+}
+.flip .number5:before,
+.flip .number5:after {
+  content: '5';
+}
+.flip .number6:before,
+.flip .number6:after {
+  content: '6';
+}
+.flip .number7:before,
+.flip .number7:after {
+  content: '7';
+}
+.flip .number8:before,
+.flip .number8:after {
+  content: '8';
+}
+.flip .number9:before,
+.flip .number9:after {
+  content: '9';
+}

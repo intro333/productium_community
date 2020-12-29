@@ -118,8 +118,12 @@
     &-nums {
       display: flex;
       @media (max-width: $mobileMax) {
-        justify-content: space-between;
+        justify-content: center;
         margin-top: 40px;
+      }
+      @media (max-width: 380px) {
+        justify-content: flex-start;
+        width: 330px;
       }
       &-item {
         position: relative;
@@ -139,16 +143,16 @@
         &:not(:last-child) {
           margin-right: 30px;
           @media (max-width: $mobileMax) {
-            margin-right: 0;
+            margin-right: 13px;
           }
         }
         &-number {
           font-size: 144px;
           font-weight: bold;
           color: $color-base;
-          background: linear-gradient(180deg, #00A6ED 18.68%, rgba(0, 166, 237, 0.8) 50%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          //background: linear-gradient(180deg, #00A6ED 18.68%, rgba(0, 166, 237, 0.8) 50%);
+          //-webkit-background-clip: text;
+          //-webkit-text-fill-color: transparent;
           @media (max-width: $mobileMax) {
             font-size: 64px;
           }

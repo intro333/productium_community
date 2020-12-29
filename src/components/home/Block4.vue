@@ -1,5 +1,5 @@
 <template>
-  <div :class="['content-base-box']">
+  <div :class="['content-base-box', 'scrollbar-hidden block-scroll-container']">
     <div :class="['content-base', 'home-block4']" id="homeBlock4">
       <div class="header-left-box">
         <span class="header-left-big">pre-start</span>

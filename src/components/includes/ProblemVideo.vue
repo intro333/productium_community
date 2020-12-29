@@ -4,9 +4,8 @@
 <!--            src="https://www.youtube.com/embed/2DsDvnzlICE"-->
 <!--            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"-->
 <!--    ></iframe>-->
-    <!-- TODO убрать +55 к ширине видео (сделал потому, что видео само с отступами) -->
     <video id="video"
-           :width="(browW < 540) ? (browW + 55) : (540 + 55)"
+           :width="(browW < 540) ? browW : 540"
            loop
            autoplay
            muted

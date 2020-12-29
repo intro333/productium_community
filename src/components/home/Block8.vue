@@ -1,5 +1,5 @@
 <template>
-  <div :class="['content-base-box']">
+  <div :class="['content-base-box', 'scrollbar-hidden block-scroll-container']">
     <div :class="['content-base', 'home-block8']" id="homeBlock8">
       <div class="subscribe-send-box">
         <div class="subscribe-send-text">

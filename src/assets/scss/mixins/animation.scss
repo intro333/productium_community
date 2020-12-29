@@ -14,3 +14,36 @@
   animation: $fade .4s;
 
 }
+
+@keyframes frontFlipDown {
+  0% {
+    transform: perspective(240px) rotateX(0deg);
+  }
+  100% {
+    transform: perspective(240px) rotateX(-180deg);
+  }
+}
+@keyframes backFlipDown {
+  0% {
+    transform: perspective(240px) rotateX(180deg);
+  }
+  100% {
+    transform: perspective(240px) rotateX(0deg);
+  }
+}
+@keyframes frontFlipUp {
+  0% {
+    transform: perspective(240px) rotateX(0deg);
+  }
+  100% {
+    transform: perspective(240px) rotateX(180deg);
+  }
+}
+@keyframes backFlipUp {
+  0% {
+    transform: perspective(240px) rotateX(-180deg);
+  }
+  100% {
+    transform: perspective(240px) rotateX(0deg);
+  }
+}

@@ -12,12 +12,14 @@ export default new Vuex.Store({
     browserSize: {
       width: 0,
       height: 0,
-    }
+    },
+    pageYOffset: 0 // scroll of window
   },
   getters: {
     getCookieIsAssented: state => state.cookieIsAssented,
     getOpenAuthWindowState: state => state.isOpenAuthWindow,
     getBrowserSize: state => state.browserSize,
+    getPageYOffset: state => state.pageYOffset,
   },
   actions: {
     setCookieIsAssented({commit}, status) {
@@ -55,6 +57,9 @@ export default new Vuex.Store({
     setBrowserSize({commit}, browserSize) {
       commit('SET_BROWSER_SIZE', browserSize);
     },
+    setPageYOffset({commit}, value) {
+      commit('SET_PAGE_Y_OFFSET', value);
+    },
   },
   mutations: {
     SET_COOKIE_IS_ASSENTED(state, status) {
@@ -65,6 +70,7 @@ export default new Vuex.Store({
     SUBSCRIBE(state, info) { state.subscribeInfo = info; },
     INFORM_ON_READINESS(state, email) { state.informOnReadinessEmail = email; },
     SET_BROWSER_SIZE(state, browserSize) { state.browserSize = browserSize; },
+    SET_PAGE_Y_OFFSET(state, value) { state.pageYOffset = value; },
   },
   modules: {
 

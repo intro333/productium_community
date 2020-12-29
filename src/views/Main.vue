@@ -17,6 +17,9 @@ export default {
     CookieModal,
     AuthWindow,
   },
+  data: () => ({
+    isScrolling: false
+  }),
   computed: {
 
   },
@@ -27,12 +30,13 @@ export default {
       width: browSize.clientWidth,
       height: browSize.clientHeight
     });
+    window.addEventListener('scroll', this.handleScroll);
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.browserResize);
   },
   methods: {
-    ...mapActions(['setCookieIsAssented', 'setBrowserSize']),
+    ...mapActions(['setCookieIsAssented', 'setBrowserSize', 'setPageYOffset']),
     ...mapGetters(['getCookieIsAssented', 'getOpenAuthWindowState']),
     browserResize() {
       const browSize = document.documentElement;
@@ -41,6 +45,16 @@ export default {
         height: browSize.clientHeight
       });
     },
+    handleScroll() {
+      const self = this;
+      window.clearTimeout( this.isScrolling );
+      self.isScrolling = setTimeout(function() {
+        const pageYOffset = window.pageYOffset;
+        if (document.body.className.indexOf('modal-open') === -1) { /* Если body разлочен */
+          self.setPageYOffset(pageYOffset);
+        }
+      }, 66);
+    }
   },
 }
 </script>
