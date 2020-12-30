@@ -23,7 +23,11 @@
                  alt="">
           </div>
           <span v-if="emailIsNotValid"
-                class="subscribe-send-input-error">Проверка e-mail</span>
+                class="subscribe-send-input-message subscribe-send-input-error">Проверка e-mail</span>
+          <span v-if="emailIsSendMessage !== ''"
+                class="subscribe-send-input-message"
+                :class="[emailIsSendMessageIsError ? 'subscribe-send-input-error' : 'subscribe-send-input-success']"
+          >{{emailIsSendMessage}}</span>
         </div>
       </div>
       <p class="subscribe-descr">
@@ -74,7 +78,9 @@ export default {
       email: false,
     },
     email: '',
-    isSending: false
+    isSending: false,
+    emailIsSendMessage: '',
+    emailIsSendMessageIsError: false
   }),
   computed: {
     emailIsNotValid() {
@@ -88,11 +94,14 @@ export default {
     ...mapActions(['informOnReadiness']),
     changeField(field) {
       this.checkSubmit[field] = true;
-      if (this.email !== '') {
-        this.checkSubmit[field] = true;
-      } else {
-        this.checkSubmit[field] = false;
-      }
+      this.checkSubmit[field] = this.email !== '';
+    },
+    setEmailIsSendMessage(message) {
+      this.emailIsSendMessage = message;
+      setTimeout(() => {
+        this.emailIsSendMessage = '';
+        this.emailIsSendMessageIsError = false;
+      }, 2000);
     },
     submit() {
       if (this.email !== '') {
@@ -102,10 +111,12 @@ export default {
             this.email = '';
             this.isSending = false;
             this.checkSubmit.email = false;
-            // TODO Как оповестить, что письмо отправлено (или нет в случае ошибки сервера)
+            this.setEmailIsSendMessage('Письмо отправлено на Ваш e-mail.');
           }).catch(() => {
             this.isSending = false;
             this.checkSubmit.email = false;
+            this.setEmailIsSendMessage('Ошибка отправки письма, попробуйте ещё раз.');
+            this.emailIsSendMessageIsError = true;
           });
         }
       } else {

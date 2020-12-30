@@ -6,7 +6,8 @@
               class="p-footer-menu-item">Регистрация</span>
         <span @click="scrollToBlock('homeBlock6')"
               class="p-footer-menu-item">Тарифы</span>
-        <span class="p-footer-menu-item">Бета-версия</span>
+        <span @click="openProductium()"
+              class="p-footer-menu-item">Бета-версия</span>
         <span @click="scrollToBlock('homeBlock4')"
               class="p-footer-menu-item">Сообщество</span>
         <span @click="scrollToBlock('homeBlock2')"

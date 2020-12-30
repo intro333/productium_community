@@ -20,9 +20,6 @@ export default {
   data: () => ({
     isScrolling: false
   }),
-  computed: {
-
-  },
   mounted() {
     window.addEventListener('resize', this.browserResize);
     const browSize = document.documentElement;
@@ -34,6 +31,7 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.browserResize);
+    window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
     ...mapActions(['setCookieIsAssented', 'setBrowserSize', 'setPageYOffset']),

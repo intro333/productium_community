@@ -7,7 +7,7 @@
           <span class="header-left-little">устал от кучи скриншотов с правками, метками и постоянным вопросом как это систематизировать?</span>
         </div>
         <div class="problem-video-box content-hide-mobile">
-          <ProblemSolveText />
+          <ProblemSolveText :action="openProductium" />
           <ProblemVideo width="540" height="538" />
         </div>
       </div>
@@ -16,7 +16,7 @@
       <ProblemVideo width="375" height="360" />
       <div :class="['content-base-box']">
         <div :class="['content-base', 'home-block2']">
-          <ProblemSolveText />
+          <ProblemSolveText :action="openProductium" />
         </div>
       </div>
     </div>

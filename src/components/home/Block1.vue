@@ -20,12 +20,13 @@
         </div>
       </div>
       <div class="p-banner-button-box">
-        <div class="p-button p-button-rounded p-button-fill p-button-fill1 p-banner-button">
+        <div @click="scrollToBlock('homeBlock6')"
+             class="p-button p-button-rounded p-button-fill p-button-fill1 p-banner-button">
           <span class="p-button-text">Premium бесплатно</span>
         </div>
-        <div @click="scrollToBlock('homeBlock2')"
+        <div @click="openProductium()"
              class="p-button p-button-rounded p-button-rounded1 p-button-rounded2 p-banner-button">
-          <span class="p-button-text">Подробнее</span>
+          <span class="p-button-text">Бета-версия</span>
         </div>
       </div>
       <div class="p-banner-stat-box">

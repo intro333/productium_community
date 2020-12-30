@@ -41,7 +41,10 @@ export default {
           behavior: 'smooth'
         });
       }
-    }
+    },
+    openProductium() {
+      window.open('http://productium.org/', '_blank');
+    },
   }
 }
 </script>

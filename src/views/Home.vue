@@ -14,11 +14,12 @@
         <div class="p-top-right">
           <span @click="scrollToBlock('homeBlock2')"
                 class="p-top-right-item-text">Возможности</span>
-          <span class="p-top-right-item-text">Бета-версия</span>
-          <div @click="openAuthModal()"
+          <span @click="scrollToBlock('homeBlock4')"
+                class="p-top-right-item-text">Этапы</span>
+          <div @click="scrollToBlock('homeBlock6')"
                class="p-button p-button-rounded p-button-rounded1"
                style="margin-left: 50px;">
-            <span class="p-button-text">Войти в комьюнити</span>
+            <span class="p-button-text">Начать бесплатно</span>
           </div>
         </div>
       </div>
@@ -61,7 +62,8 @@
                 class="side-menu-item">Регистрация</span>
             <span  @click="scrollToBlockOnMobile('homeBlock6')"
                    class="side-menu-item">Тарифы</span>
-            <span class="side-menu-item">Бета-версия</span>
+            <span @click="openProductium()"
+                  class="side-menu-item">Бета-версия</span>
             <span @click="scrollToBlockOnMobile('homeBlock4')"
                   class="side-menu-item">Сообщество</span>
             <span @click="scrollToBlockOnMobile('homeBlock2')"

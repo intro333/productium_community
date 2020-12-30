@@ -4,7 +4,7 @@
     <p class="tariff-descr2-text">
       <span class="tariff-descr2-text tariff-descr2-text__bold">Productium </span>
       <span class="tariff-descr2-text tariff-descr2-text__blue">community </span>
-      <span class="tariff-descr2-text"> откроет для вас</span>
+      <span class="tariff-descr2-text">откроет для вас</span>
     </p>
     <p class="tariff-descr2-text"
        style="margin-top: -6px;">новые возможности экономии времени</p>

@@ -92,12 +92,17 @@
             }
           }
         }
-        &-error {
+        &-message {
           position: absolute;
-          bottom: -16px;
+          bottom: -17px;
           margin-left: 24px;
-          font-size: 10px;
+          font-size: 12px;
+        }
+        &-error {
           color: $color-status-error;
+        }
+        &-success {
+          color: $color-status-success;
         }
       }
       &-loader {

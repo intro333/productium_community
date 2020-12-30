@@ -158,7 +158,14 @@ export default {
           ],
           cost: 0,
           button: 'Начать бесплатно',
-          costDescription: 'для первой тысячи пользователей, потом 9$/в месяц'
+          costDescription: 'для первой тысячи пользователей, потом 9$/в месяц',
+          action: () => {
+            // if (this.drawer) {
+            //   this.drawerControl(false);
+            // }
+            this.bodyLock(true);
+            this.setOpenAuthWindowState(true);
+          }
         },
       ];
     },
