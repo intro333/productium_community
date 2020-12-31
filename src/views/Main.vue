@@ -23,6 +23,9 @@ export default {
   data: () => ({
     isScrolling: false
   }),
+  created() {
+    this.fetchInitData();
+  },
   mounted() {
     window.addEventListener('resize', this.browserResize);
     const browSize = document.documentElement;
@@ -37,7 +40,7 @@ export default {
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-    ...mapActions(['setCookieIsAssented', 'setBrowserSize', 'setPageYOffset']),
+    ...mapActions(['setCookieIsAssented', 'setBrowserSize', 'setPageYOffset', 'fetchInitData']),
     ...mapGetters(['getCookieIsAssented', 'getOpenAuthWindowState', 'getIsOpenPopupReadiness']),
     browserResize() {
       const browSize = document.documentElement;

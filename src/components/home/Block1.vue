@@ -31,11 +31,11 @@
       </div>
       <div class="p-banner-stat-box">
         <div class="p-banner-stat-item">
-          <span class="p-banner-stat-item-first">112</span>
+          <span class="p-banner-stat-item-first">{{getMembersCount()}}</span>
           <span class="p-banner-stat-item-second">/1000 участников</span>
         </div>
         <div class="p-banner-stat-item">
-          <span class="p-banner-stat-item-first">62</span>
+          <span class="p-banner-stat-item-first">{{getReadyPercent()}}</span>
           <span class="p-banner-stat-item-second">/100% готовность</span>
         </div>
       </div>

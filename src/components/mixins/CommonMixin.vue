@@ -1,15 +1,19 @@
 <script>
-import {mapActions} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   name: "CommonMixin",
   computed: {
     screen() {
       return this.isMobile() ? 'mobile' : 'desktop';
-    }
+    },
+    flipValue() {
+      return this.getMembersCount();
+    },
   },
   methods: {
-    ...mapActions(['setOpenAuthWindowState', 'setIsOpenPopupReadiness']),
+    ...mapActions(['setOpenAuthWindowState', 'setIsOpenPopupReadiness', 'setMembersCount', 'setMembersCountCookie']),
+    ...mapGetters(['getReadyPercent', 'getMembersCount', 'getMembersCountCookie']),
     isMobile() {
       return this.$device.mobile;
       // return this.$device.mobile || this.$device.ipad;
@@ -46,6 +50,20 @@ export default {
     openProductium() {
       window.open('http://productium.org/', '_blank');
     },
+    changeFlipValue() {
+      const mcCookie = this.getMembersCountCookie();
+      if (!this.isFlipValue) {
+        this.isFlipValue = true;
+        const newValue = this.flipValue + 1;
+        if (mcCookie && (parseInt(mcCookie) >= this.flipValue)) {
+          /* Если не менялось кол-во участников, перелистывать не нужно */
+        } else {
+          /* Если в Бд добавилось кол-во уч-ов, то нужно их обновить */
+          this.setMembersCount(newValue);
+          this.setMembersCountCookie(newValue);
+        }
+      }
+    }
   }
 }
 </script>

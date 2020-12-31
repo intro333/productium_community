@@ -8,7 +8,7 @@
           <span class="header-left-little header-left-little3">готовность</span>
         </div>
         <div class="p-banner-stat-item">
-          <span class="p-banner-stat-item-first">62</span>
+          <span class="p-banner-stat-item-first">{{getReadyPercent()}}</span>
           <span class="p-banner-stat-item-second">/100%</span>
         </div>
       </div>

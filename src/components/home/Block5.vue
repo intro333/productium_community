@@ -11,7 +11,7 @@
             <span class="counting-nums-item-number">0</span>
             <div class="counting-nums-item-center"></div>
           </div>
-          <FlipNumber :value="flipValue" :speed="700"></FlipNumber>
+          <FlipNumber :value="flipValue.toString()" :speed="700"></FlipNumber>
         </div>
         <span style="opacity: 0">{{yOffset}}</span>
       </div>
@@ -35,13 +35,8 @@ export default {
     FlipNumber
   },
   data: () => ({
-    flipValue: '112'
+    isFlipValue: false
   }),
-  mounted() {
-    setTimeout(() => {
-      // this.changeFlipValue();
-    }, 1000);
-  },
   computed: {
     yOffset() {
       const y = this.getPageYOffset();
@@ -61,9 +56,6 @@ export default {
   },
   methods: {
     ...mapGetters(['getPageYOffset', 'getBrowserSize']),
-    changeFlipValue() {
-      this.flipValue = '113';
-    }
   },
 }
 </script>

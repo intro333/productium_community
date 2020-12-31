@@ -14,7 +14,10 @@ export default new Vuex.Store({
       height: 0,
     },
     pageYOffset: 0, // scroll of window
-    isOpenPopupReadiness: false
+    isOpenPopupReadiness: false,
+    readyPercent: 0,
+    membersCount: 0,
+    membersCountCookie: localStorage.getItem('cookie_members_count'),
   },
   getters: {
     getCookieIsAssented: state => state.cookieIsAssented,
@@ -22,8 +25,28 @@ export default new Vuex.Store({
     getBrowserSize: state => state.browserSize,
     getPageYOffset: state => state.pageYOffset,
     getIsOpenPopupReadiness: state => state.isOpenPopupReadiness,
+    getReadyPercent: state => state.readyPercent,
+    getMembersCount: state => state.membersCount,
+    getMembersCountCookie: state => state.membersCountCookie,
   },
   actions: {
+    fetchInitData({commit, getters}) {
+      return new Promise((resolve) => {
+        setTimeout(() => { // TODO Имитация задержки с сервера (УБРАТЬ!)
+          const membersCountCookie = getters.getMembersCountCookie;
+          const data = {
+            readyPercent: 65,
+            membersCount: 123,
+          };
+          const isMembersCountCookie = membersCountCookie && (parseInt(membersCountCookie) >= data.membersCount);
+          /* Наполнить основные компоненты */
+          commit('SET_READY_PERCENT', data.readyPercent);
+          /* Если кол-во участников есть в куках и оно >= кол-ву уч. из БД, значит юзер промотал этот блок и ему надо показать их */
+          commit('SET_MEMBER_COUNT', isMembersCountCookie ? parseInt(membersCountCookie) : data.membersCount);
+          resolve(data);
+        }, 300);
+      });
+    },
     setCookieIsAssented({commit}, status) {
       commit('SET_COOKIE_IS_ASSENTED', status);
     },
@@ -65,6 +88,15 @@ export default new Vuex.Store({
     setIsOpenPopupReadiness({commit}, status) {
       commit('SET_IS_OPEN_POPUP_READINESS', status);
     },
+    setReadyPercent({commit}, num) {
+      commit('SET_READY_PERCENT', num);
+    },
+    setMembersCount({commit}, num) {
+      commit('SET_MEMBER_COUNT', num);
+    },
+    setMembersCountCookie({commit}, num) {
+      commit('SET_MEMBER_COUNT_COOKIE', num);
+    },
   },
   mutations: {
     SET_COOKIE_IS_ASSENTED(state, status) {
@@ -77,6 +109,12 @@ export default new Vuex.Store({
     SET_BROWSER_SIZE(state, browserSize) { state.browserSize = browserSize; },
     SET_PAGE_Y_OFFSET(state, value) { state.pageYOffset = value; },
     SET_IS_OPEN_POPUP_READINESS(state, status) { state.isOpenPopupReadiness = status; },
+    SET_READY_PERCENT(state, num) { state.readyPercent = num; },
+    SET_MEMBER_COUNT(state, count) { state.membersCount = count; },
+    SET_MEMBER_COUNT_COOKIE(state, count) {
+      localStorage.setItem('cookie_members_count', count);
+      state.membersCountCookie = count
+    },
   },
   modules: {
 
