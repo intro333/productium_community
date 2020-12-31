@@ -30,7 +30,7 @@
           >{{emailIsSendMessage}}</span>
         </div>
       </div>
-      <p class="subscribe-descr">
+      <p class="subscribe-descr" id="subscribeDescr">
         <span class="subscribe-descr-bold">Productium </span>
         <span>создан специалистами направлений разработки, управления, дизайна и реализована в одном приложении, с огромным потенциалом развития и решения множества задач в процессе разработки</span>
       </p>

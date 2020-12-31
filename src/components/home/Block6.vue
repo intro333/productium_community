@@ -2,7 +2,7 @@
   <div class="home-block6" id="homeBlock6">
     <div :class="['content-base-box']">
       <div :class="['content-base']">
-        <div class="tariff-descr1-box">
+        <div class="tariff-descr1-box" id="tariffDescr1Box">
           <p class="tariff-descr1-text">
             <span class="tariff-descr1-text__normal">пакет </span>
             <span class="tariff-descr1-text__big">Productium </span>
@@ -160,9 +160,6 @@ export default {
           button: 'Начать бесплатно',
           costDescription: 'для первой тысячи пользователей, потом 9$/в месяц',
           action: () => {
-            // if (this.drawer) {
-            //   this.drawerControl(false);
-            // }
             this.bodyLock(true);
             this.setOpenAuthWindowState(true);
           }

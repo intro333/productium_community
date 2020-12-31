@@ -6,7 +6,7 @@
     <div :class="['content-base', 'home-block5']">
       <div class="counting-box">
         <span class="counting-text counting-text-normal">нас уже</span>
-        <div class="counting-nums">
+        <div class="counting-nums" id="countingNums">
           <div class="counting-nums-item">
             <span class="counting-nums-item-number">0</span>
             <div class="counting-nums-item-center"></div>
@@ -45,12 +45,11 @@ export default {
   computed: {
     yOffset() {
       const y = this.getPageYOffset();
-      const homeBlock5 = document.getElementById('homeBlock5');
-      if (homeBlock5) {
-        const browHalf = this.browH / 2;
-        const blockHalf = homeBlock5.clientHeight / 2;
-        const blockCenter = homeBlock5.offsetTop - (browHalf - blockHalf + 100);
-        if (y >= blockCenter) {
+      const countingNums = document.getElementById('countingNums');
+      if (countingNums) {
+        const browDownPoint = y + this.browH;
+        const blockDownPoint = countingNums.offsetTop + countingNums.clientHeight;
+        if (browDownPoint >= blockDownPoint) {
           this.changeFlipValue();
         }
       }

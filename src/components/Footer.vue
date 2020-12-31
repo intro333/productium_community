@@ -2,18 +2,18 @@
   <div :class="['content-base-box', 'content-base-footer']">
     <div :class="['content-base', 'p-footer']">
       <div class="p-footer-menu">
-        <span @click="openAuthModal()"
-              class="p-footer-menu-item">Регистрация</span>
-        <span @click="scrollToBlock('homeBlock6')"
-              class="p-footer-menu-item">Тарифы</span>
+        <span @click="scrollToBlock('pHome')"
+              class="p-footer-menu-item">Главная</span>
         <span @click="openProductium()"
               class="p-footer-menu-item">Бета-версия</span>
-        <span @click="scrollToBlock('homeBlock4')"
-              class="p-footer-menu-item">Сообщество</span>
         <span @click="scrollToBlock('homeBlock2')"
-              class="p-footer-menu-item">Как это работает</span>
-        <span @click="scrollToBlock('homeBlock8')"
-              class="p-footer-menu-item">Обратная связь</span>
+              class="p-footer-menu-item">Возможности</span>
+        <span @click="scrollToBlock('preStart')"
+              class="p-footer-menu-item">Этапы</span>
+        <span @click="scrollToBlock('tariffDescr1Box')"
+              class="p-footer-menu-item">Тарифы</span>
+        <span @click="scrollToBlock('subscribeDescr')"
+              class="p-footer-menu-item">О нас</span>
       </div>
       <div class="content-hide-mobile"
            style="display: flex; flex-direction: column; justify-content: space-between;">

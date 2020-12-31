@@ -1,7 +1,7 @@
 <template>
   <div :class="['content-base-box', 'scrollbar-hidden block-scroll-container']">
     <div :class="['content-base', 'home-block4']" id="homeBlock4">
-      <div class="header-left-box">
+      <div class="header-left-box" id="preStart">
         <span class="header-left-big">pre-start</span>
         <span class="header-left-little header-left-little2">перед запуском</span>
       </div>

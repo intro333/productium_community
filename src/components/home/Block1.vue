@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="p-banner-button-box">
-        <div @click="scrollToBlock('homeBlock6')"
+        <div @click="scrollToBlock('tariffDescr1Box')"
              class="p-button p-button-rounded p-button-fill p-button-fill1 p-banner-button">
           <span class="p-button-text">Premium бесплатно</span>
         </div>

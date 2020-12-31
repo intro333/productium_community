@@ -19,6 +19,9 @@ body {
   }
   &.modal-open {
     overflow: hidden;
+    &-mobile {
+      overflow: hidden;
+    }
   }
 }
 #app {
