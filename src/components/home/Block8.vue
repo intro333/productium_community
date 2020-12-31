@@ -10,7 +10,10 @@
         </div>
         <div class="subscribe-send-input-box">
           <input @input="changeField('email')"
+                 @focusin="isFocusEmail = true"
+                 @focusout="isFocusEmail = false"
                  v-model="email"
+                 @keyup.enter="submit"
                  class="subscribe-send-input text-ellipsis"
                  placeholder="Введите e-mail">
           <div @click="submit"
@@ -22,7 +25,7 @@
                  class="subscribe-send-loader"
                  alt="">
           </div>
-          <span v-if="emailIsNotValid"
+          <span v-if="isFocusEmail && emailIsNotValid"
                 class="subscribe-send-input-message subscribe-send-input-error">Проверка e-mail</span>
           <span v-if="emailIsSendMessage !== ''"
                 class="subscribe-send-input-message"
@@ -79,6 +82,7 @@ export default {
     },
     email: '',
     isSending: false,
+    isFocusEmail: false,
     emailIsSendMessage: '',
     emailIsSendMessageIsError: false
   }),
@@ -103,7 +107,7 @@ export default {
         this.emailIsSendMessageIsError = false;
       }, 2000);
     },
-    submit() {
+    submit($event) {
       if (this.email !== '') {
         if (this.submitValidation && !this.isSending) {
           this.isSending = true;
@@ -111,13 +115,16 @@ export default {
             this.email = '';
             this.isSending = false;
             this.checkSubmit.email = false;
-            this.setEmailIsSendMessage('Письмо отправлено на Ваш e-mail.');
+            this.setIsOpenPopupReadiness(true);
           }).catch(() => {
             this.isSending = false;
             this.checkSubmit.email = false;
             this.setEmailIsSendMessage('Ошибка отправки письма, попробуйте ещё раз.');
             this.emailIsSendMessageIsError = true;
           });
+          if ($event && ($event.key === 'Enter')) {
+            $event.target.blur();
+          }
         }
       } else {
         this.checkSubmit.email = true;

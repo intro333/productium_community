@@ -9,7 +9,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['setOpenAuthWindowState']),
+    ...mapActions(['setOpenAuthWindowState', 'setIsOpenPopupReadiness']),
     isMobile() {
       return this.$device.mobile;
       // return this.$device.mobile || this.$device.ipad;

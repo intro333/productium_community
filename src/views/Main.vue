@@ -3,6 +3,7 @@
     <router-view></router-view>
     <CookieModal v-if="!getCookieIsAssented()" />
     <AuthWindow v-if="getOpenAuthWindowState()" />
+    <PopupReadiness v-if="getIsOpenPopupReadiness()" />
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import {mapActions, mapGetters} from "vuex";
 import CookieModal from "@/components/modals/CookieModal";
 import AuthWindow from "@/components/modals/AuthWindow";
+import PopupReadiness from "@/components/modals/PopupReadiness";
 
 export default {
   name: "Main",
   components: {
     CookieModal,
     AuthWindow,
+    PopupReadiness,
   },
   data: () => ({
     isScrolling: false
@@ -35,7 +38,7 @@ export default {
   },
   methods: {
     ...mapActions(['setCookieIsAssented', 'setBrowserSize', 'setPageYOffset']),
-    ...mapGetters(['getCookieIsAssented', 'getOpenAuthWindowState']),
+    ...mapGetters(['getCookieIsAssented', 'getOpenAuthWindowState', 'getIsOpenPopupReadiness']),
     browserResize() {
       const browSize = document.documentElement;
       this.setBrowserSize({

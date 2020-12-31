@@ -13,13 +13,15 @@ export default new Vuex.Store({
       width: 0,
       height: 0,
     },
-    pageYOffset: 0 // scroll of window
+    pageYOffset: 0, // scroll of window
+    isOpenPopupReadiness: false
   },
   getters: {
     getCookieIsAssented: state => state.cookieIsAssented,
     getOpenAuthWindowState: state => state.isOpenAuthWindow,
     getBrowserSize: state => state.browserSize,
     getPageYOffset: state => state.pageYOffset,
+    getIsOpenPopupReadiness: state => state.isOpenPopupReadiness,
   },
   actions: {
     setCookieIsAssented({commit}, status) {
@@ -60,6 +62,9 @@ export default new Vuex.Store({
     setPageYOffset({commit}, value) {
       commit('SET_PAGE_Y_OFFSET', value);
     },
+    setIsOpenPopupReadiness({commit}, status) {
+      commit('SET_IS_OPEN_POPUP_READINESS', status);
+    },
   },
   mutations: {
     SET_COOKIE_IS_ASSENTED(state, status) {
@@ -71,6 +76,7 @@ export default new Vuex.Store({
     INFORM_ON_READINESS(state, email) { state.informOnReadinessEmail = email; },
     SET_BROWSER_SIZE(state, browserSize) { state.browserSize = browserSize; },
     SET_PAGE_Y_OFFSET(state, value) { state.pageYOffset = value; },
+    SET_IS_OPEN_POPUP_READINESS(state, status) { state.isOpenPopupReadiness = status; },
   },
   modules: {
 
