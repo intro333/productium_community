@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
+import '../plugins/axios';
 
 export default new Vuex.Store({
   state: {
@@ -31,20 +32,26 @@ export default new Vuex.Store({
   },
   actions: {
     fetchInitData({commit, getters}) {
-      return new Promise((resolve) => {
-        setTimeout(() => { // TODO Имитация задержки с сервера (УБРАТЬ!)
-          const membersCountCookie = getters.getMembersCountCookie;
-          const data = {
-            readyPercent: 65,
-            membersCount: 123,
-          };
+      return new Promise((resolve, reject) => {
+        const membersCountCookie = getters.getMembersCountCookie;
+        const setData = (data) => {
           const isMembersCountCookie = membersCountCookie && (parseInt(membersCountCookie) >= data.membersCount);
           /* Наполнить основные компоненты */
           commit('SET_READY_PERCENT', data.readyPercent);
           /* Если кол-во участников есть в куках и оно >= кол-ву уч. из БД, значит юзер промотал этот блок и ему надо показать их */
           commit('SET_MEMBER_COUNT', isMembersCountCookie ? parseInt(membersCountCookie) : data.membersCount);
+        };
+        window.axios.post('community/init/').then(response => {
+          const data = response.data;
+          setData(data);
           resolve(data);
-        }, 300);
+        }, error => {
+          setData({
+            readyPercent: 65,
+            membersCount: 123,
+          });
+          reject(error);
+        });
       });
     },
     setCookieIsAssented({commit}, status) {
