@@ -206,8 +206,13 @@ export default {
           this.sentState = sentState.SENT;
           this.clearSubmitData();
         }).catch(err => {
+          let sentText = 'Не удалось отправить письмо, попобуйте ещё раз.';
+          console.log(2, err);
+          if (err.errorMessage && err.errorMessage === 'unique_violation') {
+            sentText = 'Этот e-mail был зарегистрирован.';
+          }
           this.isSending = false;
-          this.sentText = 'Не удалось отправить письмо, попобуйте ещё раз.';
+          this.sentText = sentText;
           this.sentState = sentState.SENT_ERROR;
           console.log('Server error: ' + err);
         });

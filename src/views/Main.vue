@@ -25,6 +25,7 @@ export default {
   }),
   created() {
     this.fetchInitData();
+    this.fetchIpAddressAndSetOsInfo();
   },
   mounted() {
     window.addEventListener('resize', this.browserResize);
@@ -40,7 +41,7 @@ export default {
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-    ...mapActions(['setCookieIsAssented', 'setBrowserSize', 'setPageYOffset', 'fetchInitData']),
+    ...mapActions(['setCookieIsAssented', 'setBrowserSize', 'setPageYOffset', 'fetchInitData', 'fetchIpAddressAndSetOsInfo']),
     ...mapGetters(['getCookieIsAssented', 'getOpenAuthWindowState', 'getIsOpenPopupReadiness']),
     browserResize() {
       const browSize = document.documentElement;

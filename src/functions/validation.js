@@ -33,7 +33,7 @@ export function getOS() {
   }
 
   return {
-    user_agent: userAgent,
-    user_device: os,
+    userAgent: userAgent,
+    userDevice: os,
   };
 }

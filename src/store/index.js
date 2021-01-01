@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 import '../plugins/axios';
+import {getOS} from "@/functions/validation";
 
 export default new Vuex.Store({
   state: {
@@ -19,6 +20,11 @@ export default new Vuex.Store({
     readyPercent: 65,
     membersCount: 123,
     membersCountCookie: localStorage.getItem('cookie_members_count'),
+    sInfo: {
+      userIp: '',
+      userDevice: '',
+      userAgent: '',
+    },
   },
   getters: {
     getCookieIsAssented: state => state.cookieIsAssented,
@@ -29,27 +35,26 @@ export default new Vuex.Store({
     getReadyPercent: state => state.readyPercent,
     getMembersCount: state => state.membersCount,
     getMembersCountCookie: state => state.membersCountCookie,
+    getOsInfo: state => state.osInfo,
   },
   actions: {
     fetchInitData({commit, getters}) {
       return new Promise((resolve, reject) => {
         const membersCountCookie = getters.getMembersCountCookie;
         const setData = (data) => {
-          const isMembersCountCookie = membersCountCookie && (parseInt(membersCountCookie) >= data.membersCount);
-          /* Наполнить основные компоненты */
-          commit('SET_READY_PERCENT', data.readyPercent);
-          /* Если кол-во участников есть в куках и оно >= кол-ву уч. из БД, значит юзер промотал этот блок и ему надо показать их */
-          commit('SET_MEMBER_COUNT', isMembersCountCookie ? parseInt(membersCountCookie) : data.membersCount);
+          if (typeof data === 'object' && data !== null) {
+            const isMembersCountCookie = membersCountCookie && (parseInt(membersCountCookie) >= data.membersCount);
+            /* Наполнить основные компоненты */
+            commit('SET_READY_PERCENT', data.readyPercent);
+            /* Если кол-во участников есть в куках и оно >= кол-ву уч. из БД, значит юзер промотал этот блок и ему надо показать их */
+            commit('SET_MEMBER_COUNT', isMembersCountCookie ? parseInt(membersCountCookie) : data.membersCount);
+          }
         };
         window.axios.post('community/init/').then(response => {
           const data = response.data;
           setData(data);
           resolve(data);
         }, error => {
-          setData({
-            readyPercent: 65,
-            membersCount: 123,
-          });
           reject(error);
         });
       });
@@ -60,17 +65,19 @@ export default new Vuex.Store({
     setOpenAuthWindowState({commit}, windowState) {
       commit('SET_OPEN_AUTH_WINDOW_STATE', windowState);
     },
-    subscribe({commit}, subscribeInfo) {
+    subscribe({commit, getters}, subscribeInfo) {
       return new Promise((resolve, reject) => {
-        setTimeout(() => { // TODO имитация задержки с сервера
-          const isSuccess = true;
-          if (isSuccess) {
+        const sInfo = getters.getOsInfo;
+        window.axios.post('community/subscribe/', Object
+          .assign({}, subscribeInfo, sInfo))
+          .then(() => {
             commit('SUBSCRIBE', subscribeInfo);
             resolve(subscribeInfo);
-          } else {
-            reject({ message: 'Internal server error' })
-          }
-        }, 300);
+        }, error => {
+            // reject({ message: 'Internal server error' })
+            const data = error.response && error.response.data;
+            reject(data);
+        });
       });
     },
     informOnReadiness({commit}, email) {
@@ -104,6 +111,23 @@ export default new Vuex.Store({
     setMembersCountCookie({commit}, num) {
       commit('SET_MEMBER_COUNT_COOKIE', num);
     },
+    fetchIpAddressAndSetOsInfo({ commit }) {
+      return new Promise((resolve, reject) => {
+        window.axios.get('https://cors-anywhere.herokuapp.com/http://api.ipify.org/?format=json', {})
+          // axios.get('http://api.ipify.org/?format=json', {})
+          .then(response => {
+            const ip = response.data.ip;
+            const osInfo = getOS();
+            osInfo.userIp = ip;
+            commit('SET_OS_INFO', osInfo);
+            resolve(osInfo);
+          }, () => {
+            const osInfo = getOS();
+            commit('SET_OS_INFO', osInfo);
+            reject(osInfo)
+          });
+      });
+    },
   },
   mutations: {
     SET_COOKIE_IS_ASSENTED(state, status) {
@@ -122,6 +146,7 @@ export default new Vuex.Store({
       localStorage.setItem('cookie_members_count', count);
       state.membersCountCookie = count
     },
+    SET_OS_INFO(state, info) { console.log('OS_INFO', info); state.osInfo = info; },
   },
   modules: {
 
