@@ -146,7 +146,7 @@ export default new Vuex.Store({
       localStorage.setItem('cookie_members_count', count);
       state.membersCountCookie = count
     },
-    SET_OS_INFO(state, info) { console.log('OS_INFO', info); state.osInfo = info; },
+    SET_OS_INFO(state, info) { state.osInfo = info; },
   },
   modules: {
 
