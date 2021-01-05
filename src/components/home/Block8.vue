@@ -111,15 +111,20 @@ export default {
       if (this.email !== '') {
         if (this.submitValidation && !this.isSending) {
           this.isSending = true;
-          this.informOnReadiness(this.email).then(() => {
+          this.informOnReadiness(this.email.substr(0, 50)).then(() => {
             this.email = '';
             this.isSending = false;
             this.checkSubmit.email = false;
             this.setIsOpenPopupReadiness(true);
-          }).catch(() => {
+          }).catch(err => {
             this.isSending = false;
             this.checkSubmit.email = false;
-            this.setEmailIsSendMessage('Ошибка отправки письма, попробуйте ещё раз.');
+            let errMessage = 'Ошибка отправки письма, попробуйте ещё раз';
+            if (err.errorMessage && err.errorMessage === 'unique_violation') {
+              errMessage = 'Этот e-mail был зарегистрирован.';
+              // this.errorMessage = 'unique_violation';
+            }
+            this.setEmailIsSendMessage(errMessage);
             this.emailIsSendMessageIsError = true;
           });
           if ($event && ($event.key === 'Enter')) {

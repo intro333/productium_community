@@ -80,17 +80,18 @@ export default new Vuex.Store({
         });
       });
     },
-    informOnReadiness({commit}, email) {
+    informOnReadiness({commit, getters}, email) {
       return new Promise((resolve, reject) => {
-        setTimeout(() => { // TODO имитация задержки с сервера
-          const isSuccess = true;
-          if (isSuccess) {
+        const sInfo = getters.getOsInfo;
+        window.axios.post('community/readiness/', Object
+          .assign({}, {email}, sInfo))
+          .then(() => {
             commit('INFORM_ON_READINESS', email);
             resolve(email);
-          } else {
-            reject({ message: 'Internal server error' })
-          }
-        }, 300);
+          }, error => {
+            const data = error.response && error.response.data;
+            reject(data);
+          });
       });
     },
     setBrowserSize({commit}, browserSize) {
