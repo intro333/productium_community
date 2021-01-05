@@ -108,8 +108,14 @@
           </div>
           <div v-if="sentState === sentS.SENT_ERROR"
                class="p-auth-go-second-sent">
-            <p class="sent-text">Ошибка отправки </p>
-            <p class="sent-text sent-text-bold sent-text-bold-error">попробуйте ещё раз</p>
+            <template v-if="errorMessage === 'unique_violation'">
+              <p class="sent-text">Этот e-mail</p>
+              <p class="sent-text sent-text-bold sent-text-bold-error">был зарегистрирован.</p>
+            </template>
+            <template v-else>
+              <p class="sent-text">Ошибка отправки</p>
+              <p class="sent-text sent-text-bold sent-text-bold-error">попробуйте ещё раз</p>
+            </template>
           </div>
         </div>
         <p class="p-auth-go-text">ПОЕХАЛИ!</p>
@@ -152,7 +158,8 @@ export default {
     },
     sentState: sentState.NOT_SENT,
     sentText: '',
-    isSending: false
+    isSending: false,
+    errorMessage: 'other'
   }),
   beforeDestroy() {
     this.sentText = '';
@@ -207,9 +214,9 @@ export default {
           this.clearSubmitData();
         }).catch(err => {
           let sentText = 'Не удалось отправить письмо, попобуйте ещё раз.';
-          console.log(2, err);
           if (err.errorMessage && err.errorMessage === 'unique_violation') {
             sentText = 'Этот e-mail был зарегистрирован.';
+            this.errorMessage = 'unique_violation';
           }
           this.isSending = false;
           this.sentText = sentText;
