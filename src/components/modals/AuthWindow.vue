@@ -83,9 +83,11 @@
             </div>
             <div class="p-agreement-text">
               <span>Я согласен с </span>
-              <span class="p-agreement-text-link">политикой конфиденциальности </span>
+              <span @click="goToPage('privacy-policy')"
+                    class="p-agreement-text-link">политикой конфиденциальности </span>
               <span>и </span>
-              <span class="p-agreement-text-link">пользовательским соглашением</span>
+              <span @click="goToPage('terms-of-use')"
+                    class="p-agreement-text-link">пользовательским соглашением</span>
             </div>
           </div>
         </div>
@@ -203,6 +205,10 @@ export default {
     clickOnAgreement() {
       this.subscribeInfo.isAgreement = !this.subscribeInfo.isAgreement;
       Object.keys(this.checkSubmit).forEach(_k => { this.checkSubmit[_k] = true });
+    },
+    goToPage(page) {
+      this.close();
+      this.$router.push({name: page});
     },
     submit() {
       if (this.submitValidation && !this.isSending) {

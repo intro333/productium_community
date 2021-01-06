@@ -39,12 +39,22 @@ export default {
 
     },
     scrollToBlock(_id, ) {
-      const block = document.getElementById(_id);
-      if (block) {
-        block.scrollIntoView({
-          behavior: 'smooth',
-          // block: 'center'
-        });
+      const scrollTo = () => {
+        const block = document.getElementById(_id);
+        if (block) {
+          block.scrollIntoView({
+            behavior: 'smooth',
+            // block: 'center'
+          });
+        }
+      }
+      if (this.$route.name !== 'home') {
+        this.$router.push({name: 'home'});
+        setTimeout(() => {
+          scrollTo();
+        }, 150);
+      } else {
+        scrollTo();
       }
     },
     openProductium() {
@@ -62,6 +72,11 @@ export default {
           this.setMembersCount(newValue);
           this.setMembersCountCookie(newValue);
         }
+      }
+    },
+    goToHomePage() {
+      if (this.$route.name !== 'home') {
+        this.$router.push({name: 'home'});
       }
     }
   }

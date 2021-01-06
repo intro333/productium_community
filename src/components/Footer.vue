@@ -18,7 +18,7 @@
       <div class="content-hide-mobile"
            style="display: flex; flex-direction: column; justify-content: space-between;">
         <div></div>
-        <span class="p-footer-copyright">© 2020 Productium Inc. All rights reserved</span>
+        <span class="p-footer-copyright">© 2021 Productium Inc. All rights reserved</span>
       </div>
       <div class="p-footer-right">
         <div class="p-footer-social-box">
@@ -50,7 +50,7 @@
           <span class="p-footer-policy-text">Terms of use</span>
         </div>
       </div>
-      <span class="p-footer-copyright content-hide-desktop">© 2020 Productium Inc. All rights reserved</span>
+      <span class="p-footer-copyright content-hide-desktop">© 2021 Productium Inc. All rights reserved</span>
     </div>
   </div>
 </template>

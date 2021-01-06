@@ -14,8 +14,32 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'home',
-        component: lazyLoad('Home')
+        name: 'community-pages',
+        component: lazyLoad('CommunityPages'),
+        children: [
+          {
+            path: '',
+            name: 'home',
+            component: lazyLoad('Home')
+          },
+          {
+            path: 'user-agreement',
+            name: 'user-agreement',
+            component: lazyLoad('user-agreement/UserAgreement'),
+            children: [
+              {
+                path: '',
+                name: 'terms-of-use',
+                component: lazyLoad('user-agreement/TermsOfUse')
+              },
+              {
+                path: 'privacy-policy',
+                name: 'privacy-policy',
+                component: lazyLoad('user-agreement/PrivacyPolicy')
+              },
+            ]
+          },
+        ]
       },
     ]
   },
