@@ -46,8 +46,10 @@
           </div>
         </div>
         <div class="p-footer-policy">
-          <span class="p-footer-policy-text">Privacy policy</span>
-          <span class="p-footer-policy-text">Terms of use</span>
+          <span @click="goToMenuRoute('privacy-policy')"
+                class="p-footer-policy-text">Privacy policy</span>
+          <span @click="goToMenuRoute('terms-of-use')"
+                class="p-footer-policy-text">Terms of use</span>
         </div>
       </div>
       <span class="p-footer-copyright content-hide-desktop">© 2021 Productium Inc. All rights reserved</span>
@@ -68,6 +70,9 @@ export default {
         this.bodyLock(true);
         this.setOpenAuthWindowState(true);
       }, 500);
+    },
+    goToMenuRoute(_route) {
+      this.$router.push({name: _route});
     },
   }
 }
