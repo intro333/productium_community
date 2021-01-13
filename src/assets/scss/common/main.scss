@@ -245,6 +245,8 @@ span {
     }
   }
 }
+
+/* BUTTONS */
 .p-button {
   position: relative;
   display: flex;
@@ -259,6 +261,13 @@ span {
   }
   &-text {
     font-weight: 500;
+    &-box {
+      display: flex;
+      align-items: center;
+    }
+    &.not-active {
+      opacity: .6;
+    }
   }
   &-rounded1 {
     border-width: 1px;
@@ -314,6 +323,24 @@ span {
     right: 10px;
     width: 30px;
     height: 30px;
+  }
+  &-select {
+    flex-direction: column;
+    border-radius: 20px;
+    &-img {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 2px;
+    }
+    &-open {
+      height: 74px !important;
+    }
+    &:hover {
+      border-color: white;
+      .p-button-text {
+        color: white;
+      }
+    }
   }
 }
 
