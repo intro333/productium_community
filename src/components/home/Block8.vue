@@ -20,10 +20,10 @@
                class="subscribe-send-input-button"
                :class="{'disabled': !submitValidation || isSending}">
             <span>OK</span>
-            <img v-if="isSending"
-                 src="@/assets/img/loaderMini.gif"
-                 class="subscribe-send-loader"
-                 alt="">
+<!--            <img v-if="isSending"-->
+<!--                 src="@/assets/img/loaderMini.gif"-->
+<!--                 class="subscribe-send-loader"-->
+<!--                 alt="">-->
             <LoaderButton v-if="isSending" />
           </div>
           <span v-if="isFocusEmail && emailIsNotValid"

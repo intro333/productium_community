@@ -69,10 +69,10 @@
                class="p-button p-button-rounded p-button-fill p-button-fill2 p-auth-submit-button"
                :class="{'p-button-fill-disabled': !submitValidation || isSending}">
             <span class="p-button-text">Присоединиться</span>
-            <img v-if="isSending"
-                 src="@/assets/img/loaderMini.gif"
-                 class="p-button-loader"
-                 alt="">
+<!--            <img v-if="isSending"-->
+<!--                 src="@/assets/img/loaderMini.gif"-->
+<!--                 class="p-button-loader"-->
+<!--                 alt="">-->
             <LoaderButton v-if="isSending" />
           </div>
           <div @click="clickOnAgreement()"

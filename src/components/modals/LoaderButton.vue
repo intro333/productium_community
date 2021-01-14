@@ -26,7 +26,7 @@ export default {
   methods: {
     twist(num) {
       this.timeoutId = setTimeout(() => {
-        this.timeoutMs = 300;
+        this.timeoutMs = 250;
         this.active = num;
         if (num === 3) {
           this.twist(1);
