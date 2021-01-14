@@ -5,9 +5,10 @@
     <div @click="action && action()"
          class="problem-beta-box">
       <span class="problem-beta-text">Бета-версия</span>
-      <img src="@/assets/img/home/arrowLine.svg"
-           class="problem-beta-img"
-           alt="">
+      <div class="problem-beta-img"></div>
+<!--      <img src="@/assets/img/home/arrowLine.svg"-->
+<!--           class="problem-beta-img"-->
+<!--           alt="">-->
     </div>
   </div>
 </template>

@@ -62,6 +62,7 @@ export default {
   }),
   created() {
     this.selectedMenu = this.$route.name;
+    window.scrollTo( 0, 0 );
   },
   methods: {
     goToMenuRoute(_route) {

@@ -205,15 +205,17 @@
     &-button {
       width: 285px;
       height: 50px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     &-agreement {
-      display: grid;
-      grid-template-columns: 26px auto;
-      align-items: center;
-      &:hover {
-        cursor: pointer;
-      }
+      display: flex;
+      width: 300px;
+      //display: grid;
+      //grid-template-columns: 26px auto;
+      //align-items: center;
+      //&:hover {
+      //  cursor: pointer;
+      //}
       .p-agreement-checkbox {
         width: 18px;
         height: 18px;
@@ -234,12 +236,14 @@
         }
       }
       .p-agreement-text {
+        text-align: center;
         font-size: 12px;
         color: rgb(0, 0, 0, .6);
         &-link {
           color: $color-base;
           &:hover {
             text-decoration: underline;
+            cursor: pointer;
           }
         }
       }

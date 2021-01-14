@@ -24,6 +24,7 @@
                  src="@/assets/img/loaderMini.gif"
                  class="subscribe-send-loader"
                  alt="">
+            <LoaderButton v-if="isSending" />
           </div>
           <span v-if="isFocusEmail && emailIsNotValid"
                 class="subscribe-send-input-message subscribe-send-input-error">Проверка e-mail</span>
@@ -72,10 +73,14 @@
 import CommonMixin from "@/components/mixins/CommonMixin";
 import {emailValidation} from "@/functions/validation";
 import {mapActions} from "vuex";
+import LoaderButton from "@/components/modals/LoaderButton";
 
 export default {
   name: "Block8",
   mixins: [CommonMixin],
+  components: {
+    LoaderButton
+  },
   data: () => ({
     checkSubmit: {
       email: false,
@@ -112,10 +117,12 @@ export default {
         if (this.submitValidation && !this.isSending) {
           this.isSending = true;
           this.informOnReadiness(this.email.substr(0, 50)).then(() => {
-            this.email = '';
-            this.isSending = false;
-            this.checkSubmit.email = false;
-            this.setIsOpenPopupReadiness(true);
+            setTimeout(() => {
+              this.email = '';
+              this.isSending = false;
+              this.checkSubmit.email = false;
+              this.setIsOpenPopupReadiness(true);
+            }, 500);
           }).catch(err => {
             this.isSending = false;
             this.checkSubmit.email = false;

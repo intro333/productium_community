@@ -47,3 +47,7 @@
     transform: perspective(240px) rotateX(0deg);
   }
 }
+
+/* LOADER */
+.grow-loader { transition: all .4s ease-in-out; }
+.grow-loader-active { transform: scale(2); }

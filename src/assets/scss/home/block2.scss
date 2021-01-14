@@ -68,9 +68,18 @@
       display: flex;
       align-items: center;
       margin-top: 16px;
-      width: 160px;
+      width: 163px;
       &:hover {
         cursor: pointer;
+        .problem-beta-text {
+          color: $color-head;
+        }
+        .problem-beta-img {
+          background-image: url('../../assets/img/home/arrowLineBlack.svg');
+          @media (max-width: $mobileMax) {
+            background-image: url('../../assets/img/home/arrowLineMobileBlack.svg');
+          }
+        }
       }
       @media (max-width: $mobileMax) {
         justify-content: center;
@@ -88,9 +97,12 @@
       }
     }
     &-img {
-      width: 37px;
+      background-image: url('../../assets/img/home/arrowLine.svg');
+      width: 39px;
+      height: 16px;
       @media (max-width: $mobileMax) {
-        width: 24px;
+        background-image: url('../../assets/img/home/arrowLineMobile.svg');
+        width: 26px;
       }
     }
   }

@@ -73,16 +73,17 @@
                  src="@/assets/img/loaderMini.gif"
                  class="p-button-loader"
                  alt="">
+            <LoaderButton v-if="isSending" />
           </div>
           <div @click="clickOnAgreement()"
                class="p-auth-submit-agreement">
-            <div class="p-agreement-checkbox"
-                 :class="{active: subscribeInfo.isAgreement}">
-              <div v-if="subscribeInfo.isAgreement"
-                   class="p-agreement-checkbox-active"></div>
-            </div>
+<!--            <div class="p-agreement-checkbox"-->
+<!--                 :class="{active: subscribeInfo.isAgreement}">-->
+<!--              <div v-if="subscribeInfo.isAgreement"-->
+<!--                   class="p-agreement-checkbox-active"></div>-->
+<!--            </div>-->
             <div class="p-agreement-text">
-              <span>Я согласен с </span>
+              <span>Нажимая кнопку "Присоединиться" Вы соглашаетесь с </span>
               <span @click="goToPage('privacy-policy')"
                     class="p-agreement-text-link">политикой конфиденциальности </span>
               <span>и </span>
@@ -143,10 +144,14 @@ import CommonMixin from "@/components/mixins/CommonMixin";
 import {mapActions, mapGetters} from "vuex";
 import {emailValidation} from "@/functions/validation";
 import {sentState} from "@/data/consts";
+import LoaderButton from "@/components/modals/LoaderButton";
 
 export default {
   name: "AuthWindow",
   mixins: [CommonMixin],
+  components: {
+    LoaderButton
+  },
   data: () => ({
     checkSubmit: {
       name: false,
@@ -174,13 +179,14 @@ export default {
       return this.checkSubmit.email && !emailValidation(this.subscribeInfo.email);
     },
     submitValidation () {
+      // return !this.emailIsNotValid && !this.nameIsNotValid;
       return !this.emailIsNotValid && !this.nameIsNotValid && this.subscribeInfo.isAgreement;
     },
     sentS() {
       return sentState;
     },
     isMobileByResize() {
-      return this.browW <= 1023;
+      return this.browW <= 1024;
     },
     browW() {
       return this.getBrowserSize().width;
@@ -195,6 +201,8 @@ export default {
     },
     changeField(field) {
       this.checkSubmit[field] = true;
+      this.subscribeInfo.isAgreement = Object.keys(this.checkSubmit).map(_k => this.checkSubmit[_k]).indexOf(false) === -1;
+      console.log(1, this.subscribeInfo.isAgreement)
     },
     clearSubmitData() {
       this.subscribeInfo.name = '';
@@ -214,10 +222,12 @@ export default {
       if (this.submitValidation && !this.isSending) {
         this.isSending = true;
         this.subscribe(this.subscribeInfo).then(() => {
-          this.isSending = false;
-          this.sentText = 'Письмо с информацией отправлено на почту';
-          this.sentState = sentState.SENT;
-          this.clearSubmitData();
+          setTimeout(() => {
+            this.isSending = false;
+            this.sentText = 'Письмо с информацией отправлено на почту';
+            this.sentState = sentState.SENT;
+            this.clearSubmitData();
+          }, 500);
         }).catch(err => {
           let sentText = 'Не удалось отправить письмо, попобуйте ещё раз.';
           if (err.errorMessage && err.errorMessage === 'unique_violation') {

@@ -72,7 +72,10 @@ export default {
       }, 500);
     },
     goToMenuRoute(_route) {
-      this.$router.push({name: _route});
+      if (this.$route.name !== _route) {
+        this.$router.push({name: _route});
+        window.scrollTo( 0, 0 );
+      }
     },
   }
 }
