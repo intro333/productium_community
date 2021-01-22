@@ -83,7 +83,7 @@
 <!--                   class="p-agreement-checkbox-active"></div>-->
 <!--            </div>-->
             <div class="p-agreement-text">
-              <span>Нажимая кнопку "Присоединиться" Вы соглашаетесь с </span>
+              <span>Нажимая "Присоединиться" Вы соглашаетесь с </span>
               <span @click="goToPage('privacy-policy')"
                     class="p-agreement-text-link">политикой конфиденциальности </span>
               <span>и </span>

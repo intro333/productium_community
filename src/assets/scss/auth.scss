@@ -209,7 +209,7 @@
     }
     &-agreement {
       display: flex;
-      width: 300px;
+      width: 285px;
       //display: grid;
       //grid-template-columns: 26px auto;
       //align-items: center;
@@ -236,8 +236,8 @@
         }
       }
       .p-agreement-text {
-        text-align: center;
-        font-size: 12px;
+        text-align: left;
+        font-size: 9px;
         color: rgb(0, 0, 0, .6);
         &-link {
           color: $color-base;
