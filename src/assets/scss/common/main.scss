@@ -55,6 +55,11 @@ span {
       &-blue {
         background-color: $color-base;
       }
+      &2 {
+        @media (max-width: $mobileMax) {
+          padding-bottom: 35px;
+        }
+      }
     }
     &-footer {
       background-color: $color-head;

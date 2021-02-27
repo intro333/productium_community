@@ -35,7 +35,7 @@
                alt="">
           <span class="p-top-logo-text">roductium</span>
           <div class="p-top-logo-text-box">
-            <span class="p-top-logo-text p-top-logo-text-blue">community</span>
+            <span class="p-top-logo-text p-top-logo-text-blue">beta</span>
           </div>
         </div>
         <img @click="drawerControl(true)"

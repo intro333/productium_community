@@ -12,7 +12,7 @@
                  alt="">
             <span class="p-top-logo-text">roductium</span>
             <div class="p-top-logo-text-box">
-              <span class="p-top-logo-text p-top-logo-text-white">community</span>
+              <span class="p-top-logo-text p-top-logo-text-white">beta</span>
             </div>
           </div>
           <div class="p-auth-fields">
