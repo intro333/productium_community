@@ -32,7 +32,12 @@ span {
     padding-left: 128px;
     padding-right: 128px;
     background-color: #ffffff;
+    &2 {
+      padding-left: 81px;
+      padding-right: 127px;
+    }
     &-box {
+      position: relative;
       display: flex;
       justify-content: center;
       width: 100%;
@@ -171,7 +176,7 @@ span {
           color: white;
           font-weight: 500;
           &:not(:first-child) {
-            margin-left: 45px;
+            margin-left: 32px;
           }
           &:hover {
             cursor: pointer;
@@ -220,9 +225,11 @@ span {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
+        background-color: $color-head;
         height: 100%;
         margin-left: 2px;
+        padding: 0 9px;
+        border-radius: 16px;
       }
       &-blue {
         color: $color-base;
@@ -288,6 +295,10 @@ span {
   }
   &-rounded2 {
     border-width: 2px;
+  }
+  &-rounded3 {
+    width: 139px;
+    height: 39px;
   }
   &-fill {
     &1 {

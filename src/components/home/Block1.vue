@@ -26,7 +26,7 @@
         </div>
         <div @click="openProductium()"
              class="p-button p-button-rounded p-button-rounded1 p-button-rounded2 p-banner-button">
-          <span class="p-button-text">Бета-версия</span>
+          <span class="p-button-text">Beta-версия</span>
         </div>
       </div>
       <div class="p-banner-stat-box">

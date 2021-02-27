@@ -1,7 +1,7 @@
 <template>
   <div class="problem-video-left-box">
     <span class="problem-video-title">Productium</span>
-    <span class="problem-video-text">решает все эти проблемы и дает возможность легко обсуждать дизайн, формировать задачи и идеи с клиентом либо командой, онлайн либо офлайн</span>
+    <span class="problem-video-text">это Agile-среда для запуска IT-проектов. Позволяет командам и стейходером создавать проекты от этапа проектирования и до релиза продукта</span>
     <div @click="action && action()"
          class="problem-beta-box">
       <span class="problem-beta-text">Бета-версия</span>

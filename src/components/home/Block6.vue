@@ -72,13 +72,13 @@ export default {
               words: this.peopleInTeam(3)
             },
             {
-              words: this.itemCounts('проектов', false, 3)
+              words: this.itemCounts('проектов', 'upTo', 3)
             },
             {
-              words: this.itemCounts('слайдов', false, 5)
+              words: this.itemCounts('слайдов', 'upTo', 5)
             },
             {
-              words: this.itemCounts('кейсов на слайд', false, 3)
+              words: this.itemCounts('кейсов на слайд', 'upTo', 3)
             },
             {
               words: [
@@ -100,13 +100,13 @@ export default {
               words: this.peopleInTeam(3)
             },
             {
-              words: this.itemCounts('проектов', false, 10)
+              words: this.itemCounts('проектов', 'upTo', 10)
             },
             {
-              words: this.itemCounts('слайдов', false, 10)
+              words: this.itemCounts('слайдов', 'upTo', 10)
             },
             {
-              words: this.itemCounts('кейсов на слайд', false, 10)
+              words: this.itemCounts('кейсов на слайд', 'upTo', 10)
             },
             {
               words: [
@@ -120,7 +120,7 @@ export default {
               ]
             },
           ],
-          cost: 3,
+          cost: 6,
           button: 'Не доступен',
         },
         { /* PREMIUM */
@@ -134,19 +134,20 @@ export default {
               words: this.peopleInTeam(20)
             },
             {
-              words: this.itemCounts('проектов', true)
+              words: this.itemCounts('проектов', 'over', 20)
             },
             {
-              words: this.itemCounts('слайдов', true)
+              words: this.itemCounts('слайдов', 'over', 20)
             },
             {
-              words: this.itemCounts('кейсов', true)
+              words: this.itemCounts('кейсов', 'isUnlimited')
             },
             {
               words: [
                 { text: 'возможность ', isBold: false },
-                { text: 'зарабатывать ', isBold: true },
-                { text: 'на менторстве в комьюнити', isBold: false },
+                { text: 'проводить ', isBold: true },
+                { text: 'образовательные митапы в ', isBold: false },
+                { text: 'комьюнити', isBold: true },
               ]
             },
             {
@@ -158,7 +159,7 @@ export default {
           ],
           cost: 0,
           button: 'Начать бесплатно',
-          costDescription: 'для первой тысячи пользователей, потом 9$/в месяц',
+          costDescription: 'для первой тысячи пользователей, потом 21$/в месяц',
           action: () => {
             this.bodyLock(true);
             this.setOpenAuthWindowState(true);
@@ -179,18 +180,24 @@ export default {
         { text: ' человек в команде', isBold: false },
       ];
     },
-    itemCounts(item, isUnlimited, count = 0) {
-      if (isUnlimited) {
+    itemCounts(item, countType, count = 0) {
+      if (countType === 'isUnlimited') {
         return [
           { text: 'неограниченное ', isBold: true },
           { text: 'количество ' + item, isBold: false },
         ];
+      } else if (countType === 'upTo') {
+        return [
+          { text: 'до ', isBold: false },
+          { text: count, isBold: true },
+          { text: ' ' + item, isBold: false },
+        ];
+      } else if (countType === 'over') {
+        return [
+          { text: `${count}+`, isBold: true },
+          { text: ' ' + item, isBold: false },
+        ];
       }
-      return [
-        { text: 'до ', isBold: false },
-        { text: count, isBold: true },
-        { text: ' ' + item, isBold: false },
-      ];
     },
   }
 }

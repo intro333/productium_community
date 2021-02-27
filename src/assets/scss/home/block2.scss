@@ -4,7 +4,7 @@
 
 .home-block2 {
   position: relative;
-  padding-bottom: 200px;
+  padding-bottom: 170px;
   @media (max-width: $mobileMax) {
     padding-bottom: 80px;
   }
@@ -120,7 +120,7 @@
   }
   &-slogan {
     &-box {
-      width: 825px;
+      width: 960px;
       @media (max-width: $mobileMax) {
         display: flex;
         flex-direction: column;
@@ -129,16 +129,105 @@
     }
     &-text {
       color: white;
-      font-size: 48px;
+      font-size: 44px;
       @media (max-width: $mobileMax) {
         font-size: 36px;
         text-align: center;
       }
       &.text-big {
         font-weight: bold;
+        &2 {
+          font-size: 64px;
+        }
       }
       &.text-normal {
+        &2 {
+          font-weight: 300;
+          font-size: 36px;
+        }
+      }
+    }
+  }
+}
 
+.hb-services {
+  display: flex;
+  flex-direction: column;
+  padding-top: 132px;
+  padding-bottom: 200px;
+  &-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    width: 100%;
+  }
+  &__item {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 40px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    width: 255px;
+    height: 353px;
+    &:hover {
+      cursor: default;
+    }
+    &.is-hovered {
+      border: 2px solid $color-base;
+    }
+    &-img {
+      width: 123px;
+      height: 123px;
+      margin-top: 6px;
+      transition: all .2s ease-in-out;
+      &.is-hovered {
+        transform: scale(1.15);
+      }
+      &-caseTracker {
+        background-image: url('../../assets/img/services/caseTracker.svg');
+        &.is-hovered {
+          background-image: url('../../assets/img/services/caseTrackerHovered.svg');
+        }
+      }
+      &-videoTracker {
+        background-image: url('../../assets/img/services/videoTracker.svg');
+        &.is-hovered {
+          background-image: url('../../assets/img/services/videoTrackerHovered.svg');
+        }
+      }
+      &-webTracker {
+        background-image: url('../../assets/img/services/webTracker.svg');
+        &.is-hovered {
+          background-image: url('../../assets/img/services/webTrackerHovered.svg');
+        }
+      }
+      &-meet {
+        background-image: url('../../assets/img/services/meet.svg');
+        &.is-hovered {
+          background-image: url('../../assets/img/services/meetHovered.svg');
+        }
+      }
+    }
+    &-title {
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 100%;
+      letter-spacing: 0.01em;
+      color: $color-base;
+      margin: 16px 0;
+    }
+    &-description {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+      &__text {
+        font-size: 18px;
+        line-height: 100%;
+        letter-spacing: 0.01em;
+        color: #000000;
       }
     }
   }

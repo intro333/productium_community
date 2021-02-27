@@ -9,19 +9,21 @@
                alt="">
           <span class="p-top-logo-text">roductium</span>
           <div class="p-top-logo-text-box">
-            <span class="p-top-logo-text p-top-logo-text-blue">community</span>
+            <span class="p-top-logo-text">beta</span>
           </div>
         </div>
         <div class="p-top-right">
           <span @click="scrollToBlock('homeBlock2')"
-                class="p-top-right-item-text">Возможности</span>
+                class="p-top-right-item-text">О нас</span>
           <span @click="scrollToBlock('preStart')"
-                class="p-top-right-item-text">Этапы</span>
+                class="p-top-right-item-text">Тарифы</span>
           <div @click="scrollToBlock('tariffDescr1Box')"
-               class="p-button p-button-rounded p-button-rounded1"
-               style="margin-left: 50px;">
-            <span class="p-button-text">Начать бесплатно</span>
+               class="p-button p-button-rounded p-button-rounded3 p-button-fill p-button-fill1"
+               style="margin-left: 32px;">
+            <span class="p-button-text">Beta-версия</span>
           </div>
+          <span @click="scrollToBlock('preStart')"
+                class="p-top-right-item-text">Быть в курсе новостей</span>
         </div>
       </div>
     </div>
