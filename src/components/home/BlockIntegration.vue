@@ -15,7 +15,7 @@
           <div class="hb-integration-info2__text-box">
             <p class="hb-integration-info2__text">
             <span class="hb-integration-info2__text-big"
-            >Интеграция с сервисами</span> позволяет формировать беклог продукта, фиксировать баги и проводить UX-тестирование </p>
+            >Интеграция с сервисами</span> позволяет формировать бэклог продукта, фиксировать баги и проводить UX-тестирование </p>
           </div>
           <div class="hb-integration-info2-icons">
             <img v-for="(icon, i) in icons"
@@ -36,7 +36,7 @@
         <div class="hb-integration-info2__text-box">
           <p class="hb-integration-info2__text">
             <span class="hb-integration-info2__text-big"
-            >Интеграция с сервисами</span> позволяет формировать беклог продукта, фиксировать баги и проводить UX-тестирование </p>
+            >Интеграция с сервисами</span> позволяет формировать бэклог продукта, фиксировать баги и проводить UX-тестирование </p>
         </div>
         <div class="hb-integration-info3">
           <img src="@/assets/img/integration/astronaut.svg"

@@ -25,7 +25,7 @@
         </p>
         <p class="home-block7-right-descr">
           <span class="home-block7-right-descr-big">Productium community </span>
-          <span>позволит получать фидбек от дизайнеров, а так же вы сможете стать ментором для других дизайнеров</span>
+          <span>позволит получать фидбэк от дизайнеров, а так же вы сможете стать ментором для других дизайнеров</span>
         </p>
       </div>
     </div>
