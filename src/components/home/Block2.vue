@@ -3,7 +3,7 @@
     <div :class="['content-base-box']">
       <div :class="['content-base', 'home-block2']" id="homeBlock2">
         <div class="header-left-box">
-          <span class="header-left-big">we have a problem</span>
+          <span class="header-left-big header-left-big2">we have a problem</span>
           <span class="header-left-little">устал от кучи скриншотов с правками, метками и постоянным вопросом как это систематизировать?</span>
         </div>
         <div id="aboutProject"

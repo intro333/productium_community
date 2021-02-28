@@ -237,7 +237,7 @@ span {
         border-radius: 16px;
       }
       &-blue {
-        color: $color-base;
+        //color: $color-base;
         padding: 0 2px;
       }
       &-white {
@@ -390,6 +390,11 @@ span {
       @media (max-width: $mobileMax) {
         font-size: 36px;
         text-align: center;
+      }
+      &2 {
+        @media (max-width: 360px) {
+          font-size: 31px;
+        }
       }
     }
     &-little {
