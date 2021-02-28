@@ -6,13 +6,15 @@
           <span class="header-left-big">we have a problem</span>
           <span class="header-left-little">устал от кучи скриншотов с правками, метками и постоянным вопросом как это систематизировать?</span>
         </div>
-        <div class="problem-video-box content-hide-mobile">
+        <div id="aboutProject"
+             class="problem-video-box content-hide-mobile">
           <ProblemSolveText :action="openProductium" />
           <ProblemVideo width="540" height="538" />
         </div>
       </div>
     </div>
-    <div class="content-hide-desktop">
+    <div id="aboutProject2"
+         class="content-hide-desktop">
       <ProblemVideo width="375" height="360" />
       <div :class="['content-base-box']">
         <div :class="['content-base', 'home-block2']">

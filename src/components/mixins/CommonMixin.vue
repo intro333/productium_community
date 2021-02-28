@@ -38,7 +38,7 @@ export default {
       // }
 
     },
-    scrollToBlock(_id, ) {
+    scrollToBlock(_id, timeout = 150) {
       const scrollTo = () => {
         const block = document.getElementById(_id);
         if (block) {
@@ -52,7 +52,7 @@ export default {
         this.$router.push({name: 'home'});
         setTimeout(() => {
           scrollTo();
-        }, 150);
+        }, timeout);
       } else {
         scrollTo();
       }

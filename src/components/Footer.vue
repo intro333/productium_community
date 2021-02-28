@@ -3,17 +3,17 @@
     <div :class="['content-base', 'p-footer']">
       <div class="p-footer-menu">
         <span @click="scrollToBlock('pHome')"
-              class="p-footer-menu-item">Главная</span>
-        <span @click="openProductium()"
-              class="p-footer-menu-item">Бета-версия</span>
-        <span @click="scrollToBlock('homeBlock2')"
-              class="p-footer-menu-item">Возможности</span>
-        <span @click="scrollToBlock('preStart')"
-              class="p-footer-menu-item">Этапы</span>
+              class="p-footer-menu-item content-hide-desktop">Главная</span>
+        <span @click="scrollToBlock('homeBlockFullVideo')"
+              class="p-footer-menu-item">Как это работает</span>
+        <span @click="scrollToBlock('aboutProject')"
+              class="p-footer-menu-item">О проекте</span>
         <span @click="scrollToBlock('tariffDescr1Box')"
               class="p-footer-menu-item">Тарифы</span>
-        <span @click="scrollToBlock('subscribeDescr')"
-              class="p-footer-menu-item">О нас</span>
+        <span @click="openProductium()"
+              class="p-footer-menu-item">Beta-версия</span>
+        <span @click="scrollToBlock('homeBlock8')"
+              class="p-footer-menu-item">Быть в курсе новостей</span>
       </div>
       <div class="content-hide-mobile"
            style="display: flex; flex-direction: column; justify-content: space-between;">
@@ -48,8 +48,8 @@
         <div class="p-footer-policy">
           <span @click="goToMenuRoute('privacy-policy')"
                 class="p-footer-policy-text">Privacy policy</span>
-          <span @click="goToMenuRoute('terms-of-use')"
-                class="p-footer-policy-text">Terms of use</span>
+<!--          <span @click="goToMenuRoute('terms-of-use')"-->
+<!--                class="p-footer-policy-text">Terms of use</span>-->
         </div>
       </div>
       <span class="p-footer-copyright content-hide-desktop">© 2021 Productium Inc. All rights reserved</span>

@@ -121,13 +121,16 @@
         width: 825px;
       }
       @media (max-width: $mobileMax) {
-        margin-top: 100px;
+        //margin-top: 100px;
         font-size: 24px;
         text-align: center;
         width: 100%;
       }
       &-bold {
         font-weight: bold;
+        &.bold-blue {
+          color: $color-base;
+        }
       }
       &-blue {
         font-weight: bold;
@@ -136,16 +139,28 @@
       &-astro {
         display: flex;
         margin-top: 200px;
-        &-team {
+        @media (max-width: $mobileMax) {
+          flex-direction: column;
+          align-items: center;
+          margin-top: 100px;
+        }
+        &-team { /* IMG with astro-s */
           width: 343.81px;
           height: 277.43px;
           margin-right: 57px;
           margin-left: -120px;
+          @media (max-width: $mobileMax) {
+            margin-right: 0;
+            margin-left: 0;
+          }
         }
       }
       &-box {
         display: flex;
         flex-direction: column;
+        @media (max-width: $mobileMax) {
+          margin-top: 50px;
+        }
       }
     }
     &-photo {
@@ -189,8 +204,17 @@
 }
 .home-block-last {
   justify-content: flex-start !important;
+  @media (max-width: $mobileMax) {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px !important;
+    padding-bottom: 82px !important;
+  }
   .p-button-rounded1 {
     width: 255px;
     height: 50px;
+    @media (max-width: $mobileMax) {
+      margin-top: 50px;
+    }
   }
 }

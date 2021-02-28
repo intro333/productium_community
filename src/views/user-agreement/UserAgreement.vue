@@ -39,13 +39,13 @@
             <div class="pua-menu-text"
                  :class="{'not-active': !isActive('privacy-policy')}">Политика конфиденциальности</div>
           </div>
-          <div @click="goToMenuRoute('terms-of-use')"
-               class="pua-menu-text-box">
-            <div v-if="isActive('terms-of-use')"
-                 class="pua-menu-circle"></div>
-            <div class="pua-menu-text"
-                 :class="{'not-active': !isActive('terms-of-use')}">Пользовательское соглашение</div>
-          </div>
+<!--          <div @click="goToMenuRoute('terms-of-use')"-->
+<!--               class="pua-menu-text-box">-->
+<!--            <div v-if="isActive('terms-of-use')"-->
+<!--                 class="pua-menu-circle"></div>-->
+<!--            <div class="pua-menu-text"-->
+<!--                 :class="{'not-active': !isActive('terms-of-use')}">Пользовательское соглашение</div>-->
+<!--          </div>-->
         </div>
         <router-view></router-view>
       </div>
@@ -83,7 +83,7 @@ export default {
           'Пользовательское соглашение';
     },
     selectButtonPopup() {
-      this.isOpenMenuMobile = !this.isOpenMenuMobile;
+      // this.isOpenMenuMobile = !this.isOpenMenuMobile;
     },
   },
   watch: {

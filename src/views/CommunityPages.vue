@@ -13,17 +13,17 @@
           </div>
         </div>
         <div class="p-top-right">
-          <span @click="scrollToBlock('homeBlock2')"
-                class="p-top-right-item-text">О нас</span>
-          <span @click="scrollToBlock('preStart')"
+          <span @click="scrollToBlock('tariffDescr1Box')"
                 class="p-top-right-item-text">Тарифы</span>
-          <div @click="scrollToBlock('tariffDescr1Box')"
+          <span @click="scrollToBlock('aboutProject')"
+                class="p-top-right-item-text">О проекте</span>
+          <span @click="scrollToBlock('homeBlock8')"
+                class="p-top-right-item-text">Быть в курсе новостей</span>
+          <div @click="openProductium()"
                class="p-button p-button-rounded p-button-rounded3 p-button-fill p-button-fill1"
                style="margin-left: 32px;">
             <span class="p-button-text">Beta-версия</span>
           </div>
-          <span @click="scrollToBlock('preStart')"
-                class="p-top-right-item-text">Быть в курсе новостей</span>
         </div>
       </div>
     </div>
@@ -57,16 +57,18 @@
           <div class="side-menu-box">
             <span @click="scrollToBlockOnMobile('pHome')"
                   class="side-menu-item">Главная</span>
-            <span @click="openProductium()"
-                  class="side-menu-item">Бета-версия</span>
-            <span @click="scrollToBlockOnMobile('homeBlock2')"
-                  class="side-menu-item">Возможности</span>
-            <span @click="scrollToBlockOnMobile('preStart')"
-                  class="side-menu-item">Этапы</span>
+            <span @click="scrollToBlockOnMobile('homeBlockFullVideo')"
+                  class="side-menu-item">Как это работает</span>
             <span  @click="scrollToBlockOnMobile('tariffDescr1Box')"
                    class="side-menu-item">Тарифы</span>
-            <span @click="scrollToBlockOnMobile('subscribeDescr')"
-                  class="side-menu-item">О нас</span>
+            <span @click="openProductium()"
+                  class="side-menu-item">Beta-версия</span>
+            <span @click="scrollToBlockOnMobile('homeBlock8')"
+                  class="side-menu-item">Быть в курсе новостей</span>
+
+
+            <span @click="scrollToBlockOnMobile('aboutProject2')"
+                  class="side-menu-item">О проекте</span>
           </div>
           <div class="side-menu-social-box">
             <div class="side-menu-social">

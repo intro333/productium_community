@@ -1,7 +1,7 @@
 <template>
   <div :class="['content-base-box',
                 'scrollbar-hidden block-scroll-container']"
-       id="homeBlock5">
+       id="homeBlockServices">
     <div :class="['content-base', 'hb-services']">
       <div class="header-left-box"
            id="linkToServices">

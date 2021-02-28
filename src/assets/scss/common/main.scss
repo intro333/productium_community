@@ -293,8 +293,9 @@ span {
     }
     &:hover {
       border-color: $color-head;
+      background-color: $color-head;
       .p-button-text {
-        color: $color-head;
+        //color: $color-head;
       }
     }
   }

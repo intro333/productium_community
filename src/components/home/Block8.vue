@@ -41,19 +41,23 @@
              alt="" >
         <div class="subscribe-descr-box">
           <p class="subscribe-descr">
-            <span class="subscribe-descr-bold">Productium </span>
+            <span class="subscribe-descr-bold bold-blue">Productium </span>
             <span>создан специалистами</span>
           </p>
-          <span class="subscribe-descr">направлений разработки, управления,</span>
-          <span class="subscribe-descr">дизайна и реализован в одном приложении,</span>
-          <span class="subscribe-descr">с огромным потенциалом развития и решения</span>
-          <span class="subscribe-descr">множества задач в процессе разработки</span>
+
+          <span class="subscribe-descr content-hide-mobile">направлений разработки, управления,</span>
+          <span class="subscribe-descr content-hide-mobile">дизайна и реализован в одном приложении,</span>
+          <span class="subscribe-descr content-hide-mobile">с огромным потенциалом развития и решения</span>
+          <span class="subscribe-descr content-hide-mobile">множества задач в процессе разработки</span>
+
+          <span class="subscribe-descr content-hide-desktop">направлений разработки,</span>
+          <span class="subscribe-descr content-hide-desktop">управления, дизайна и</span>
+          <span class="subscribe-descr content-hide-desktop">реализована в одном</span>
+          <span class="subscribe-descr content-hide-desktop">приложении, с огромным</span>
+          <span class="subscribe-descr content-hide-desktop">потенциалом развития и</span>
+          <span class="subscribe-descr content-hide-desktop">решения множества задач</span>
+          <span class="subscribe-descr content-hide-desktop">в процессе разработки</span>
         </div>
-<!--        <p class="subscribe-descr">-->
-<!--          <span class="subscribe-descr-bold">Productium </span>-->
-<!--          <span>создан специалистами</span>-->
-<!--          <span> направлений разработки, управления, дизайна и реализован в одном приложении, с огромным потенциалом развития и решения множества задач в процессе разработки</span>-->
-<!--        </p>-->
       </div>
 <!--      <div class="subscribe-photo-content">-->
 <!--        <div class="subscribe-photo-box">-->

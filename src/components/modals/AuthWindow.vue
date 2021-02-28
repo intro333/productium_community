@@ -86,9 +86,9 @@
               <span>Нажимая "Присоединиться" Вы соглашаетесь с </span>
               <span @click="goToPage('privacy-policy')"
                     class="p-agreement-text-link">политикой конфиденциальности </span>
-              <span>и </span>
-              <span @click="goToPage('terms-of-use')"
-                    class="p-agreement-text-link">пользовательским соглашением</span>
+<!--              <span>и </span>-->
+<!--              <span @click="goToPage('terms-of-use')"-->
+<!--                    class="p-agreement-text-link">пользовательским соглашением</span>-->
             </div>
           </div>
         </div>
