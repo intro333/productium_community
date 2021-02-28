@@ -684,7 +684,8 @@ span {
       position: relative;
       justify-content: center;
       display: flex;
-      align-content: center;
+      align-items: center;
+      height: 33.12px;
       &:hover {
         cursor: pointer;
       }
@@ -693,12 +694,18 @@ span {
       }
     }
     &-img {
-      width: 17.96px;
-      height: 26.66px;
+      width: 12.56px;
+      height: 18.27px;
     }
     &-text {
-      font-size: 28.91px;
+      font-size: 20.55px;
       color: black;
+      &-box {
+        background-color: $color-base;
+        .p-top-logo-text {
+          font-size: 20.55px;
+        }
+      }
       &-small {
         font-weight: 100;
       }

@@ -59,16 +59,14 @@
                   class="side-menu-item">Главная</span>
             <span @click="scrollToBlockOnMobile('homeBlockFullVideo')"
                   class="side-menu-item">Как это работает</span>
+            <span @click="scrollToBlockOnMobile('aboutProject2')"
+                  class="side-menu-item">О проекте</span>
             <span  @click="scrollToBlockOnMobile('tariffDescr1Box')"
                    class="side-menu-item">Тарифы</span>
             <span @click="openProductium()"
                   class="side-menu-item">Beta-версия</span>
             <span @click="scrollToBlockOnMobile('homeBlock8')"
                   class="side-menu-item">Быть в курсе новостей</span>
-
-
-            <span @click="scrollToBlockOnMobile('aboutProject2')"
-                  class="side-menu-item">О проекте</span>
           </div>
           <div class="side-menu-social-box">
             <div class="side-menu-social">
@@ -86,12 +84,15 @@
                    alt="">
             </div>
             <div class="side-menu-logo-box">
-              <img src="@/assets/img/logo/logo_black17.svg"
+              <img src="@/assets/img/logo/logo_black12x18.svg"
                    class="side-menu-logo-img"
                    alt="">
-              <span class="side-menu-logo-text">roduct</span>
-              <span class="side-menu-logo-text side-menu-logo-text-small">ium</span>
-              <div class="prod-point"></div>
+              <span class="side-menu-logo-text">roductium</span>
+              <div class="p-top-logo-text-box side-menu-logo-text-box">
+                <span class="p-top-logo-text">beta</span>
+              </div>
+<!--              <span class="side-menu-logo-text side-menu-logo-text-small">ium</span>-->
+<!--              <div class="prod-point"></div>-->
             </div>
           </div>
           <div @click="drawerControl(false)"

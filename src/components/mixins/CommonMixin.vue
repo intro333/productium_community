@@ -58,7 +58,8 @@ export default {
       }
     },
     openProductium() {
-      window.open('http://productium.org/', '_blank');
+      // window.open('http://productium.org/', '_blank');
+      window.open('http://194.58.104.122:81/case-tracker', '_blank'); // TODO Временно
     },
     changeFlipValue() {
       const mcCookie = this.getMembersCountCookie();

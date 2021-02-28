@@ -2,7 +2,7 @@
 @import "../common/displays";
 
 .p-footer {
-  padding-top: 60px;
+  padding-top: 95px;
   padding-bottom: 60px;
   background-color: $color-head;
   display: flex;
@@ -77,23 +77,27 @@
   &-logo {
     &-box {
       position: relative;
-      justify-content: center;
       display: flex;
-      align-content: center;
+      justify-content: center;
+      align-items: center;
+      height: 29px;
       &:hover {
         cursor: pointer;
       }
-      opacity: .6;
+      //opacity: .6;
     }
     &-img {
-      width: 17.96px;
-      height: 26.66px;
+      width: 11px;
+      height: 16px;
     }
     &-text {
-      font-size: 28.91px;
+      font-size: 18px;
       color: white;
       &-small {
         font-weight: 100;
+      }
+      &-box {
+        background-color: $color-base;
       }
     }
   }

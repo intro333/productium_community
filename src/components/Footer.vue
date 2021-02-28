@@ -23,12 +23,15 @@
       <div class="p-footer-right">
         <div class="p-footer-social-box">
           <div class="p-footer-logo-box">
-            <img src="@/assets/img/logo/logo_white17.svg"
+            <img src="@/assets/img/logo/logo_white11x16.svg"
                  class="p-footer-logo-img"
                  alt="">
-            <span class="p-footer-logo-text">roduct</span>
-            <span class="p-footer-logo-text p-footer-logo-text-small">ium</span>
-            <div class="prod-point"></div>
+            <span class="p-footer-logo-text">roductium</span>
+            <div class="p-top-logo-text-box p-footer-logo-text-box">
+              <span class="p-top-logo-text">beta</span>
+            </div>
+<!--            <span class="p-footer-logo-text p-footer-logo-text-small">ium</span>-->
+<!--            <div class="prod-point"></div>-->
           </div>
           <div class="p-footer-social">
             <img src="@/assets/img/socials/fb.svg"
