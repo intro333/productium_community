@@ -74,7 +74,7 @@ export default {
       } else if (link === 'telegram') {
         url = 'https://t.me/productiumfollow';
       } else if (link === 'openland') {
-        url = 'https://openland.com/group/av6pa90EvWSOVymx36pnidb0Md';
+        // url = '';
       }
       if (url !== '') {
         window.open(url, '_blank');
