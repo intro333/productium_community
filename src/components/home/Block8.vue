@@ -10,6 +10,7 @@
         </div>
         <div class="subscribe-send-input-box">
           <input @input="changeField('email')"
+                 ref="subscribeInputRef"
                  @focusin="isFocusEmail = true"
                  @focusout="isFocusEmail = false"
                  v-model="email"

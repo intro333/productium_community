@@ -56,10 +56,29 @@ export default {
       } else {
         scrollTo();
       }
+
+      if (_id === 'homeBlock8') {
+        console.log(1, this.$refs);
+      }
     },
     openProductium() {
       // window.open('http://productium.org/', '_blank');
       window.open('http://194.58.104.122:81', '_blank'); // TODO Временно
+    },
+    openSocialLink(link) {
+      let url = '';
+      if (link === 'fb') {
+        url = 'https://www.facebook.com/productium/';
+      } else if (link === 'instagram') {
+        url = 'https://www.instagram.com/productium/';
+      } else if (link === 'telegram') {
+        url = 'https://t.me/productiumfollow';
+      } else if (link === 'openland') {
+        url = 'https://openland.com/group/av6pa90EvWSOVymx36pnidb0Md';
+      }
+      if (url !== '') {
+        window.open(url, '_blank');
+      }
     },
     changeFlipValue() {
       const mcCookie = this.getMembersCountCookie();

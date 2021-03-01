@@ -70,16 +70,20 @@
           </div>
           <div class="side-menu-social-box">
             <div class="side-menu-social">
-              <img src="@/assets/img/mobile/socials/fb.svg"
+              <img @click="openSocialLink('fb')"
+                   src="@/assets/img/mobile/socials/fb.svg"
                    class="side-menu-social-item"
                    alt="">
-              <img src="@/assets/img/mobile/socials/instagram.svg"
+              <img @click="openSocialLink('instagram')"
+                   src="@/assets/img/mobile/socials/instagram.svg"
                    class="side-menu-social-item"
                    alt="">
-              <img src="@/assets/img/mobile/socials/twitter.svg"
+              <img @click="openSocialLink('telegram')"
+                   src="@/assets/img/mobile/socials/telegram.svg"
                    class="side-menu-social-item"
                    alt="">
-              <img src="@/assets/img/mobile/socials/gh.svg"
+              <img @click="openSocialLink('openland')"
+                   src="@/assets/img/mobile/socials/openland.svg"
                    class="side-menu-social-item"
                    alt="">
             </div>

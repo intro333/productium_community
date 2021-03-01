@@ -34,16 +34,20 @@
 <!--            <div class="prod-point"></div>-->
           </div>
           <div class="p-footer-social">
-            <img src="@/assets/img/socials/fb.svg"
+            <img @click="openSocialLink('fb')"
+                 src="@/assets/img/socials/fb.svg"
                  class="p-footer-social-item"
                  alt="">
-            <img src="@/assets/img/socials/instagram.svg"
+            <img @click="openSocialLink('instagram')"
+                 src="@/assets/img/socials/instagram.svg"
                  class="p-footer-social-item"
                  alt="">
-            <img src="@/assets/img/socials/twitter.svg"
+            <img @click="openSocialLink('telegram')"
+                 src="@/assets/img/socials/telegram.svg"
                  class="p-footer-social-item"
                  alt="">
-            <img src="@/assets/img/socials/gh.svg"
+            <img @click="openSocialLink('openland')"
+                 src="@/assets/img/socials/openland.svg"
                  class="p-footer-social-item"
                  alt="">
           </div>
