@@ -62,8 +62,7 @@ export default {
       }
     },
     openProductium() {
-      // window.open('http://productium.org/', '_blank');
-      window.open('http://194.58.104.122:81', '_blank'); // TODO Временно
+      window.open('http://app.productium.org/', '_blank');
     },
     openSocialLink(link) {
       let url = '';
