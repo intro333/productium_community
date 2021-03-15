@@ -62,7 +62,7 @@ export default {
       }
     },
     openProductium() {
-      window.open('http://app.productium.org/', '_blank');
+      window.open('https://app.productium.org/', '_blank');
     },
     openSocialLink(link) {
       let url = '';

@@ -10,8 +10,10 @@
            autoplay
            muted
     >
-      <source src="https://a.slack-edge.com/e0d52/marketing/img/integrations-lp/slack-integrations-gdrive.mp4"
+      <source src="/video/prodactium gif.mp4"
               type="video/mp4">
+<!--      <source src="https://a.slack-edge.com/e0d52/marketing/img/integrations-lp/slack-integrations-gdrive.mp4"-->
+<!--              type="video/mp4">-->
     </video>
   </div>
 </template>
