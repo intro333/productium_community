@@ -8,9 +8,8 @@
         <video :width="videoWidth"
                loop
                autoplay
-               muted
         >
-          <source src="/video/Productium6.mp4"
+          <source src="/video/videoPreview.mp4"
                   type="video/mp4">
           <!--        <source src="https://a.slack-edge.com/e0d52/marketing/img/integrations-lp/slack-integrations-gdrive.mp4"-->
           <!--                type="video/mp4">-->
