@@ -6,14 +6,24 @@
       <div id="video2"
            class="home-full-video-box">
         <video :width="videoWidth"
-               loop
-               autoplay
+               ref="videoPreviewRef"
+               poster="video/videoPreviewCover.gif"
         >
           <source src="/video/videoPreview.mp4"
                   type="video/mp4">
           <!--        <source src="https://a.slack-edge.com/e0d52/marketing/img/integrations-lp/slack-integrations-gdrive.mp4"-->
           <!--                type="video/mp4">-->
         </video>
+        <div v-if="videoIsPlayed && !videoIsPaused"
+             @click="pause"
+             class="home-full-video-pause-bk"></div>
+        <div v-if="videoIsPaused"
+             @click="play"
+             class="home-full-video-play-bk">
+          <img src="@/assets/img/common/buttonPlay.svg"
+              class="home-full-video-control-play"
+              alt="" >
+        </div>
       </div>
     </div>
   </div>
@@ -26,6 +36,16 @@ import {mapGetters} from "vuex";
 export default {
   name: "BlockFullVideo",
   mixins: [CommonMixin],
+  data: () => ({
+    video: null,
+    videoIsPlayed: false, /* Было запущено видео или нет (первый раз) */
+    videoIsPaused: true,
+  }),
+  mounted() {
+    if (this.$refs['videoPreviewRef']) {
+      this.video = this.$refs['videoPreviewRef'];
+    }
+  },
   computed: {
     browW() {
       return this.getBrowserSize().width;
@@ -45,6 +65,17 @@ export default {
   },
   methods: {
     ...mapGetters(['getBrowserSize']),
+    play() {
+      if (this.video) {
+        this.video.play();
+        this.videoIsPlayed = true;
+        this.videoIsPaused = false;
+      }
+    },
+    pause() {
+      this.video.pause();
+      this.videoIsPaused = true;
+    },
   },
 }
 </script>
