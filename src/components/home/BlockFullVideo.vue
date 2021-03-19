@@ -6,6 +6,10 @@
       <div id="video2"
            class="home-full-video-box">
         <video :width="videoWidth"
+               class="home-full-video-player"
+               @play="play"
+               @pause="pause"
+               controls
                ref="videoPreviewRef"
                poster="video/videoPreviewCover.gif"
         >
@@ -14,16 +18,18 @@
           <!--        <source src="https://a.slack-edge.com/e0d52/marketing/img/integrations-lp/slack-integrations-gdrive.mp4"-->
           <!--                type="video/mp4">-->
         </video>
-        <div v-if="videoIsPlayed && !videoIsPaused"
-             @click="pause"
-             class="home-full-video-pause-bk"></div>
-        <div v-if="videoIsPaused"
-             @click="play"
-             class="home-full-video-play-bk">
-          <img src="@/assets/img/common/buttonPlay.svg"
+<!--        <div v-if="videoIsPlayed && !videoIsPaused"-->
+<!--             @click="pause"-->
+<!--             class="home-full-video-pause-bk"></div>-->
+<!--        <div v-if="videoIsPaused"-->
+<!--             @click="play"-->
+<!--             class="home-full-video-play-bk">-->
+          <img v-if="videoIsPaused"
+               @click="play"
+               src="@/assets/img/common/buttonPlay.svg"
               class="home-full-video-control-play"
               alt="" >
-        </div>
+<!--        </div>-->
       </div>
     </div>
   </div>
@@ -66,6 +72,7 @@ export default {
   methods: {
     ...mapGetters(['getBrowserSize']),
     play() {
+      console.log(111)
       if (this.video) {
         this.video.play();
         this.videoIsPlayed = true;
@@ -73,6 +80,7 @@ export default {
       }
     },
     pause() {
+      console.log(222)
       this.video.pause();
       this.videoIsPaused = true;
     },

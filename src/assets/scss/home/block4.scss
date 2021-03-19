@@ -185,6 +185,13 @@
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.24);
     border-radius: 16px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-player {
+    border: none;
+    outline: none;
   }
   &-control {
     &-play {
