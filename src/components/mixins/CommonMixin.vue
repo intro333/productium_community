@@ -58,7 +58,7 @@ export default {
       }
 
       if (_id === 'homeBlock8') {
-        console.log(1, this.$refs);
+        // console.log(1, this.$refs);
       }
     },
     openProductium() {
@@ -73,7 +73,7 @@ export default {
       } else if (link === 'telegram') {
         url = 'https://t.me/productiumfollow';
       } else if (link === 'openland') {
-        // url = '';
+        url = 'https://openland.com/m_productium';
       }
       if (url !== '') {
         window.open(url, '_blank');
