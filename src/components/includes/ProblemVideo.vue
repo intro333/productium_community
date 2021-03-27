@@ -9,6 +9,7 @@
            loop
            autoplay
            muted
+           poster="video/screen1.png"
     >
       <source src="/video/preview3.mp4"
               type="video/mp4">
