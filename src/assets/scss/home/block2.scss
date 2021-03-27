@@ -56,6 +56,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      border-radius: 16px;
+      overflow: hidden;
       //@include video-shadow(.25);
       @media (max-width: $mobileMax) {
         width: 100%;

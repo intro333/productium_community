@@ -10,11 +10,13 @@
            autoplay
            muted
     >
-      <source src="/video/video2.mp4"
+      <source src="/video/preview3.mp4"
               type="video/mp4">
 <!--      <source src="https://a.slack-edge.com/e0d52/marketing/img/integrations-lp/slack-integrations-gdrive.mp4"-->
 <!--              type="video/mp4">-->
     </video>
+<!--    <img src="/video/preview1.gif" alt=""-->
+<!--         :width="(browW < 540) ? browW : 540" />-->
   </div>
 </template>
 
