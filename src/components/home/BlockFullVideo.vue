@@ -72,7 +72,6 @@ export default {
   methods: {
     ...mapGetters(['getBrowserSize']),
     play() {
-      console.log(111)
       if (this.video) {
         this.video.play();
         this.videoIsPlayed = true;
@@ -80,7 +79,6 @@ export default {
       }
     },
     pause() {
-      console.log(222)
       this.video.pause();
       this.videoIsPaused = true;
     },
