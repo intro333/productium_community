@@ -3,7 +3,7 @@
 <!--    <iframe width="560" height="315"-->
 <!--            src="https://www.youtube.com/embed/2DsDvnzlICE"-->
 <!--            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"-->
-<!--    ></iframe>-->
+<!--    ></iframe>  -->
     <video id="video"
            :width="(browW < 540) ? browW : 540"
            loop
@@ -12,8 +12,8 @@
     >
       <source src="/video/preview3.mp4"
               type="video/mp4">
-<!--      <source src="https://a.slack-edge.com/e0d52/marketing/img/integrations-lp/slack-integrations-gdrive.mp4"-->
-<!--              type="video/mp4">-->
+      <!--      <source src="https://a.slack-edge.com/e0d52/marketing/img/integrations-lp/slack-integrations-gdrive.mp4"-->
+      <!--              type="video/mp4">-->
     </video>
 <!--    <img src="/video/preview1.gif" alt=""-->
 <!--         :width="(browW < 540) ? browW : 540" />-->
