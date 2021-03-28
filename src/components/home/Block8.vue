@@ -64,13 +64,13 @@
           <span class="subscribe-descr">стирайте границы, становитесь</span>
           <p class="subscribe-descr">
             <span>успешнее вместе с </span>
-            <span class="subscribe-descr-bold bold-blue">Productium</span>
+            <span class="subscribe-descr-bold bold-blue">Productium!</span>
           </p>
         </div>
         <div class="subscribe-descr-box content-hide-desktop">
           <p class="subscribe-descr">
             <span>Объединяйтесь в команды, стирайте границы, становитесь успешнее вместе с </span>
-            <span class="subscribe-descr-bold bold-blue">Productium</span>
+            <span class="subscribe-descr-bold bold-blue">Productium!</span>
           </p>
         </div>
       </div>
