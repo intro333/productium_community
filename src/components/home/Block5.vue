@@ -41,9 +41,10 @@ export default {
     yOffset() {
       const y = this.getPageYOffset();
       const countingNums = document.getElementById('countingNums');
-      if (countingNums) {
+      const homeBlock5 = document.getElementById('homeBlock5');
+      if (homeBlock5 && countingNums) {
         const browDownPoint = y + this.browH;
-        const blockDownPoint = countingNums.offsetTop + countingNums.clientHeight;
+        const blockDownPoint = homeBlock5.offsetTop + countingNums.clientHeight;
         if (browDownPoint >= blockDownPoint) {
           this.changeFlipValue();
         }
