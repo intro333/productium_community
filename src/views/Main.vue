@@ -4,6 +4,7 @@
     <CookieModal v-if="!getCookieIsAssented()" />
     <AuthWindow v-if="getOpenAuthWindowState()" />
     <PopupReadiness v-if="getIsOpenPopupReadiness()" />
+    <PopupUnsubscribe v-if="getIsOpenPopupUnsubscribe()" />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import {mapActions, mapGetters} from "vuex";
 import CookieModal from "@/components/modals/CookieModal";
 import AuthWindow from "@/components/modals/AuthWindow";
 import PopupReadiness from "@/components/modals/PopupReadiness";
+import PopupUnsubscribe from "@/components/modals/PopupUnsubscribe";
 
 export default {
   name: "Main",
@@ -19,6 +21,7 @@ export default {
     CookieModal,
     AuthWindow,
     PopupReadiness,
+    PopupUnsubscribe,
   },
   data: () => ({
     isScrolling: false
@@ -42,7 +45,7 @@ export default {
   },
   methods: {
     ...mapActions(['setCookieIsAssented', 'setBrowserSize', 'setPageYOffset', 'fetchInitData', 'fetchIpAddressAndSetOsInfo']),
-    ...mapGetters(['getCookieIsAssented', 'getOpenAuthWindowState', 'getIsOpenPopupReadiness']),
+    ...mapGetters(['getCookieIsAssented', 'getOpenAuthWindowState', 'getIsOpenPopupReadiness', 'getIsOpenPopupUnsubscribe']),
     browserResize() {
       const browSize = document.documentElement;
       this.setBrowserSize({

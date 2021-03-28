@@ -29,9 +29,12 @@ import Block8 from "@/components/home/Block8";
 import BlockIntegration from "@/components/home/BlockIntegration";
 import BlockFullVideo from "@/components/home/BlockFullVideo";
 import BlockAddToCommunity from "@/components/home/BlockAddToCommunity";
+import {mapActions} from "vuex";
+import CommonMixin from "@/components/mixins/CommonMixin";
 
 export default {
   name: "Home",
+  mixins: [CommonMixin],
   components: {
     Block1,
     Block2,
@@ -46,6 +49,15 @@ export default {
     BlockFullVideo,
     BlockAddToCommunity,
   },
-
+  created() {
+    const query = this.$route.query;
+    if (query && query.unsubscribe) {
+      this.bodyLock(true);
+      this.unSubscribe(query.unsubscribe);
+    }
+  },
+  methods: {
+    ...mapActions(['unSubscribe']),
+  },
 }
 </script>

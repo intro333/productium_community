@@ -17,6 +17,7 @@ export default new Vuex.Store({
     },
     pageYOffset: 0, // scroll of window
     isOpenPopupReadiness: false,
+    isOpenPopupUnsubscribe: false,
     readyPercent: 65,
     membersCount: 123,
     membersCountCookie: localStorage.getItem('cookie_members_count'),
@@ -32,6 +33,7 @@ export default new Vuex.Store({
     getBrowserSize: state => state.browserSize,
     getPageYOffset: state => state.pageYOffset,
     getIsOpenPopupReadiness: state => state.isOpenPopupReadiness,
+    getIsOpenPopupUnsubscribe: state => state.isOpenPopupUnsubscribe,
     getReadyPercent: state => state.readyPercent,
     getMembersCount: state => state.membersCount,
     getMembersCountCookie: state => state.membersCountCookie,
@@ -103,6 +105,21 @@ export default new Vuex.Store({
     setIsOpenPopupReadiness({commit}, status) {
       commit('SET_IS_OPEN_POPUP_READINESS', status);
     },
+    setIsOpenPopupUnsubscribe({commit}, status) {
+      commit('SET_IS_OPEN_POPUP_UNSUBSCRIBE', status);
+    },
+    unSubscribe({commit}, email) {
+      return new Promise((resolve, reject) => {
+        commit('SET_IS_OPEN_POPUP_UNSUBSCRIBE');
+        window.axios.post('community/unsubscribe/', {email})
+          .then(() => {
+            resolve(email);
+          }, error => {
+            const data = error.response && error.response.data;
+            reject(data);
+          });
+      });
+    },
     setReadyPercent({commit}, num) {
       commit('SET_READY_PERCENT', num);
     },
@@ -141,6 +158,7 @@ export default new Vuex.Store({
     SET_BROWSER_SIZE(state, browserSize) { state.browserSize = browserSize; },
     SET_PAGE_Y_OFFSET(state, value) { state.pageYOffset = value; },
     SET_IS_OPEN_POPUP_READINESS(state, status) { state.isOpenPopupReadiness = status; },
+    SET_IS_OPEN_POPUP_UNSUBSCRIBE(state, status) { state.isOpenPopupUnsubscribe = status; },
     SET_READY_PERCENT(state, num) { state.readyPercent = num; },
     SET_MEMBER_COUNT(state, count) { state.membersCount = count; },
     SET_MEMBER_COUNT_COOKIE(state, count) {
