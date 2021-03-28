@@ -132,7 +132,7 @@ export default new Vuex.Store({
     },
     fetchIpAddressAndSetOsInfo({ commit }) {
       return new Promise((resolve, reject) => {
-        window.axios.get('https://cors-anywhere.herokuapp.com/http://api.ipify.org/?format=json', {})
+        window.axios.get('https://api.ipify.org?format=json', {})
           // axios.get('http://api.ipify.org/?format=json', {})
           .then(response => {
             const ip = response.data.ip;
