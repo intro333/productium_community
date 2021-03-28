@@ -10,6 +10,8 @@
                @play="play"
                @pause="pause"
                controls
+               controlsList="nodownload"
+               disablePictureInPicture
                ref="videoPreviewRef"
                poster="video/videoPreviewCover.gif"
         >
