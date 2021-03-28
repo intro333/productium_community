@@ -40,24 +40,38 @@
         <img src="@/assets/img/common/astroTeam.svg"
              class="subscribe-descr-astro-team"
              alt="" >
-        <div class="subscribe-descr-box">
+<!--        <div class="subscribe-descr-box">-->
+<!--          <p class="subscribe-descr">-->
+<!--            <span class="subscribe-descr-bold bold-blue">Productium </span>-->
+<!--            <span>создан специалистами</span>-->
+<!--          </p>-->
+
+<!--          <span class="subscribe-descr content-hide-mobile">направлений разработки, управления,</span>-->
+<!--          <span class="subscribe-descr content-hide-mobile">дизайна и реализован в одном приложении,</span>-->
+<!--          <span class="subscribe-descr content-hide-mobile">с огромным потенциалом развития и решения</span>-->
+<!--          <span class="subscribe-descr content-hide-mobile">множества задач в процессе разработки</span>-->
+
+<!--          <span class="subscribe-descr content-hide-desktop">направлений разработки,</span>-->
+<!--          <span class="subscribe-descr content-hide-desktop">управления, дизайна и</span>-->
+<!--          <span class="subscribe-descr content-hide-desktop">реализована в одном</span>-->
+<!--          <span class="subscribe-descr content-hide-desktop">приложении, с огромным</span>-->
+<!--          <span class="subscribe-descr content-hide-desktop">потенциалом развития и</span>-->
+<!--          <span class="subscribe-descr content-hide-desktop">решения множества задач</span>-->
+<!--          <span class="subscribe-descr content-hide-desktop">в процессе разработки</span>-->
+<!--        </div>-->
+        <div class="subscribe-descr-box content-hide-mobile">
+          <span class="subscribe-descr">Объединяйтесь в команды,</span>
+          <span class="subscribe-descr">стирайте границы, становитесь</span>
           <p class="subscribe-descr">
-            <span class="subscribe-descr-bold bold-blue">Productium </span>
-            <span>создан специалистами</span>
+            <span>успешнее вместе с </span>
+            <span class="subscribe-descr-bold bold-blue">Productium</span>
           </p>
-
-          <span class="subscribe-descr content-hide-mobile">направлений разработки, управления,</span>
-          <span class="subscribe-descr content-hide-mobile">дизайна и реализован в одном приложении,</span>
-          <span class="subscribe-descr content-hide-mobile">с огромным потенциалом развития и решения</span>
-          <span class="subscribe-descr content-hide-mobile">множества задач в процессе разработки</span>
-
-          <span class="subscribe-descr content-hide-desktop">направлений разработки,</span>
-          <span class="subscribe-descr content-hide-desktop">управления, дизайна и</span>
-          <span class="subscribe-descr content-hide-desktop">реализована в одном</span>
-          <span class="subscribe-descr content-hide-desktop">приложении, с огромным</span>
-          <span class="subscribe-descr content-hide-desktop">потенциалом развития и</span>
-          <span class="subscribe-descr content-hide-desktop">решения множества задач</span>
-          <span class="subscribe-descr content-hide-desktop">в процессе разработки</span>
+        </div>
+        <div class="subscribe-descr-box content-hide-desktop">
+          <p class="subscribe-descr">
+            <span>Объединяйтесь в команды, стирайте границы, становитесь успешнее вместе с </span>
+            <span class="subscribe-descr-bold bold-blue">Productium</span>
+          </p>
         </div>
       </div>
 <!--      <div class="subscribe-photo-content">-->

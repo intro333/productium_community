@@ -147,7 +147,7 @@
         &-team { /* IMG with astro-s */
           width: 343.81px;
           height: 277.43px;
-          margin-right: 57px;
+          margin-right: 62px;
           margin-left: -120px;
           @media (max-width: $mobileMax) {
             margin-right: 0;
@@ -158,7 +158,9 @@
       &-box {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         @media (max-width: $mobileMax) {
+          justify-content: flex-start;
           margin-top: 50px;
         }
       }
