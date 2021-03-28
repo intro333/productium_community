@@ -49,15 +49,20 @@ export default {
     BlockFullVideo,
     BlockAddToCommunity,
   },
-  created() {
+  mounted() {
     const query = this.$route.query;
     if (query && query.unsubscribe) {
-      this.bodyLock(true);
-      this.unSubscribe(query.unsubscribe);
+      setTimeout(() => {
+        this.bodyLock(true);
+        this.setIsOpenPopupUnsubscribe(true);
+      }, 200);
+      setTimeout(() => {
+        this.unSubscribe(query.unsubscribe);
+      }, 1000);
     }
   },
   methods: {
-    ...mapActions(['unSubscribe']),
+    ...mapActions(['setIsOpenPopupUnsubscribe', 'unSubscribe']),
   },
 }
 </script>

@@ -26,6 +26,7 @@ export default new Vuex.Store({
       userDevice: '',
       userAgent: '',
     },
+    some: '',
   },
   getters: {
     getCookieIsAssented: state => state.cookieIsAssented,
@@ -110,7 +111,7 @@ export default new Vuex.Store({
     },
     unSubscribe({commit}, email) {
       return new Promise((resolve, reject) => {
-        commit('SET_IS_OPEN_POPUP_UNSUBSCRIBE', true);
+        commit('SOME');
         window.axios.post('community/unsubscribe/', {email})
           .then(() => {
             resolve(email);
@@ -166,6 +167,7 @@ export default new Vuex.Store({
       state.membersCountCookie = count
     },
     SET_OS_INFO(state, info) { state.osInfo = info; },
+    SOME(state) { state.some = 'some'; },
   },
   modules: {
 
