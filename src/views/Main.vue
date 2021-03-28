@@ -27,8 +27,8 @@ export default {
     isScrolling: false
   }),
   created() {
-    // this.fetchInitData();
-    // this.fetchIpAddressAndSetOsInfo();
+    this.fetchInitData();
+    this.fetchIpAddressAndSetOsInfo();
   },
   mounted() {
     window.addEventListener('resize', this.browserResize);
