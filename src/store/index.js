@@ -110,7 +110,7 @@ export default new Vuex.Store({
     },
     unSubscribe({commit}, email) {
       return new Promise((resolve, reject) => {
-        commit('SET_IS_OPEN_POPUP_UNSUBSCRIBE');
+        commit('SET_IS_OPEN_POPUP_UNSUBSCRIBE', true);
         window.axios.post('community/unsubscribe/', {email})
           .then(() => {
             resolve(email);
