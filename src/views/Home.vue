@@ -55,7 +55,7 @@ export default {
       setTimeout(() => {
         this.bodyLock(true);
         this.setIsOpenPopupUnsubscribe(true);
-      }, 200);
+      }, 500);
       setTimeout(() => {
         this.unSubscribe(query.unsubscribe);
       }, 1000);
