@@ -27,7 +27,7 @@ export default {
     isScrolling: false
   }),
   created() {
-    this.fetchInitData();
+    // this.fetchInitData();
     this.fetchIpAddressAndSetOsInfo();
   },
   mounted() {

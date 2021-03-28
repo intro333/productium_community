@@ -18,8 +18,8 @@ export default new Vuex.Store({
     pageYOffset: 0, // scroll of window
     isOpenPopupReadiness: false,
     isOpenPopupUnsubscribe: false,
-    readyPercent: 65,
-    membersCount: 123,
+    readyPercent: 64,
+    membersCount: 125,
     membersCountCookie: localStorage.getItem('cookie_members_count'),
     sInfo: {
       userIp: '',
