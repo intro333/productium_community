@@ -20,12 +20,12 @@
           <span>и сейчас открыт бесплатный доступ к Premium пакету сервиса, необходима только регистрация</span>
         </p>
         <p class="home-block7-right-descr">
-          <span>Так же для первой тысячи пользователей Productium дает возможность первыми получать новинки и стать основой </span>
+          <span>Для первой тысячи пользователей Productium дает возможность первыми получать новинки и стать основой </span>
           <span class="home-block7-right-descr-big">Productium community</span>
         </p>
         <p class="home-block7-right-descr">
           <span class="home-block7-right-descr-big">Productium community </span>
-          <span>позволит получать фидбэк от дизайнеров, а так же вы сможете стать ментором для других дизайнеров</span>
+          <span>позволит получить обратную связь по проекту от других команд и экспертов</span>
         </p>
       </div>
     </div>

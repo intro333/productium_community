@@ -7,12 +7,11 @@
             <span class="tariff-descr1-text__normal">пакет </span>
             <span class="tariff-descr1-text__big">Productium </span>
             <span class="tariff-descr1-text__big tariff-descr1-text__big-blue">premium</span>
-            <span class="tariff-descr1-text__normal content-hide-mobile"> для</span>
           </p>
           <p class="tariff-descr1-text tariff-descr1-text-overlay tariff-descr1-text__normal"
           >
             <span class="content-hide-desktop">для </span>
-            <span>первой тысячи пользователей совершенно бесплатно</span>
+            <span>для первой тысячи пользователей совершенно бесплатно</span>
           </p>
         </div>
         <div class="tariff-info scrollbar-hidden block-scroll-container content-hide-mobile">

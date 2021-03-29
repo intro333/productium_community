@@ -4,18 +4,21 @@
 <!--            src="https://www.youtube.com/embed/2DsDvnzlICE"-->
 <!--            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"-->
 <!--    ></iframe>  -->
-    <video id="video"
-           :width="(browW < 540) ? browW : 540"
-           loop
-           autoplay
-           muted
-           poster="video/screen1.png"
-    >
-      <source src="/video/preview3.mp4"
-              type="video/mp4">
-      <!--      <source src="https://a.slack-edge.com/e0d52/marketing/img/integrations-lp/slack-integrations-gdrive.mp4"-->
-      <!--              type="video/mp4">-->
-    </video>
+    <div class="problem-video-right-box"
+         :style="{width: videoWidth + 'px'}">
+      <video id="video"
+             :width="videoWidth"
+             loop
+             autoplay
+             muted
+             poster="video/screen1.png"
+      >
+        <source src="/video/preview3.mp4"
+                type="video/mp4">
+        <!--      <source src="https://a.slack-edge.com/e0d52/marketing/img/integrations-lp/slack-integrations-gdrive.mp4"-->
+        <!--              type="video/mp4">-->
+      </video>
+    </div>
 <!--    <img src="/video/preview1.gif" alt=""-->
 <!--         :width="(browW < 540) ? browW : 540" />-->
   </div>
@@ -33,6 +36,21 @@ export default {
   computed: {
     browW() {
       return this.getBrowserSize().width;
+    },
+    videoWidth() {
+      let res = 540;
+      console.log(1, this.browW)
+      if (this.browW < 540) {
+        console.log(2)
+        if (this.browW <= 375) {
+          console.log(3)
+          res = this.browW - 10;
+        } else {
+          res = 375;
+        }
+      }
+
+      return res;
     },
   },
   mounted() {

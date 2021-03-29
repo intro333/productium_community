@@ -4,9 +4,9 @@
 
 .home-block2 {
   position: relative;
-  padding-bottom: 170px;
+  padding-bottom: 150px;
   @media (max-width: $mobileMax) {
-    padding-bottom: 100px;
+    padding-bottom: 80px;
   }
 }
 .problem {
@@ -15,7 +15,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 100px;
+      margin-top: 80px;
       @media (max-width: $mobileMax) {
         flex-direction: column;
         justify-content: center;
@@ -25,10 +25,10 @@
       &-box {
         display: flex;
         flex-direction: column;
-        width: 475px;
+        width: 494px;
         @media (max-width: $mobileMax) {
           width: 100%;
-          margin-top: 64px;
+          margin-top: 44px;
         }
       }
     }
@@ -50,14 +50,16 @@
       }
     }
     &-right {
-      width: 540px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 4px 4px 16px rgb(0 0 0 / 24%);
-      border: 1px solid #B6B7B9;
+      padding: 20px 0;
+      &-box {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 4px 4px 16px rgb(0 0 0 / 24%);
+        border: 1px solid #B6B7B9;
+      }
       @media (max-width: $mobileMax) {
         width: 100%;
       }
