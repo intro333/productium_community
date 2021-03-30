@@ -10,8 +10,7 @@
           </p>
           <p class="tariff-descr1-text tariff-descr1-text-overlay tariff-descr1-text__normal"
           >
-            <span class="content-hide-desktop">для </span>
-            <span>для первой тысячи пользователей совершенно бесплатно</span>
+            <span>для первой тысячи пользователей бесплатно</span>
           </p>
         </div>
         <div class="tariff-info scrollbar-hidden block-scroll-container content-hide-mobile">

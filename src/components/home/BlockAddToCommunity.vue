@@ -6,7 +6,10 @@
         <p class="home-block3-slogan-text text-normal2 content-hide-mobile">Присоединяйтесь к</p>
         <p class="home-block3-slogan-text text-normal2 content-hide-desktop">Присоединяйтесь</p>
         <p class="home-block3-slogan-text text-big text-big2 content-hide-mobile">Productium community</p>
-        <p class="home-block3-slogan-text text-big text-big2 content-hide-desktop">к Productium community</p>
+        <p class="content-hide-desktop">
+          <span class="home-block3-slogan-text text-normal2">к </span>
+          <span class="home-block3-slogan-text text-big text-big2">Productium community</span>
+        </p>
         <p class="home-block3-slogan-text text-normal2">для нетворкинга и личного развития</p>
       </div>
       <div @click="openAuthWindow"

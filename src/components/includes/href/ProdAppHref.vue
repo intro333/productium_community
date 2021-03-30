@@ -1,7 +1,7 @@
 <template>
   <a class="inf-link"
      target="_blank"
-     href="http://productium.org">http://productium.org</a>
+     href="https://productium.org">https://productium.org</a>
 </template>
 
 <script>

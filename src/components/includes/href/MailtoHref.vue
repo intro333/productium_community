@@ -1,6 +1,6 @@
 <template>
   <a class="inf-link"
-     :href="`mailto:${emailInfo}`">http://productium.org</a>
+     :href="`mailto:${emailInfo}`">info@productium.org</a>
 </template>
 
 <script>
