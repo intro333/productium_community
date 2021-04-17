@@ -202,7 +202,7 @@ export default {
     changeField(field) {
       this.checkSubmit[field] = true;
       this.subscribeInfo.isAgreement = Object.keys(this.checkSubmit).map(_k => this.checkSubmit[_k]).indexOf(false) === -1;
-      console.log(1, this.subscribeInfo.isAgreement)
+      // console.log(1, this.subscribeInfo.isAgreement)
     },
     clearSubmitData() {
       this.subscribeInfo.name = '';
@@ -237,7 +237,7 @@ export default {
           this.isSending = false;
           this.sentText = sentText;
           this.sentState = sentState.SENT_ERROR;
-          console.log('Server error: ' + err);
+          // console.log('Server error: ' + err);
         });
       }
     },

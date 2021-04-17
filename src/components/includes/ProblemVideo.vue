@@ -39,11 +39,11 @@ export default {
     },
     videoWidth() {
       let res = 540;
-      console.log(1, this.browW)
+      // console.log(1, this.browW)
       if (this.browW < 540) {
-        console.log(2)
+        // console.log(2)
         if (this.browW <= 375) {
-          console.log(3)
+          // console.log(3)
           res = this.browW - 10;
         } else {
           res = 375;
