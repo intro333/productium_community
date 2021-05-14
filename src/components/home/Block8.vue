@@ -3,9 +3,9 @@
     <div :class="['content-base', 'home-block8']" id="homeBlock8">
       <div class="subscribe-send-box">
         <div class="subscribe-send-text">
-          <span class="content-hide-mobile">мы можем написать вам, как будет готов </span>
-          <p class="content-hide-desktop">мы можем написать вам,</p>
-          <span class="content-hide-desktop">как будет готов </span>
+          <span class="content-hide-mobile">{{ $t("block8.readyM") }} </span>
+          <p class="content-hide-desktop">{{ $t("block8.readyD1") }}</p>
+          <span class="content-hide-desktop">{{ $t("block8.readyD2") }} </span>
           <span class="subscribe-send-text-bold">Productium</span>
         </div>
         <div class="subscribe-send-input-box">
@@ -16,7 +16,7 @@
                  v-model="email"
                  @keyup.enter="submit"
                  class="subscribe-send-input text-ellipsis"
-                 placeholder="Введите e-mail">
+                 :placeholder="$t('common.enterEmail')">
           <div @click="submit"
                class="subscribe-send-input-button"
                :class="{'disabled': !submitValidation || isSending}">
@@ -28,7 +28,7 @@
             <LoaderButton v-if="isSending" />
           </div>
           <span v-if="isFocusEmail && emailIsNotValid"
-                class="subscribe-send-input-message subscribe-send-input-error">Проверка e-mail</span>
+                class="subscribe-send-input-message subscribe-send-input-error">{{ $t('common.checkEmail') }}</span>
           <span v-if="emailIsSendMessage !== ''"
                 class="subscribe-send-input-message"
                 :class="[emailIsSendMessageIsError ? 'subscribe-send-input-error' : 'subscribe-send-input-success']"
@@ -60,16 +60,16 @@
 <!--          <span class="subscribe-descr content-hide-desktop">в процессе разработки</span>-->
 <!--        </div>-->
         <div class="subscribe-descr-box content-hide-mobile">
-          <span class="subscribe-descr">Объединяйтесь в команды,</span>
-          <span class="subscribe-descr">стирайте границы, становитесь</span>
+          <span class="subscribe-descr">{{ $t("block8.subscrD1") }}</span>
+          <span class="subscribe-descr">{{ $t("block8.subscrD2") }}</span>
           <p class="subscribe-descr">
-            <span>успешнее вместе с </span>
+            <span>{{ $t("block8.subscrD3") }} </span>
             <span class="subscribe-descr-bold bold-blue">Productium</span>
           </p>
         </div>
         <div class="subscribe-descr-box content-hide-desktop">
           <p class="subscribe-descr">
-            <span>Объединяйтесь в команды, стирайте границы, становитесь успешнее вместе с </span>
+            <span>{{ $t("block8.subscrM1") }} </span>
             <span class="subscribe-descr-bold bold-blue">Productium</span>
           </p>
         </div>
@@ -162,9 +162,9 @@ export default {
           }).catch(err => {
             this.isSending = false;
             this.checkSubmit.email = false;
-            let errMessage = 'Ошибка отправки письма, попробуйте ещё раз';
+            let errMessage = this.$t("block8.errorSendingEmail");
             if (err.errorMessage && err.errorMessage === 'unique_violation') {
-              errMessage = 'Этот e-mail был зарегистрирован.';
+              errMessage = this.$t("block8.emailWasRegistered");
               // this.errorMessage = 'unique_violation';
             }
             this.setEmailIsSendMessage(errMessage);

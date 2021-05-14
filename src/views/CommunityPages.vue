@@ -13,16 +13,18 @@
           </div>
         </div>
         <div class="p-top-right">
+          <span @click="changeLocale('en')"
+                class="p-top-right-item-text">EN</span>
           <span @click="scrollToBlock('tariffDescr1Box')"
-                class="p-top-right-item-text">Тарифы</span>
+                class="p-top-right-item-text">{{ $t("nav.tariffs") }}</span>
           <span @click="scrollToBlock('aboutProject')"
-                class="p-top-right-item-text">О проекте</span>
+                class="p-top-right-item-text">{{ $t("nav.about") }}</span>
           <span @click="scrollToBlock('homeBlock8')"
-                class="p-top-right-item-text">Быть в курсе новостей</span>
+                class="p-top-right-item-text">{{ $t("nav.stayUpToNews") }}</span>
           <div @click="openProductium()"
                class="p-button p-button-rounded p-button-rounded3 p-button-fill p-button-fill1"
                style="margin-left: 32px;">
-            <span class="p-button-text">Beta-версия</span>
+            <span class="p-button-text">{{ $t("common.betaVersion") }}</span>
           </div>
         </div>
       </div>
@@ -56,17 +58,17 @@
         <div class="side-menu-content content-base">
           <div class="side-menu-box">
             <span @click="scrollToBlockOnMobile('pHome')"
-                  class="side-menu-item">Главная</span>
+                  class="side-menu-item">{{ $t("common.toHome") }}</span>
             <span @click="scrollToBlockOnMobile('homeBlockFullVideo')"
-                  class="side-menu-item">Как это работает</span>
+                  class="side-menu-item">{{ $t("common.howWork") }}</span>
             <span @click="scrollToBlockOnMobile('aboutProject2')"
-                  class="side-menu-item">О проекте</span>
+                  class="side-menu-item">{{ $t("nav.about") }}</span>
             <span  @click="scrollToBlockOnMobile('tariffDescr1Box')"
-                   class="side-menu-item">Тарифы</span>
+                   class="side-menu-item">{{ $t("nav.tariffs") }}</span>
             <span @click="openProductium()"
-                  class="side-menu-item">Beta-версия</span>
+                  class="side-menu-item">{{ $t("common.betaVersion") }}</span>
             <span @click="scrollToBlockOnMobile('homeBlock8')"
-                  class="side-menu-item">Быть в курсе новостей</span>
+                  class="side-menu-item">{{ $t("nav.stayUpToNews") }}</span>
           </div>
           <div class="side-menu-social-box">
             <div class="side-menu-social">
@@ -114,10 +116,11 @@
 <script>
 import CommonMixin from "@/components/mixins/CommonMixin";
 import Footer from "@/components/Footer";
+import LocaleMixin from "@/components/mixins/LocaleMixin";
 
 export default {
   name: "CommunityPages",
-  mixins: [CommonMixin],
+  mixins: [CommonMixin, LocaleMixin],
   components: {
     Footer
   },

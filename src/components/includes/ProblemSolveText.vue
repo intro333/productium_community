@@ -1,10 +1,10 @@
 <template>
   <div class="problem-video-left-box">
     <span class="problem-video-title">Productium</span>
-    <span class="problem-video-text">это Agile-среда для запуска IT-проектов. Позволяет командам и стейкхолдерам создавать проекты от этапа проектирования и до релиза продукта</span>
+    <span class="problem-video-text">{{ $t("problemSolve.agile") }}</span>
     <div @click="action && action()"
          class="problem-beta-box">
-      <span class="problem-beta-text">Beta-версия</span>
+      <span class="problem-beta-text">{{ $t("common.betaVersion") }}</span>
       <div class="problem-beta-img"></div>
 <!--      <img src="@/assets/img/home/arrowLine.svg"-->
 <!--           class="problem-beta-img"-->

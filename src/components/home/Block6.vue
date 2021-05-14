@@ -4,13 +4,13 @@
       <div :class="['content-base']">
         <div class="tariff-descr1-box" id="tariffDescr1Box">
           <p class="tariff-descr1-text">
-            <span class="tariff-descr1-text__normal">пакет </span>
+            <span class="tariff-descr1-text__normal">{{ $t("block6.text1") }} </span>
             <span class="tariff-descr1-text__big">Productium </span>
             <span class="tariff-descr1-text__big tariff-descr1-text__big-blue">premium</span>
           </p>
           <p class="tariff-descr1-text tariff-descr1-text-overlay tariff-descr1-text__normal"
           >
-            <span>для первой тысячи пользователей бесплатно</span>
+            <span>{{ $t("block6.text2") }}</span>
           </p>
         </div>
         <div class="tariff-info scrollbar-hidden block-scroll-container content-hide-mobile">
@@ -57,6 +57,9 @@ export default {
     },
   },
   methods: {
+    t(_key) {
+      return this.$t("block6." + _key);
+    },
     tariffInfoList() {
       return [
         { /* FREE */
@@ -70,22 +73,22 @@ export default {
               words: this.peopleInTeam(3)
             },
             {
-              words: this.itemCounts('проектов', 'upTo', 3)
+              words: this.itemCounts(this.t('infoProjects'), 'upTo', 3)
             },
             {
-              words: this.itemCounts('слайдов', 'upTo', 5)
+              words: this.itemCounts(this.t('infoSlides'), 'upTo', 5)
             },
             {
-              words: this.itemCounts('кейсов на слайд', 'upTo', 3)
+              words: this.itemCounts(this.t('feedbackPossibility'), 'upTo', 3)
             },
             {
               words: [
-                { text: 'возможность получать фидбэк в комьюнити', isBold: false },
+                { text: this.t('casesPerSlide'), isBold: false },
               ]
             },
           ],
           cost: 0,
-          button: 'Не доступен'
+          button: this.$t("common.unavailable")
         },
         { /* STANDARD */
           isDisable: true,
@@ -98,28 +101,28 @@ export default {
               words: this.peopleInTeam(3)
             },
             {
-              words: this.itemCounts('проектов', 'upTo', 10)
+              words: this.itemCounts(this.t('infoProjects'), 'upTo', 10)
             },
             {
-              words: this.itemCounts('слайдов', 'upTo', 10)
+              words: this.itemCounts(this.t('infoSlides'), 'upTo', 10)
             },
             {
-              words: this.itemCounts('кейсов на слайд', 'upTo', 10)
+              words: this.itemCounts(this.t('casesPerSlide'), 'upTo', 10)
             },
             {
               words: [
-                { text: 'возможность получать фидбэк в комьюнити', isBold: false },
+                { text: this.t('feedbackPossibility'), isBold: false },
               ]
             },
             {
               words: [
                 { text: 'email  ', isBold: true },
-                { text: 'техническая поддержка', isBold: false },
+                { text: this.t('technicalSupport'), isBold: false },
               ]
             },
           ],
           cost: 6,
-          button: 'Не доступен',
+          button: this.$t("common.unavailable"),
         },
         { /* PREMIUM */
           isDisable: false,
@@ -132,32 +135,32 @@ export default {
               words: this.peopleInTeam(20)
             },
             {
-              words: this.itemCounts('проектов', 'over', 20)
+              words: this.itemCounts(this.t('infoProjects'), 'over', 20)
             },
             {
-              words: this.itemCounts('слайдов', 'over', 20)
+              words: this.itemCounts(this.t('infoSlides'), 'over', 20)
             },
             {
-              words: this.itemCounts('кейсов', 'isUnlimited')
+              words: this.itemCounts(this.t('cases'), 'isUnlimited')
             },
             {
               words: [
-                { text: 'возможность ', isBold: false },
-                { text: 'проводить ', isBold: true },
-                { text: 'образовательные митапы в ', isBold: false },
-                { text: 'комьюнити', isBold: true },
+                { text: this.t('edMeet1'), isBold: false },
+                { text: this.t('edMeet2'), isBold: true },
+                { text: this.t('edMeet3'), isBold: false },
+                { text: this.t('edMeet4'), isBold: true },
               ]
             },
             {
               words: [
                 { text: '24/7  ', isBold: true },
-                { text: 'техническая поддержка', isBold: false },
+                { text: this.t('technicalSupport'), isBold: false },
               ]
             },
           ],
           cost: 0,
-          button: 'Начать бесплатно',
-          costDescription: 'для первой тысячи пользователей, потом 21$/в месяц',
+          button: this.$t("common.startedFree"),
+          costDescription: this.t('forFirstThousand'),
           action: () => {
             this.bodyLock(true);
             this.setOpenAuthWindowState(true);
@@ -168,21 +171,21 @@ export default {
     freeSpaceEnum(space) {
       return [
         { text: space + ' ГБ ', isBold: true },
-        { text: 'свободного пространства', isBold: false },
+        { text: this.t('freeSpace'), isBold: false },
       ];
     },
     peopleInTeam(count) {
       return [
         { text: 'до ', isBold: false },
         { text: count, isBold: true },
-        { text: ' человек в команде', isBold: false },
+        { text: this.t('personInTeam'), isBold: false },
       ];
     },
     itemCounts(item, countType, count = 0) {
       if (countType === 'isUnlimited') {
         return [
-          { text: 'неограниченное ', isBold: true },
-          { text: 'количество ' + item, isBold: false },
+          { text: this.t('unlimited'), isBold: true },
+          { text: this.t('quantity') + item, isBold: false },
         ];
       } else if (countType === 'upTo') {
         return [

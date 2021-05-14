@@ -20,7 +20,7 @@
     <div class="tariff-info-item-bottom">
       <p class="tariff-info-item-cost">
         <span class="tariff-info-item-cost-big">{{item.cost}}$</span>
-        <span class="tariff-info-item-cost-normal">/в мес</span>
+        <span class="tariff-info-item-cost-normal">/{{ $t('common.perMonth') }}</span>
       </p>
       <span class="tariff-info-item-cost-description">{{item.costDescription}}</span>
       <div @click="tariffAction()"

@@ -5,7 +5,7 @@
        id="homeBlock5">
     <div :class="['content-base', 'home-block5']">
       <div class="counting-box">
-        <span class="counting-text counting-text-normal">нас уже</span>
+        <span class="counting-text counting-text-normal">{{ $t("block5.text1") }}</span>
         <div class="counting-nums" id="countingNums">
           <div class="counting-nums-item">
             <span class="counting-nums-item-number">0</span>
@@ -16,8 +16,8 @@
         <span style="opacity: 0">{{yOffset}}</span>
       </div>
       <div class="counting-box counting-box-right">
-        <span class="counting-text counting-text-big content-hide-mobile">мы ценим каждого</span>
-        <span class="counting-text counting-text-normal content-hide-desktop">мы ценим каждого</span>
+        <span class="counting-text counting-text-big content-hide-mobile">{{ $t("block5.text2") }}</span>
+        <span class="counting-text counting-text-normal content-hide-desktop">{{ $t("block5.text3") }}</span>
       </div>
     </div>
   </div>

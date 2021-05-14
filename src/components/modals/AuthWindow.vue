@@ -17,26 +17,26 @@
           </div>
           <div class="p-auth-fields">
             <div class="p-auth-fields-item">
-              <label class="p-auth-fields-label content-hide-mobile">Имя</label>
+              <label class="p-auth-fields-label content-hide-mobile">{{ $t("popupAuth.name") }}</label>
               <input @input="changeField('name')"
                      v-model="subscribeInfo.name"
                      class="p-auth-fields-input"
-                     placeholder="Введите Имя">
+                     :placeholder="$t('common.enterName')">
               <span v-if="nameIsNotValid"
-                    class="p-auth-fields-error">Введите имя</span>
+                    class="p-auth-fields-error">{{ $t('common.enterName') }}</span>
             </div>
             <div class="p-auth-fields-item">
               <label class="p-auth-fields-label content-hide-mobile">e-mail</label>
               <input @input="changeField('email')"
                      v-model="subscribeInfo.email"
                      class="p-auth-fields-input"
-                     placeholder="Введите e-mail">
+                     :placeholder="$t('common.enterEmail')">
               <span v-if="emailIsNotValid"
-                    class="p-auth-fields-error">Проверьте правильно ли введен e-mail</span>
+                    class="p-auth-fields-error">{{ $t("common.checkEmailMessage") }}</span>
             </div>
           </div>
           <div class="p-auth-tariff">
-            <p class="p-auth-tariff-item p-auth-tariff-label">тариф</p>
+            <p class="p-auth-tariff-item p-auth-tariff-label">{{ $t('common.tariff') }}</p>
             <div class="p-auth-tariff-item a-radio"
                  :class="{active: subscribeInfo.tariff === 'premium'}">
               <div class="a-radio-button">
@@ -68,7 +68,7 @@
           <div @click="submit"
                class="p-button p-button-rounded p-button-fill p-button-fill2 p-auth-submit-button"
                :class="{'p-button-fill-disabled': !submitValidation || isSending}">
-            <span class="p-button-text">Присоединиться</span>
+            <span class="p-button-text">{{ $t('common.joinNow') }}</span>
 <!--            <img v-if="isSending"-->
 <!--                 src="@/assets/img/loaderMini.gif"-->
 <!--                 class="p-button-loader"-->
@@ -83,9 +83,9 @@
 <!--                   class="p-agreement-checkbox-active"></div>-->
 <!--            </div>-->
             <div class="p-agreement-text">
-              <span>Нажимая "Присоединиться" Вы соглашаетесь с </span>
+              <span>{{ $t('popupAuth.agreem1') }} </span>
               <span @click="goToPage('privacy-policy')"
-                    class="p-agreement-text-link">политикой конфиденциальности </span>
+                    class="p-agreement-text-link">{{ $t('popupAuth.agreem2') }} </span>
 <!--              <span>и </span>-->
 <!--              <span @click="goToPage('terms-of-use')"-->
 <!--                    class="p-agreement-text-link">пользовательским соглашением</span>-->
@@ -106,22 +106,22 @@
         <div class="p-auth-go-sent-message content-hide-desktop">
           <div v-if="sentState === sentS.SENT"
                class="p-auth-go-second-sent">
-            <p class="sent-text">Письмо с информацией </p>
-            <p class="sent-text sent-text-bold">отправлено на почту</p>
+            <p class="sent-text">{{ $t('popupAuth.sendSuccess1') }} </p>
+            <p class="sent-text sent-text-bold">{{ $t('popupAuth.sendSuccess2') }}</p>
           </div>
           <div v-if="sentState === sentS.SENT_ERROR"
                class="p-auth-go-second-sent">
             <template v-if="errorMessage === 'unique_violation'">
-              <p class="sent-text">Этот e-mail</p>
-              <p class="sent-text sent-text-bold sent-text-bold-error">был зарегистрирован.</p>
+              <p class="sent-text">{{ $t('popupAuth.wasRegistered1') }}</p>
+              <p class="sent-text sent-text-bold sent-text-bold-error">{{ $t('popupAuth.wasRegistered1') }}</p>
             </template>
             <template v-else>
-              <p class="sent-text">Ошибка отправки</p>
-              <p class="sent-text sent-text-bold sent-text-bold-error">попробуйте ещё раз</p>
+              <p class="sent-text">{{ $t('popupAuth.sendError1') }}</p>
+              <p class="sent-text sent-text-bold sent-text-bold-error">{{ $t('popupAuth.sendError1') }}</p>
             </template>
           </div>
         </div>
-        <p class="p-auth-go-text">ПОЕХАЛИ!</p>
+        <p class="p-auth-go-text">{{ $t('common.go1') }}</p>
         <img src="@/assets/img/auth/astronaut.svg"
              class="p-auth-go-img"
              alt="">
@@ -224,14 +224,14 @@ export default {
         this.subscribe(this.subscribeInfo).then(() => {
           setTimeout(() => {
             this.isSending = false;
-            this.sentText = 'Письмо с информацией отправлено на почту';
+            this.sentText = this.$t("popupAuth.sendSuccessFull");
             this.sentState = sentState.SENT;
             this.clearSubmitData();
           }, 500);
         }).catch(err => {
-          let sentText = 'Не удалось отправить письмо, попобуйте ещё раз.';
-          if (err.errorMessage && err.errorMessage === 'unique_violation') {
-            sentText = 'Этот e-mail был зарегистрирован.';
+          let sentText = this.$t("popupAuth.sendErrorFull");
+          if (err && err.errorMessage && err.errorMessage === 'unique_violation') {
+            sentText = this.$t("popupAuth.wasRegisteredFull");
             this.errorMessage = 'unique_violation';
           }
           this.isSending = false;

@@ -4,25 +4,25 @@
     <div :class="['content-base', 'home-block3']">
       <div class="home-block3-slogan-box content-hide-mobile">
         <span class="home-block3-slogan-text text-big">Productium </span>
-        <span class="home-block3-slogan-text text-normal">ваш командный Agile-трекер, </span>
-        <span class="home-block3-slogan-text">который </span>
-        <span class="home-block3-slogan-text text-big">систематизирует </span>
-        <span class="home-block3-slogan-text text-normal">разработку </span>
-        <span class="home-block3-slogan-text text-normal">продукта за счет внутренних сервисов</span>
+        <span class="home-block3-slogan-text text-normal">{{ $t("block3.m1") }} </span>
+        <span class="home-block3-slogan-text">{{ $t("block3.m2") }} </span>
+        <span class="home-block3-slogan-text text-big">{{ $t("block3.m3") }} </span>
+        <span class="home-block3-slogan-text text-normal">{{ $t("block3.m4") }} </span>
+        <span class="home-block3-slogan-text text-normal">{{ $t("block3.m5") }}</span>
       </div>
       <div class="home-block3-slogan-box content-hide-desktop">
         <p>
           <span class="home-block3-slogan-text text-big">Productium </span>
-          <span class="home-block3-slogan-text text-normal">ваш</span>
+          <span class="home-block3-slogan-text text-normal">{{ $t("block3.d1") }}</span>
         </p>
-        <span class="home-block3-slogan-text text-normal">командный</span>
-        <span class="home-block3-slogan-text text-normal">Agile-трекер,</span>
-        <span class="home-block3-slogan-text text-normal">который</span>
-        <span class="home-block3-slogan-text text-big">систематизирует</span>
-        <span class="home-block3-slogan-text text-normal">разработку</span>
-        <span class="home-block3-slogan-text text-normal">продукта за счет</span>
-        <span class="home-block3-slogan-text text-normal">внутренних</span>
-        <span class="home-block3-slogan-text text-normal">сервисов</span>
+        <span class="home-block3-slogan-text text-normal">{{ $t("block3.d2") }}</span>
+        <span class="home-block3-slogan-text text-normal">{{ $t("block3.d3") }}</span>
+        <span class="home-block3-slogan-text text-normal">{{ $t("block3.d4") }}</span>
+        <span class="home-block3-slogan-text text-big">{{ $t("block3.d5") }}</span>
+        <span class="home-block3-slogan-text text-normal">{{ $t("block3.d6") }}</span>
+        <span class="home-block3-slogan-text text-normal">{{ $t("block3.d7") }}</span>
+        <span class="home-block3-slogan-text text-normal">{{ $t("block3.d8") }}</span>
+        <span class="home-block3-slogan-text text-normal">{{ $t("block3.d9") }}</span>
       </div>
     </div>
   </div>

@@ -14,9 +14,11 @@ import CookieModal from "@/components/modals/CookieModal";
 import AuthWindow from "@/components/modals/AuthWindow";
 import PopupReadiness from "@/components/modals/PopupReadiness";
 import PopupUnsubscribe from "@/components/modals/PopupUnsubscribe";
+import LocaleMixin from "@/components/mixins/LocaleMixin";
 
 export default {
   name: "Main",
+  mixins: [LocaleMixin],
   components: {
     CookieModal,
     AuthWindow,
@@ -28,7 +30,21 @@ export default {
   }),
   created() {
     // this.fetchInitData();
-    this.fetchIpAddressAndSetOsInfo();
+    this.fetchIpAddressAndSetOsInfo().then(info => {
+      if (info.userIp && (info.userIp !== '')) {
+        this.fetchAdditionalIpInfo(info.userIp).then(additionalInfo => {
+          if (additionalInfo && additionalInfo.location && additionalInfo.location.country) {
+            const location = additionalInfo.location;
+            const country = location.country;
+            if (country.code === 'RU') {
+              this.changeLocale('ru');
+            } else {
+              this.changeLocale('en');
+            }
+          }
+        });
+      }
+    });
   },
   mounted() {
     window.addEventListener('resize', this.browserResize);
@@ -44,7 +60,8 @@ export default {
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-    ...mapActions(['setCookieIsAssented', 'setBrowserSize', 'setPageYOffset', 'fetchInitData', 'fetchIpAddressAndSetOsInfo']),
+    ...mapActions(['setCookieIsAssented', 'setBrowserSize', 'setPageYOffset', 'fetchInitData', 'fetchIpAddressAndSetOsInfo',
+      'fetchAdditionalIpInfo']),
     ...mapGetters(['getCookieIsAssented', 'getOpenAuthWindowState', 'getIsOpenPopupReadiness', 'getIsOpenPopupUnsubscribe']),
     browserResize() {
       const browSize = document.documentElement;

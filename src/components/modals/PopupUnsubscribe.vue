@@ -4,7 +4,7 @@
          @click="close"></div>
     <div class="p-modal-popup">
       <span class="p-modal-popup-title">Oh, no&!?</span>
-      <span class="p-modal-popup-message">Вы отписались от рассылки, до встречи</span>
+      <span class="p-modal-popup-message">{{ $t("popupUnsubscribe.youUnsubscribed") }}</span>
       <div class="p-modal-popup-button-box">
         <div @click="close()"
              class="p-button p-button-rounded p-button-rounded1 p-modal-popup-button">
@@ -29,7 +29,7 @@ import CommonMixin from "@/components/mixins/CommonMixin";
 import {mapActions} from "vuex";
 
 export default {
-  name: "PopupReadiness",
+  name: "PopupUnsubscribe",
   mixins: [CommonMixin],
   methods: {
     ...mapActions(['setIsOpenPopupUnsubscribe']),

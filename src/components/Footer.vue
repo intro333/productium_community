@@ -3,17 +3,17 @@
     <div :class="['content-base', 'p-footer']">
       <div class="p-footer-menu">
         <span @click="scrollToBlock('pHome')"
-              class="p-footer-menu-item content-hide-desktop">Главная</span>
+              class="p-footer-menu-item content-hide-desktop">{{ $t("common.toHome") }}</span>
         <span @click="scrollToBlock('homeBlockFullVideo')"
-              class="p-footer-menu-item">Как это работает</span>
+              class="p-footer-menu-item">{{ $t("common.howWork") }}</span>
         <span @click="scrollToBlock('aboutProject')"
-              class="p-footer-menu-item">О проекте</span>
+              class="p-footer-menu-item">{{ $t("nav.about") }}</span>
         <span @click="scrollToBlock('tariffDescr1Box')"
-              class="p-footer-menu-item">Тарифы</span>
+              class="p-footer-menu-item">{{ $t("nav.tariffs") }}</span>
         <span @click="openProductium()"
-              class="p-footer-menu-item">Beta-версия</span>
+              class="p-footer-menu-item">{{ $t("common.betaVersion") }}</span>
         <span @click="scrollToBlock('homeBlock8')"
-              class="p-footer-menu-item">Быть в курсе новостей</span>
+              class="p-footer-menu-item">{{ $t("nav.stayUpToNews") }}</span>
       </div>
       <div class="content-hide-mobile"
            style="display: flex; flex-direction: column; justify-content: space-between;">

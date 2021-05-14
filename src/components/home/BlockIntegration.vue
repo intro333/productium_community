@@ -9,13 +9,13 @@
       <div class="hb-integration-info">
         <div class="hb-integration-info1">
           <p class="hb-integration-info1__text-big">integration</p>
-          <p class="hb-integration-info1__text-small">интеграция</p>
+          <p class="hb-integration-info1__text-small">{{ $t("blockIntegration.text1") }}</p>
         </div>
         <div class="hb-integration-info2">
           <div class="hb-integration-info2__text-box">
             <p class="hb-integration-info2__text">
             <span class="hb-integration-info2__text-big"
-            >Интеграция с сервисами</span> позволяет формировать бэклог продукта, фиксировать баги и проводить UX-тестирование </p>
+            >{{ $t("blockIntegration.text2") }}</span> {{ $t("blockIntegration.text3") }} </p>
           </div>
           <div class="hb-integration-info2-icons">
             <img v-for="(icon, i) in icons"
@@ -30,13 +30,13 @@
     <div :class="['content-base content-base2', 'hb-integration-mobile content-hide-desktop']">
       <div class="hb-integration-info1">
         <p class="hb-integration-info1__text-big">integration</p>
-        <p class="hb-integration-info1__text-small">интеграция</p>
+        <p class="hb-integration-info1__text-small">{{ $t("blockIntegration.text1") }}</p>
       </div>
       <div class="hb-integration-info2">
         <div class="hb-integration-info2__text-box">
           <p class="hb-integration-info2__text">
             <span class="hb-integration-info2__text-big"
-            >Интеграция с сервисами</span> позволяет формировать бэклог продукта, фиксировать баги и проводить UX-тестирование </p>
+            >{{ $t("blockIntegration.text2") }}</span> {{ $t("blockIntegration.text3") }} </p>
         </div>
         <div class="hb-integration-info3">
           <img src="@/assets/img/integration/astronaut.svg"

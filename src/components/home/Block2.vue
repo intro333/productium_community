@@ -4,7 +4,7 @@
       <div :class="['content-base', 'home-block2']" id="homeBlock2">
         <div class="header-left-box">
           <span class="header-left-big header-left-big2">we have a problem</span>
-          <span class="header-left-little">устал от кучи скриншотов с правками, метками и постоянным вопросом как это систематизировать?</span>
+          <span class="header-left-little">{{ $t("block2.problem") }}</span>
         </div>
         <div id="aboutProject"
              class="problem-video-box content-hide-mobile">

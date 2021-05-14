@@ -3,8 +3,8 @@
     <div class="p-modal-background"
          @click="close"></div>
     <div class="p-modal-popup">
-      <span class="p-modal-popup-title">СПАСИБО</span>
-      <span class="p-modal-popup-message">мы сообщим Вам, как будет готов проект</span>
+      <span class="p-modal-popup-title">{{ $t("popupReadiness.thanks") }}</span>
+      <span class="p-modal-popup-message">{{ $t("popupReadiness.weWillInform") }}</span>
       <div class="p-modal-popup-button-box">
         <div @click="close()"
              class="p-button p-button-rounded p-button-rounded1 p-modal-popup-button">

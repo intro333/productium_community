@@ -5,7 +5,7 @@
       <div class="home-block7-left">
         <div class="header-left-box header-left-box-on-blue">
           <span class="header-left-big">ready</span>
-          <span class="header-left-little header-left-little3">готовность</span>
+          <span class="header-left-little header-left-little3">{{ $t("block7.ready") }}</span>
         </div>
         <div class="p-banner-stat-item">
           <span class="p-banner-stat-item-first">{{getReadyPercent()}}</span>
@@ -15,17 +15,17 @@
       <div class="home-block7-right">
         <p class="home-block7-right-descr">
           <span class="home-block7-right-descr-big">Productium </span>
-          <span>находится в стадии разработки </span>
+          <span>{{ $t("block7.info1_1") }} </span>
           <span class="home-block7-right-descr-big">MVP </span>
-          <span>и сейчас открыт бесплатный доступ к Premium пакету сервиса, необходима только регистрация</span>
+          <span>{{ $t("block7.info1_2") }}</span>
         </p>
         <p class="home-block7-right-descr">
-          <span>Для первой тысячи пользователей Productium дает возможность первыми получать новинки и стать основой </span>
+          <span>{{ $t("block7.info2_1") }} </span>
           <span class="home-block7-right-descr-big">Productium community</span>
         </p>
         <p class="home-block7-right-descr">
           <span class="home-block7-right-descr-big">Productium community </span>
-          <span>позволит получить обратную связь по проекту от других команд и экспертов</span>
+          <span>{{ $t("block7.info3_1") }}</span>
         </p>
       </div>
     </div>

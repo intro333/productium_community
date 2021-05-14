@@ -26,6 +26,7 @@ export default new Vuex.Store({
       userDevice: '',
       userAgent: '',
     },
+    additionalIpInfo: null,
     some: '',
   },
   getters: {
@@ -39,6 +40,7 @@ export default new Vuex.Store({
     getMembersCount: state => state.membersCount,
     getMembersCountCookie: state => state.membersCountCookie,
     getOsInfo: state => state.osInfo,
+    getAdditionalIpInfo: state => state.additionalIpInfo,
   },
   actions: {
     fetchInitData({commit, getters}) {
@@ -147,6 +149,22 @@ export default new Vuex.Store({
           });
       });
     },
+    fetchAdditionalIpInfo({ commit }, ip) {
+      return new Promise((resolve, reject) => {
+        window.axios.get('https://api.ipregistry.co/' + ip + '?key=0sr7pwpf45eqwk', {})
+          .then(response => {
+            if (response.data) {
+              const info = response.data;
+              commit('SET_ADDITIONAL_IP_INFO', info);
+              resolve(info);
+            } else {
+              reject(false)
+            }
+          }, () => {
+            reject(false)
+          });
+      });
+    },
   },
   mutations: {
     SET_COOKIE_IS_ASSENTED(state, status) {
@@ -167,6 +185,7 @@ export default new Vuex.Store({
       state.membersCountCookie = count
     },
     SET_OS_INFO(state, info) { state.osInfo = info; },
+    SET_ADDITIONAL_IP_INFO(state, info) { state.additionalIpInfo = info; },
     SOME(state) { state.some = 'some'; },
   },
   modules: {
