@@ -37,7 +37,7 @@ export default {
             const location = additionalInfo.location;
             const country = location.country;
             if (country.code === 'RU') {
-              this.changeLocale('ru');
+              // this.changeLocale('ru');
             } else {
               this.changeLocale('en');
             }

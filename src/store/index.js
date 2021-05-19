@@ -19,7 +19,7 @@ export default new Vuex.Store({
     isOpenPopupReadiness: false,
     isOpenPopupUnsubscribe: false,
     readyPercent: 39,
-    membersCount: 125,
+    membersCount: 164,
     membersCountCookie: localStorage.getItem('cookie_members_count'),
     sInfo: {
       userIp: '',

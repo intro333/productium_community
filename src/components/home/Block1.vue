@@ -7,7 +7,7 @@
         <div class="first-box">
           <span class="first-text">{{ $t("block1.left1") }} </span>
           <span class="first-text first-text-bold">{{ $t("block1.left2") }} </span>
-          <p class="first-text">{{ $t("block1.left2") }}</p>
+          <p class="first-text">{{ $t("block1.left3") }}</p>
         </div>
         <div class="second-box content-hide-mobile">
           <p class="second-text">{{ $t("block1.mLeft1") }} </p>

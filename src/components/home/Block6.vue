@@ -4,9 +4,12 @@
       <div :class="['content-base']">
         <div class="tariff-descr1-box" id="tariffDescr1Box">
           <p class="tariff-descr1-text">
-            <span class="tariff-descr1-text__normal">{{ $t("block6.text1") }} </span>
+            <span v-if="isRussianLocale()"
+                  class="tariff-descr1-text__normal">{{ $t("block6.text1") }} </span>
             <span class="tariff-descr1-text__big">Productium </span>
             <span class="tariff-descr1-text__big tariff-descr1-text__big-blue">premium</span>
+            <span v-if="!isRussianLocale()"
+                  class="tariff-descr1-text__normal"> {{ $t("block6.text1") }}</span>
           </p>
           <p class="tariff-descr1-text tariff-descr1-text-overlay tariff-descr1-text__normal"
           >
@@ -40,10 +43,11 @@
 import TariffInfo from "@/components/includes/TariffInfo";
 import CommonMixin from "@/components/mixins/CommonMixin";
 import TariffDescr2 from "@/components/includes/TariffDescr2";
+import LocaleMixin from "@/components/mixins/LocaleMixin";
 
 export default {
   name: "Block6",
-  mixins: [CommonMixin],
+  mixins: [CommonMixin, LocaleMixin],
   components: {
     TariffInfo,
     TariffDescr2
@@ -170,13 +174,13 @@ export default {
     },
     freeSpaceEnum(space) {
       return [
-        { text: space + ' ГБ ', isBold: true },
+        { text: space + ` ${this.t('gb')} `, isBold: true },
         { text: this.t('freeSpace'), isBold: false },
       ];
     },
     peopleInTeam(count) {
       return [
-        { text: 'до ', isBold: false },
+        { text: `${this.t('upTo')} `, isBold: false },
         { text: count, isBold: true },
         { text: this.t('personInTeam'), isBold: false },
       ];
@@ -189,7 +193,7 @@ export default {
         ];
       } else if (countType === 'upTo') {
         return [
-          { text: 'до ', isBold: false },
+          { text: `${this.t('upTo')} `, isBold: false },
           { text: count, isBold: true },
           { text: ' ' + item, isBold: false },
         ];
