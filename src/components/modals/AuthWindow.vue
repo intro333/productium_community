@@ -108,6 +108,7 @@
                class="p-auth-go-second-sent">
             <p class="sent-text">{{ $t('popupAuth.sendSuccess1') }} </p>
             <p class="sent-text sent-text-bold">{{ $t('popupAuth.sendSuccess2') }}</p>
+            <p class="sent-text sent-text-bold">{{ $t('popupAuth.sendSuccess3') }}</p>
           </div>
           <div v-if="sentState === sentS.SENT_ERROR"
                class="p-auth-go-second-sent">
