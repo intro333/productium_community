@@ -30,15 +30,16 @@ export default {
   }),
   created() {
     // this.fetchInitData();
+    if (this.$route.query.lang) { // TODO УБрать
+      this.changeLocale(this.$route.query.lang);
+    }
     this.fetchIpAddressAndSetOsInfo().then(info => {
       if (info.userIp && (info.userIp !== '')) {
         this.fetchAdditionalIpInfo(info.userIp).then(additionalInfo => {
           if (additionalInfo && additionalInfo.location && additionalInfo.location.country) {
             const location = additionalInfo.location;
             const country = location.country;
-            if (this.$route.query.lang) {
-              this.changeLocale(this.$route.query.lang);
-            } else {
+            if (!this.$route.query.lang) { // TODO УБрать
               if (country.code === 'RU') {
                 this.changeLocale('ru');
               } else {

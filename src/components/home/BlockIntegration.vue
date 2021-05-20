@@ -33,10 +33,11 @@
         <p class="hb-integration-info1__text-small">{{ $t("blockIntegration.text1") }}</p>
       </div>
       <div class="hb-integration-info2">
-        <div class="hb-integration-info2__text-box">
-          <p class="hb-integration-info2__text">
-            <span class="hb-integration-info2__text-big"
-            >{{ $t("blockIntegration.text2") }}</span> {{ $t("blockIntegration.text3") }} </p>
+        <div class="hb-integration-info2__text-box hb-integration-info2__text">
+          <p class="hb-integration-info2__text-big">{{ $t("blockIntegration.text2") }}</p>
+          <p>{{ $t("blockIntegration.text3") }}</p>
+          <p>{{ $t("blockIntegration.text4") }}</p>
+          <p>{{ $t("blockIntegration.text5") }}</p>
         </div>
         <div class="hb-integration-info3">
           <img src="@/assets/img/integration/astronaut.svg"

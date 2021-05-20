@@ -117,7 +117,7 @@
             </template>
             <template v-else>
               <p class="sent-text">{{ $t('popupAuth.sendError1') }}</p>
-              <p class="sent-text sent-text-bold sent-text-bold-error">{{ $t('popupAuth.sendError1') }}</p>
+              <p class="sent-text sent-text-bold sent-text-bold-error">{{ $t('popupAuth.sendError2') }}</p>
             </template>
           </div>
         </div>
