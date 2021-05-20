@@ -3,10 +3,17 @@
     <div :class="['content-base', 'home-block8']" id="homeBlock8">
       <div class="subscribe-send-box">
         <div class="subscribe-send-text">
-          <span class="content-hide-mobile">{{ $t("block8.readyM") }} </span>
-          <p class="content-hide-desktop">{{ $t("block8.readyD1") }}</p>
-          <span class="content-hide-desktop">{{ $t("block8.readyD2") }} </span>
-          <span class="subscribe-send-text-bold">Productium</span>
+          <template v-if="isRussianLocale()">
+            <span class="content-hide-mobile">{{ $t("block8.readyM") }} </span>
+            <p class="content-hide-desktop">{{ $t("block8.readyD1") }}</p>
+            <span class="content-hide-desktop">{{ $t("block8.readyD2") }} </span>
+            <span class="subscribe-send-text-bold">Productium</span>
+          </template>
+          <template v-else>
+            <span>{{ $t("block8.readyM1") }} </span>
+            <span class="subscribe-send-text-bold">{{ $t("block8.readyM2") }} </span>
+            <span>{{ $t("block8.readyM3") }} </span>
+          </template>
         </div>
         <div class="subscribe-send-input-box">
           <input @input="changeField('email')"
@@ -110,10 +117,11 @@ import CommonMixin from "@/components/mixins/CommonMixin";
 import {emailValidation} from "@/functions/validation";
 import {mapActions} from "vuex";
 import LoaderButton from "@/components/modals/LoaderButton";
+import LocaleMixin from "@/components/mixins/LocaleMixin";
 
 export default {
   name: "Block8",
-  mixins: [CommonMixin],
+  mixins: [CommonMixin, LocaleMixin],
   components: {
     LoaderButton
   },

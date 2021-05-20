@@ -10,7 +10,14 @@
           <span class="home-block3-slogan-text text-normal2">{{ $t("common.to") }} </span>
           <span class="home-block3-slogan-text text-big text-big2">Productium community</span>
         </p>
-        <p class="home-block3-slogan-text text-normal2">{{ $t("common.forNetworking") }}</p>
+        <div class="content-hide-desktop">
+          <p class="home-block3-slogan-text text-normal2">{{ $t("common.forNetworking1") }}</p>
+          <p class="home-block3-slogan-text text-normal2">{{ $t("common.forNetworking2") }}</p>
+        </div>
+        <p class="content-hide-mobile">
+          <span class="home-block3-slogan-text text-normal2">{{ $t("common.forNetworking1") }} </span>
+          <span class="home-block3-slogan-text text-normal2">{{ $t("common.forNetworking2") }}</span>
+        </p>
       </div>
       <div @click="openAuthWindow"
            class="p-button p-button-rounded p-button-rounded1 p-banner-button">

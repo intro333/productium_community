@@ -81,11 +81,19 @@
       color: black;
       font-size: 16px;
       font-weight: 300;
-      .inf-medium {
-        font-weight: 500;
-      }
-      .inf-link {
-        color: $color-link;
+      .inf {
+        &-normal {
+          font-weight: 400;
+        }
+        &-medium {
+          font-weight: 500;
+        }
+        &-link {
+          color: $color-link;
+        }
+        &-li {
+          height: 22px;
+        }
       }
     }
   }

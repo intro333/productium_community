@@ -83,11 +83,11 @@ export default {
               words: this.itemCounts(this.t('infoSlides'), 'upTo', 5)
             },
             {
-              words: this.itemCounts(this.t('feedbackPossibility'), 'upTo', 3)
+              words: this.itemCounts(this.t('casesPerSlide'), 'upTo', 3)
             },
             {
               words: [
-                { text: this.t('casesPerSlide'), isBold: false },
+                { text: this.t('feedbackPossibility'), isBold: false },
               ]
             },
           ],

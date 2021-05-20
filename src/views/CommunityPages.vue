@@ -13,8 +13,8 @@
           </div>
         </div>
         <div class="p-top-right">
-          <span @click="changeLocale('en')"
-                class="p-top-right-item-text">EN</span>
+<!--          <span @click="changeLocale('en')"-->
+<!--                class="p-top-right-item-text">EN</span>-->
           <span @click="scrollToBlock('tariffDescr1Box')"
                 class="p-top-right-item-text">{{ $t("nav.tariffs") }}</span>
           <span @click="scrollToBlock('aboutProject')"

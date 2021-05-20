@@ -36,10 +36,14 @@ export default {
           if (additionalInfo && additionalInfo.location && additionalInfo.location.country) {
             const location = additionalInfo.location;
             const country = location.country;
-            if (country.code === 'RU') {
-              // this.changeLocale('ru');
+            if (this.$route.query.lang) {
+              this.changeLocale(this.$route.query.lang);
             } else {
-              this.changeLocale('en');
+              if (country.code === 'RU') {
+                this.changeLocale('ru');
+              } else {
+                this.changeLocale('en');
+              }
             }
           }
         });
