@@ -162,13 +162,15 @@ export default {
       name: '',
       email: '',
       isAgreement: false,
-      tariff: 'premium'
+      tariff: 'premium',
+      lang: 'en',
     },
     sentState: sentState.NOT_SENT,
     sentText: '',
     isSending: false,
     errorMessage: 'other'
   }),
+  created() {},
   beforeDestroy() {
     this.sentText = '';
   },
@@ -220,6 +222,8 @@ export default {
       this.$router.push({name: page});
     },
     submit() {
+      this.subscribeInfo.lang = this.$root.$i18n.locale;
+      console.log('subscribeInfo', this.subscribeInfo.lang);
       if (this.submitValidation && !this.isSending) {
         this.isSending = true;
         this.subscribe(this.subscribeInfo).then(() => {
