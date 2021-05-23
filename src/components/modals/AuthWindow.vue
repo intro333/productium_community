@@ -223,7 +223,6 @@ export default {
     },
     submit() {
       this.subscribeInfo.lang = this.$root.$i18n.locale;
-      console.log('subscribeInfo', this.subscribeInfo.lang);
       if (this.submitValidation && !this.isSending) {
         this.isSending = true;
         this.subscribe(this.subscribeInfo).then(() => {

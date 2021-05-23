@@ -30,21 +30,25 @@ export default {
   }),
   created() {
     // this.fetchInitData();
-    if (this.$route.query.lang) { // TODO УБрать
+    if (this.$route.query.lang) {
       this.changeLocale(this.$route.query.lang);
+    }
+    const langCode = localStorage.getItem('lang_code');
+    if (langCode) {
+      this.changeLocale(langCode);
     }
     this.fetchIpAddressAndSetOsInfo().then(info => {
       if (info.userIp && (info.userIp !== '')) {
         this.fetchAdditionalIpInfo(info.userIp).then(additionalInfo => {
           if (additionalInfo && additionalInfo.location && additionalInfo.location.country) {
             const location = additionalInfo.location;
-            const country = location.country;
-            if (!this.$route.query.lang) { // TODO УБрать
-              if (country.code === 'RU') {
-                this.changeLocale('ru');
-              } else {
-                this.changeLocale('en');
-              }
+            const country = location.country
+            const langByCountry = (country.code === 'RU') ? 'ru' : 'en';
+            if (!this.$route.query.lang) {
+              this.changeLocale(langByCountry);
+            }
+            if (!langCode && !this.$route.query.lang) { /* query.lang служебный случай */
+              localStorage.setItem('lang_code', langByCountry);
             }
           }
         });
