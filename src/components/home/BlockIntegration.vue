@@ -15,7 +15,7 @@
           <div class="hb-integration-info2__text-box">
             <p class="hb-integration-info2__text">
             <span class="hb-integration-info2__text-big"
-            >{{ $t("blockIntegration.text2") }}</span> {{ $t("blockIntegration.text3") }} </p>
+            >{{ $t("blockIntegration.text2") }}</span> {{ $t("blockIntegration.text6") }} </p>
           </div>
           <div class="hb-integration-info2-icons">
             <img v-for="(icon, i) in icons"

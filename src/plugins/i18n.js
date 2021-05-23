@@ -75,6 +75,7 @@ export const messages = {
       text3: "позволяет формировать бэклог продукта,",
       text4: "фиксировать баги",
       text5: "и проводить UX-тестирование",
+      text6: "позволяет формировать бэклог продукта, фиксировать баги и проводить UX-тестирование",
     },
     blockServices: {
       text1: "наши возможности",
@@ -255,6 +256,7 @@ export const messages = {
       text3: "helps to get the product backlog,",
       text4: "fix the bugs and",
       text5: "do UX-testing",
+      text6: "helps to get the product backlog, fix the bugs and do UX-testing",
     },
     blockServices: {
       text1: "Our tools",

@@ -30,12 +30,12 @@ export default {
   }),
   created() {
     // this.fetchInitData();
-    if (this.$route.query.lang) {
-      this.changeLocale(this.$route.query.lang);
-    }
     const langCode = localStorage.getItem('lang_code');
     if (langCode) {
       this.changeLocale(langCode);
+    }
+    if (this.$route.query.lang) {
+      this.changeLocale(this.$route.query.lang);
     }
     this.fetchIpAddressAndSetOsInfo().then(info => {
       if (info.userIp && (info.userIp !== '')) {
